@@ -20,4 +20,12 @@ What was unclear or uncertain during the process, and how it was resolved.
 5. **Stock vs. annual average.** FAOSTAT "Stocks" is a point-in-time count near year-start; broilers live ~5–7 weeks, so this understates birds raised in a year. We use "Stocks" consistently; don't mix with Eurostat's annual-average concept.
 6. **Enumeration-date alignment.** FAOSTAT "Stocks" is enumerated "closest to the beginning of the calendar year"; Eurostat population is 1 January. Close but not identical.
 
+## Manual verification (fact-check-data skill, stage 8.1) — PASSED
+
+The three hand-checks against the original sources were confirmed by the user on 2026-11-18:
+
+1. FAOSTAT QCL, "Chickens"/"Stocks": Poland 2024 = 244,680 thousand · Spain 2020 = 193,476 · Germany 2023 = 156,301 — **confirmed**.
+2. Eurostat `demo_gind`, "Population on 1 January": Poland 2024 ≈ 36.62 M · Spain 2020 = 47,318,050 — **confirmed**.
+3. Moldova NBS "all birds" 2024 ≈ 3,972 thousand vs FAOSTAT 48,451 thousand — **discrepancy confirmed**; resolved by dropping Moldova (see #3 above).
+
 <!-- Add entries as they come up during research -->
