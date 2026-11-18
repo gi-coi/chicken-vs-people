@@ -1,14 +1,16 @@
 'use strict';
 
-// chicken-vs-people dashboard
+// chicken-vs-people dashboard (EU-27 focus)
 // Heavy lifting (cleaning, aggregation, growth, formatting decisions) happens in
-// scripts/prepare.py. This file only fetches the packaged JSON and renders it,
-// plus simple filter/sort interactions.
+// scripts/prepare.py. This file only fetches the packaged JSON + map geometry and
+// renders them, plus simple filter/sort interactions.
 
 const DATA_URL = 'data/chickens_people.json';
+const GEO_URL = 'data/europe.geojson';
 
 const state = {
   data: null,
+  geo: null,
   sortKey: 'ratio',
   sortDir: -1, // -1 = descending, 1 = ascending
   query: '',
@@ -27,6 +29,17 @@ const escapeHtml = (s) =>
     '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;',
   }[c]));
 
+function fmtBig(n) {
+  if (n >= 1e9) return (n / 1e9).toFixed(2).replace(/\.?0+$/, '') + ' billion';
+  if (n >= 1e6) return Math.round(n / 1e6) + ' million';
+  return fmtInt(n);
+}
+
+// "±2.84×" with a proper minus sign and trailing-zero trim
+const signed = (d) =>
+  (d > 0 ? '+' : d < 0 ? '\u2212' : '\u00b1') +
+  Math.abs(d).toFixed(2).replace(/\.?0+$/, '') + '\u00d7';
+
 // ---- load ----
 function showLoadError(err) {
   const banner = $('#load-error');
@@ -35,34 +48,49 @@ function showLoadError(err) {
 }
 
 async function loadData() {
-  const res = await fetch(DATA_URL, { cache: 'no-store' });
-  if (!res.ok) throw new Error('HTTP ' + res.status + ' ' + res.statusText);
-  return res.json();
+  const [resData, resGeo] = await Promise.all([
+    fetch(DATA_URL, { cache: 'no-store' }),
+    fetch(GEO_URL, { cache: 'no-store' }),
+  ]);
+  if (!resData.ok) throw new Error('HTTP ' + resData.status + ' (data)');
+  const data = await resData.json();
+  const geo = resGeo.ok ? await resGeo.json() : null;
+  return { data, geo };
 }
+
+const euRows = () => state.data.rows.filter((r) => r.is_eu);
 
 // ---- render: hero ----
 function renderHero(d) {
-  const winners = d.rows.filter((r) => r.more_chickens_than_people);
-  const losers = d.rows.filter((r) => !r.more_chickens_than_people);
+  const rows = euRows();
+  const winners = rows.filter((r) => r.more_chickens_than_people);
+  const losers = rows.filter((r) => !r.more_chickens_than_people);
   $('#hero-count').textContent = winners.length;
-  $('.hero__denom').textContent = '/ ' + d.rows.length;
-  const loserTxt = losers.map((l) => l.name + ' (' + fmtRatio(l.ratio) + '\u00d7)').join(' and ');
-  $('#hero-losers').textContent = 'The only exceptions: ' + loserTxt + '.';
+  $('.hero__denom').textContent = '/ ' + rows.length;
+  $('#hero-losers').textContent = losers.length
+    ? 'The only exception' + (losers.length > 1 ? 's' : '') + ': ' +
+      losers.map((l) => l.name + ' (' + fmtRatio(l.ratio) + '\u00d7)').join(' and ') + '.'
+    : '';
+  const eu = d.eu_total;
+  $('#hero-eu').textContent = eu
+    ? 'The EU-27 as a whole: ' + fmtRatio(eu.ratio) + '\u00d7 chickens per person \u2014 ' +
+      fmtBig(eu.chickens) + ' chickens vs ' + fmtBig(eu.population) + ' people.'
+    : '';
   $('#hero-meta').textContent =
     'Reference year ' + d.reference_year +
     ' \u00b7 chickens and people compared within the same year, per country.';
 }
 
-// ---- render: scope / inclusion-criterion note ----
+// ---- render: scope / notes ----
 function renderScopeNote(d) {
-  const total = d.rows.length + d.excluded.length;
+  const eu = d.eu_total;
+  const euNote = eu
+    ? ' The EU-27 total is FAO\u2019s own estimate (flag E) because member-state series stop in ' +
+      '2020\u20132023.'
+    : '';
   $('#scope-note').innerHTML =
-    '\u201cEuropean\u201d here means the ' + total + ' countries of <em>Eurostat-demographic Europe</em> \u2014 ' +
-    'the EU-27, EFTA (Iceland, Liechtenstein, Norway, Switzerland), the United Kingdom, and the EU ' +
-    'candidate / potential-candidate countries. A country is included when both a FAOSTAT chicken-stock ' +
-    'figure and a Eurostat population figure exist for a common year; ' + d.rows.length + ' of the ' + total +
-    ' do. Countries without a clean figure are omitted \u2014 reasons in ' +
-    '<a href="../docs/uncertainties.md">docs/uncertainties.md</a>.';
+    'This dashboard shows the 27 EU member states only \u2014 the wider ' +
+    '<em>Eurostat-demographic Europe</em> set (EFTA, the UK, and candidate countries) is omitted.' + euNote;
 }
 
 // ---- render: bar chart (current ratio) ----
@@ -72,9 +100,10 @@ function yearBadge(r, d) {
 }
 
 function renderBars(d) {
-  state.maxRatio = Math.max.apply(null, d.rows.map((r) => r.ratio));
+  const rows = euRows();
+  state.maxRatio = Math.max.apply(null, rows.map((r) => r.ratio));
   const chart = $('#barchart');
-  const lis = d.rows.map((r) => {
+  const lis = rows.map((r) => {
     const width = (r.ratio / state.maxRatio) * 100;
     const cls = r.more_chickens_than_people ? 'is-win' : 'is-lose';
     return (
@@ -101,56 +130,123 @@ function layoutThreshold() {
   line.style.left = (t.left - c.left + t.width * (1 / state.maxRatio)) + 'px';
 }
 
-// ---- render: change chart (delta in chickens-per-person, 2015 -> latest) ----
-function renderChangeChart(d) {
-  const byYear = {};
-  for (const t of d.timeseries) {
-    (byYear[t.geo] = byYear[t.geo] || {})[t.year] = t;
+// ---- render: choropleth map (change in ratio) ----
+function featurePath(f, px) {
+  const g = f.geometry;
+  if (!g) return '';
+  const polys = g.type === 'Polygon' ? [g.coordinates]
+    : g.type === 'MultiPolygon' ? g.coordinates : [];
+  const parts = [];
+  for (const poly of polys) {
+    for (const ring of poly) {
+      if (ring.length < 4) continue;
+      const pts = ring.map((c) => {
+        const p = px(c[0], c[1]);
+        return p[0].toFixed(1) + ',' + p[1].toFixed(1);
+      });
+      parts.push('M' + pts.join('L') + 'Z');
+    }
+  }
+  return parts.join(' ');
+}
+
+function colorFor(t) {
+  const a = Math.max(-1, Math.min(1, t));
+  const neutral = [242, 240, 234];
+  const green = [31, 122, 61];
+  const red = [162, 44, 31];
+  const end = a >= 0 ? green : red;
+  const m = Math.abs(a);
+  const c = neutral.map((n, i) => Math.round(n + (end[i] - n) * m));
+  return 'rgb(' + c.join(',') + ')';
+}
+
+function renderMap(d) {
+  const mapEl = $('#map');
+  if (!state.geo) {
+    mapEl.innerHTML = '<p class="muted">Map geometry could not be loaded.</p>';
+    return;
   }
 
-  const changes = d.rows.map((r) => {
+  // delta (change in chickens-per-person, 2015 -> latest) per EU country
+  const byYear = {};
+  for (const t of d.timeseries) (byYear[t.geo] = byYear[t.geo] || {})[t.year] = t;
+  const infoByGeo = {};
+  let maxAbs = 0;
+  for (const r of euRows()) {
     const t0 = byYear[r.geo] && byYear[r.geo][d.trend_start];
-    const pop0 = num(t0 && t0.population);
-    const chk0 = num(t0 && t0.chickens);
-    const ratio0 = (pop0 && chk0) ? chk0 / pop0 : null;
-    return {
-      geo: r.geo, name: r.name, year: r.year, data_note: r.data_note,
-      ratio0: ratio0, ratio1: r.ratio,
-      delta: ratio0 !== null ? r.ratio - ratio0 : null,
-    };
-  }).filter((c) => c.delta !== null);
+    const p0 = num(t0 && t0.population);
+    const c0 = num(t0 && t0.chickens);
+    const r0 = (p0 && c0) ? c0 / p0 : null;
+    if (r0 === null) continue;
+    const delta = r.ratio - r0;
+    infoByGeo[r.geo] = { name: r.name, delta: delta, ratio0: r0, ratio1: r.ratio };
+    maxAbs = Math.max(maxAbs, Math.abs(delta));
+  }
+  if (!maxAbs) maxAbs = 1;
 
-  const maxAbs = Math.max.apply(null, changes.map((c) => Math.abs(c.delta)));
-  const sorted = changes.slice().sort((a, b) => b.delta - a.delta);
+  // equirectangular projection over a fixed Europe window (cos-corrected);
+  // the SVG viewport clips overseas territories (e.g. French Guiana).
+  const W = 720, H = 940;
+  const lonMin = -12, lonMax = 36, latMin = 33, latMax = 72;
+  const lat0 = (latMin + latMax) / 2;
+  const k = Math.cos(lat0 * Math.PI / 180);
+  const scale = Math.min(W / ((lonMax - lonMin) * k), H / (latMax - latMin));
+  const cxl = (lonMin + lonMax) / 2, cyl = (latMin + latMax) / 2;
+  const px = (lon, lat) => [(lon - cxl) * k * scale + W / 2, (cyl - lat) * scale + H / 2];
 
-  const lis = sorted.map((c) => {
-    const w = (Math.abs(c.delta) / maxAbs) * 50;
-    const dir = c.delta > 0 ? 'up' : (c.delta < 0 ? 'down' : 'flat');
-    const sign = c.delta > 0 ? '+' : (c.delta < 0 ? '\u2212' : '\u00b1');
-    const deltaTxt = sign + Math.abs(c.delta).toFixed(2).replace(/\.?0+$/, '') + '\u00d7';
-    const badge = c.year !== d.reference_year ? yearBadge(c, d) : '';
-    return (
-      '<li class="change-row">' +
-        '<span class="change-label">' + escapeHtml(c.name) + badge + '</span>' +
-        '<span class="change-track"><span class="change-bar change-bar--' + dir +
-          '" style="width:' + w.toFixed(2) + '%"></span></span>' +
-        '<span class="change-value">' +
-          '<span class="change-delta change-delta--' + dir + '">' + deltaTxt + '</span>' +
-          '<span class="change-range">' + c.ratio0.toFixed(2) + '\u00d7 \u2192 ' +
-            c.ratio1.toFixed(2) + '\u00d7</span>' +
-        '</span>' +
-      '</li>'
-    );
-  }).join('');
+  const ctxParts = [], euParts = [];
+  for (const f of state.geo.features) {
+    const dPath = featurePath(f, px);
+    if (!dPath) continue;
+    if (f.properties.eu) {
+      const info = infoByGeo[f.properties.CNTR_ID];
+      let fill = '#cfcbc1';
+      let title = '';
+      if (info) {
+        fill = colorFor(info.delta / maxAbs);
+        title = escapeHtml(info.name + ': ' + signed(info.delta) +
+          ' (' + info.ratio0.toFixed(2) + '\u00d7 \u2192 ' + info.ratio1.toFixed(2) + '\u00d7)');
+      }
+      euParts.push('<path class="map-eu" fill="' + fill + '" fill-rule="evenodd" d="' + dPath + '">' +
+        (title ? '<title>' + title + '</title>' : '') + '</path>');
+    } else {
+      ctxParts.push('<path class="map-ctx" fill-rule="evenodd" d="' + dPath + '"/>');
+    }
+  }
 
-  $('#changechart').innerHTML = '<ul class="change-list">' + lis + '</ul>';
+  mapEl.innerHTML =
+    '<svg class="map__svg" viewBox="0 0 ' + W + ' ' + H + '" role="img" ' +
+      'aria-label="Map of the change in chickens per person across the EU">' +
+      '<rect class="map__sea" x="0" y="0" width="' + W + '" height="' + H + '"/>' +
+      ctxParts.join('') + euParts.join('') +
+    '</svg>';
+
+  renderMapLegend(maxAbs);
+}
+
+function renderMapLegend(maxAbs) {
+  const svg =
+    '<svg class="map-legend__svg" viewBox="0 0 300 16" aria-hidden="true">' +
+      '<defs><linearGradient id="map-grad" x1="0" y1="0" x2="1" y2="0">' +
+        '<stop offset="0" stop-color="rgb(162,44,31)"/>' +
+        '<stop offset="0.5" stop-color="rgb(242,240,234)"/>' +
+        '<stop offset="1" stop-color="rgb(31,122,61)"/>' +
+      '</linearGradient></defs>' +
+      '<rect x="0" y="0" width="300" height="12" rx="3" fill="url(#map-grad)"/>' +
+    '</svg>';
+  const labels =
+    '<div class="map-legend__labels"><span>' + signed(-maxAbs) + '</span><span>0</span><span>' +
+    signed(maxAbs) + '</span></div>';
+  $('#map-legend').innerHTML = svg + labels;
 }
 
 // ---- render: table ----
 function visibleRows() {
-  if (!state.query) return state.data.rows.slice();
+  const rows = euRows();
+  if (!state.query) return rows.slice();
   const q = state.query.toLowerCase();
-  return state.data.rows.filter((r) => r.name.toLowerCase().includes(q));
+  return rows.filter((r) => r.name.toLowerCase().includes(q));
 }
 
 function sortedRows(rows) {
@@ -219,15 +315,17 @@ function setupEvents() {
 // ---- init ----
 async function init() {
   try {
-    state.data = await loadData();
+    const loaded = await loadData();
+    state.data = loaded.data;
+    state.geo = loaded.geo;
   } catch (err) {
     showLoadError(err);
     return;
   }
   $('#app').hidden = false;
   renderHero(state.data);
+  renderMap(state.data);
   renderBars(state.data);
-  renderChangeChart(state.data);
   renderScopeNote(state.data);
   renderTableBody();
   updateSortIndicators();

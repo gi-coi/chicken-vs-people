@@ -3,14 +3,14 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Chickens vs People — Europe</title>
-  <meta name="description" content="Which European countries have more chickens than people?" />
+  <title>Chickens vs People — EU</title>
+  <meta name="description" content="Which EU countries have more chickens than people?" />
   <link rel="stylesheet" href="index.css" />
 </head>
 <body>
   <header class="masthead">
     <h1>Chickens&nbsp;vs&nbsp;People</h1>
-    <p class="subtitle">Which European countries have more chickens than people?</p>
+    <p class="subtitle">Which EU countries have more chickens than people?</p>
   </header>
 
   <div id="load-error" class="banner" hidden>
@@ -24,11 +24,42 @@
 
   <main id="app" hidden>
     <section class="hero">
-      <p class="hero__kicker">Europe</p>
-      <div class="hero__stat"><span id="hero-count">36</span><span class="hero__denom">/&nbsp;38</span></div>
-      <p class="hero__line">European countries have <strong>more chickens than people</strong>.</p>
+      <svg class="hero-chicken" viewBox="0 0 120 120" role="img" aria-label="A chicken">
+        <path d="M32 62 C18 58 12 48 18 40 C24 48 28 54 36 58 Z" fill="#e8914f"/>
+        <path d="M30 72 C14 72 8 62 14 54 C20 60 24 68 34 72 Z" fill="#d96a2c"/>
+        <path d="M36 56 C26 48 26 38 34 34 C38 42 40 48 44 54 Z" fill="#f2b27d"/>
+        <line x1="50" y1="97" x2="47" y2="112" stroke="#e07b39" stroke-width="4" stroke-linecap="round"/>
+        <line x1="66" y1="97" x2="69" y2="112" stroke="#e07b39" stroke-width="4" stroke-linecap="round"/>
+        <path d="M42 112 L47 112 L52 112" stroke="#e07b39" stroke-width="3.5" stroke-linecap="round" fill="none"/>
+        <path d="M64 112 L69 112 L74 112" stroke="#e07b39" stroke-width="3.5" stroke-linecap="round" fill="none"/>
+        <ellipse cx="58" cy="71" rx="33" ry="27" fill="#fdf5e9" stroke="#26231f" stroke-width="2.5"/>
+        <path d="M50 64 C66 56 78 66 76 78 C68 84 52 76 50 64 Z" fill="#f3dcc0" stroke="#26231f" stroke-width="2"/>
+        <circle cx="87" cy="39" r="16" fill="#fdf5e9" stroke="#26231f" stroke-width="2.5"/>
+        <circle cx="81" cy="20" r="4.2" fill="#c0392b"/>
+        <circle cx="87" cy="17" r="4.6" fill="#c0392b"/>
+        <circle cx="93" cy="20" r="4.2" fill="#c0392b"/>
+        <path d="M102 37 L117 41 L102 45 Z" fill="#e07b39" stroke="#26231f" stroke-width="1.5" stroke-linejoin="round"/>
+        <path d="M99 52 C99 59 91 59 91 52 Z" fill="#c0392b"/>
+        <circle cx="92" cy="35" r="2.7" fill="#26231f"/>
+      </svg>
+      <p class="hero__kicker">European Union</p>
+      <div class="hero__stat"><span id="hero-count">26</span><span class="hero__denom">/&nbsp;27</span></div>
+      <p class="hero__line">EU countries have <strong>more chickens than people</strong>.</p>
       <p id="hero-losers" class="hero__losers"></p>
+      <p id="hero-eu" class="hero__eu"></p>
       <p id="hero-meta" class="hero__meta muted"></p>
+    </section>
+
+    <section class="panel">
+      <div class="panel__head">
+        <h2>How chickens per person changed</h2>
+        <p class="muted">Change in chickens-per-person, 2015 &rarr; each country's latest year.
+          Green = rose, red = fell. Hover a country for the before&nbsp;&rarr;&nbsp;after.</p>
+      </div>
+      <div id="map" class="map" role="img"
+           aria-label="Map of the change in chickens per person across the EU"></div>
+      <div id="map-legend" class="map-legend"></div>
+      <p class="muted chart-note">Non-EU neighbours are shown in grey for geographic context.</p>
     </section>
 
     <section class="panel">
@@ -37,7 +68,7 @@
         <p class="muted">Reference line = 1.0&times; (chickens equal people). Bars to its right win.</p>
       </div>
       <div id="barchart" class="barchart" role="img"
-           aria-label="Bar chart of chickens per person by country"></div>
+           aria-label="Bar chart of chickens per person by EU country"></div>
       <p class="muted chart-note">
         <span class="legend-dot legend-dot--win"></span> more chickens &nbsp;&middot;&nbsp;
         <span class="legend-dot legend-dot--lose"></span> more people &nbsp;&middot;&nbsp;
@@ -46,22 +77,8 @@
     </section>
 
     <section class="panel">
-      <div class="panel__head">
-        <h2>How chickens per person changed</h2>
-        <p class="muted">Change in chickens-per-person, 2015 &rarr; each country's latest year.
-          Green = rose, red = fell.</p>
-      </div>
-      <div id="changechart" class="changechart" role="img"
-           aria-label="Change in chickens per person since 2015, by country"></div>
-      <p class="muted chart-note">
-        <span class="legend-dot legend-dot--up"></span> more chickens per person &nbsp;&middot;&nbsp;
-        <span class="legend-dot legend-dot--down"></span> fewer chickens per person
-      </p>
-    </section>
-
-    <section class="panel">
       <div class="panel__head panel__head--row">
-        <h2>All countries</h2>
+        <h2>All EU countries</h2>
         <input id="search" class="search" type="search" placeholder="Search countries&hellip;"
                autocomplete="off" aria-label="Search countries" />
       </div>
@@ -85,11 +102,12 @@
     </section>
 
     <section class="panel note">
-      <h2>What counts as &ldquo;European&rdquo;?</h2>
+      <h2>Scope &amp; notes</h2>
       <p id="scope-note"></p>
       <p class="muted">Chickens: FAOSTAT QCL, item 1057 &ldquo;Chickens&rdquo;, element
         &ldquo;Stocks&rdquo; (1000 head). People: Eurostat <code>demo_gind</code>, indicator JAN
-        (population on 1 January). Full provenance and known uncertainties in
+        (population on 1 January). Map geometry: Eurostat GISCO country boundaries.
+        Full provenance and known uncertainties in
         <a href="../docs/sources.md">docs/sources.md</a> and
         <a href="../docs/uncertainties.md">docs/uncertainties.md</a>.</p>
     </section>
