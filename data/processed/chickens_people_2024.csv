@@ -1,0 +1,40 @@
+geo,name,year,population,chickens,ratio,chicken_flag,chicken_source,more_chickens_than_people,data_note
+PL,Poland,2024,36620970,244680000,6.681,A,FAOSTAT,True,
+NL,Netherlands,2024,17942942,89231000,4.973,A,FAOSTAT,True,
+CY,Cyprus,2023,949084,4655000,4.905,A,FAOSTAT,True,data from 2023 (2024 chicken data unavailable)
+TR,Türkiye,2024,85372377,379627000,4.447,A,FAOSTAT,True,
+BE,Belgium,2023,11742796,48754000,4.152,A,FAOSTAT,True,data from 2023 (2024 chicken data unavailable)
+ES,Spain,2020,47318050,193476000,4.089,A,FAOSTAT,True,data from 2020 (2024 chicken data unavailable)
+PT,Portugal,2023,10929704,44098000,4.035,A,FAOSTAT,True,data from 2023 (2024 chicken data unavailable)
+RO,Romania,2023,19055228,74068000,3.887,A,FAOSTAT,True,data from 2023 (2024 chicken data unavailable)
+EL,Greece,2023,10401868,38508000,3.702,A,FAOSTAT,True,data from 2023 (2024 chicken data unavailable)
+LT,Lithuania,2024,2885891,10476000,3.63,A,FAOSTAT,True,
+DK,Denmark,2024,5961249,20718000,3.475,A,FAOSTAT,True,
+BA,Bosnia and Herzegovina,2024,3417089,11523000,3.372,A,FAOSTAT,True,
+FR,France,2024,68669303,229317000,3.339,A,FAOSTAT,True,
+LV,Latvia,2024,1878575,5985000,3.186,A,FAOSTAT,True,
+IE,Ireland,2020,5012600,15236000,3.04,A,FAOSTAT,True,data from 2020 (2024 chicken data unavailable)
+HU,Hungary,2024,9584627,28733000,2.998,A,FAOSTAT,True,
+NO,Norway,2024,5550203,16579000,2.987,A,FAOSTAT,True,
+HR,Croatia,2024,3861967,10936000,2.832,A,FAOSTAT,True,
+BG,Bulgaria,2020,6569275,17177000,2.615,A,FAOSTAT,True,data from 2020 (2024 chicken data unavailable)
+FI,Finland,2024,5603851,14425000,2.574,A,FAOSTAT,True,
+SE,Sweden,2023,10521556,25729000,2.445,A,FAOSTAT,True,data from 2023 (2024 chicken data unavailable)
+UK,United Kingdom,2024,68903810,166986000,2.423,A,FAOSTAT,True,
+IT,Italy,2020,59641488,142503000,2.389,A,FAOSTAT,True,data from 2020 (2024 chicken data unavailable)
+SI,Slovenia,2024,2123949,5054000,2.38,A,FAOSTAT,True,
+CZ,Czechia,2024,10900555,24917000,2.286,A,FAOSTAT,True,
+RS,Serbia,2024,6605168,14417000,2.183,A,FAOSTAT,True,
+GE,Georgia,2024,3694608,7475000,2.023,A,FAOSTAT,True,
+AT,Austria,2023,9104772,17804000,1.955,A,FAOSTAT,True,data from 2023 (2024 chicken data unavailable)
+AL,Albania,2024,2390942,4557000,1.906,A,FAOSTAT,True,
+DE,Germany,2023,83118501,156301000,1.88,A,FAOSTAT,True,data from 2023 (2024 chicken data unavailable)
+SK,Slovakia,2024,5424687,9593000,1.768,A,FAOSTAT,True,
+ME,Montenegro,2024,623680,1070000,1.716,A,FAOSTAT,True,
+EE,Estonia,2024,1374687,2274000,1.654,A,FAOSTAT,True,
+MD,Moldova,2024,2423287,3972100,1.639,I,NBS (corrected),True,"chickens corrected to NBS 'all poultry' 3,972,100; FAOSTAT 48,451,000 is imputed and ~10x too high"
+CH,Switzerland,2024,8962258,13168000,1.469,A,FAOSTAT,True,
+MT,Malta,2023,542051,790000,1.457,A,FAOSTAT,True,data from 2023 (2024 chicken data unavailable)
+MK,North Macedonia,2024,1826247,2573000,1.409,A,FAOSTAT,True,
+IS,Iceland,2024,383567,230000,0.6,A,FAOSTAT,False,
+LU,Luxembourg,2024,672050,186000,0.277,A,FAOSTAT,False,
