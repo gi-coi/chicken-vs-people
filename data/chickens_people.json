@@ -12,10 +12,24 @@
     "Ukraine (UA): no population in 2024",
     "Kosovo (XK): no population in 2024"
   ],
+  "eu_total": {
+    "geo": "EU27_2020",
+    "name": "European Union (27)",
+    "is_eu": true,
+    "year": 2024,
+    "population": 450054483,
+    "chickens": 1475406000,
+    "ratio": 3.278,
+    "chicken_flag": "E",
+    "chicken_source": "FAOSTAT",
+    "more_chickens_than_people": true,
+    "data_note": "EU-27 aggregate; FAOSTAT flag E (estimated — member-country series stop 2020-2023, so the total is FAO's own estimate)"
+  },
   "rows": [
     {
       "geo": "PL",
       "name": "Poland",
+      "is_eu": true,
       "year": 2024,
       "population": 36620970,
       "chickens": 244680000,
@@ -30,6 +44,7 @@
     {
       "geo": "NL",
       "name": "Netherlands",
+      "is_eu": true,
       "year": 2024,
       "population": 17942942,
       "chickens": 89231000,
@@ -44,6 +59,7 @@
     {
       "geo": "CY",
       "name": "Cyprus",
+      "is_eu": true,
       "year": 2023,
       "population": 949084,
       "chickens": 4655000,
@@ -58,6 +74,7 @@
     {
       "geo": "TR",
       "name": "Türkiye",
+      "is_eu": false,
       "year": 2024,
       "population": 85372377,
       "chickens": 379627000,
@@ -72,6 +89,7 @@
     {
       "geo": "BE",
       "name": "Belgium",
+      "is_eu": true,
       "year": 2023,
       "population": 11742796,
       "chickens": 48754000,
@@ -86,6 +104,7 @@
     {
       "geo": "ES",
       "name": "Spain",
+      "is_eu": true,
       "year": 2020,
       "population": 47318050,
       "chickens": 193476000,
@@ -100,6 +119,7 @@
     {
       "geo": "PT",
       "name": "Portugal",
+      "is_eu": true,
       "year": 2023,
       "population": 10929704,
       "chickens": 44098000,
@@ -114,6 +134,7 @@
     {
       "geo": "RO",
       "name": "Romania",
+      "is_eu": true,
       "year": 2023,
       "population": 19055228,
       "chickens": 74068000,
@@ -128,6 +149,7 @@
     {
       "geo": "EL",
       "name": "Greece",
+      "is_eu": true,
       "year": 2023,
       "population": 10401868,
       "chickens": 38508000,
@@ -142,6 +164,7 @@
     {
       "geo": "LT",
       "name": "Lithuania",
+      "is_eu": true,
       "year": 2024,
       "population": 2885891,
       "chickens": 10476000,
@@ -156,6 +179,7 @@
     {
       "geo": "DK",
       "name": "Denmark",
+      "is_eu": true,
       "year": 2024,
       "population": 5961249,
       "chickens": 20718000,
@@ -170,6 +194,7 @@
     {
       "geo": "BA",
       "name": "Bosnia and Herzegovina",
+      "is_eu": false,
       "year": 2024,
       "population": 3417089,
       "chickens": 11523000,
@@ -184,6 +209,7 @@
     {
       "geo": "FR",
       "name": "France",
+      "is_eu": true,
       "year": 2024,
       "population": 68669303,
       "chickens": 229317000,
@@ -198,6 +224,7 @@
     {
       "geo": "LV",
       "name": "Latvia",
+      "is_eu": true,
       "year": 2024,
       "population": 1878575,
       "chickens": 5985000,
@@ -212,6 +239,7 @@
     {
       "geo": "IE",
       "name": "Ireland",
+      "is_eu": true,
       "year": 2020,
       "population": 5012600,
       "chickens": 15236000,
@@ -226,6 +254,7 @@
     {
       "geo": "HU",
       "name": "Hungary",
+      "is_eu": true,
       "year": 2024,
       "population": 9584627,
       "chickens": 28733000,
@@ -240,6 +269,7 @@
     {
       "geo": "NO",
       "name": "Norway",
+      "is_eu": false,
       "year": 2024,
       "population": 5550203,
       "chickens": 16579000,
@@ -254,6 +284,7 @@
     {
       "geo": "HR",
       "name": "Croatia",
+      "is_eu": true,
       "year": 2024,
       "population": 3861967,
       "chickens": 10936000,
@@ -268,6 +299,7 @@
     {
       "geo": "BG",
       "name": "Bulgaria",
+      "is_eu": true,
       "year": 2020,
       "population": 6569275,
       "chickens": 17177000,
@@ -282,6 +314,7 @@
     {
       "geo": "FI",
       "name": "Finland",
+      "is_eu": true,
       "year": 2024,
       "population": 5603851,
       "chickens": 14425000,
@@ -296,6 +329,7 @@
     {
       "geo": "SE",
       "name": "Sweden",
+      "is_eu": true,
       "year": 2023,
       "population": 10521556,
       "chickens": 25729000,
@@ -310,6 +344,7 @@
     {
       "geo": "UK",
       "name": "United Kingdom",
+      "is_eu": false,
       "year": 2024,
       "population": 68903810,
       "chickens": 166986000,
@@ -324,6 +359,7 @@
     {
       "geo": "IT",
       "name": "Italy",
+      "is_eu": true,
       "year": 2020,
       "population": 59641488,
       "chickens": 142503000,
@@ -338,6 +374,7 @@
     {
       "geo": "SI",
       "name": "Slovenia",
+      "is_eu": true,
       "year": 2024,
       "population": 2123949,
       "chickens": 5054000,
@@ -352,6 +389,7 @@
     {
       "geo": "CZ",
       "name": "Czechia",
+      "is_eu": true,
       "year": 2024,
       "population": 10900555,
       "chickens": 24917000,
@@ -366,6 +404,7 @@
     {
       "geo": "RS",
       "name": "Serbia",
+      "is_eu": false,
       "year": 2024,
       "population": 6605168,
       "chickens": 14417000,
@@ -380,6 +419,7 @@
     {
       "geo": "GE",
       "name": "Georgia",
+      "is_eu": false,
       "year": 2024,
       "population": 3694608,
       "chickens": 7475000,
@@ -394,6 +434,7 @@
     {
       "geo": "AT",
       "name": "Austria",
+      "is_eu": true,
       "year": 2023,
       "population": 9104772,
       "chickens": 17804000,
@@ -408,6 +449,7 @@
     {
       "geo": "AL",
       "name": "Albania",
+      "is_eu": false,
       "year": 2024,
       "population": 2390942,
       "chickens": 4557000,
@@ -422,6 +464,7 @@
     {
       "geo": "DE",
       "name": "Germany",
+      "is_eu": true,
       "year": 2023,
       "population": 83118501,
       "chickens": 156301000,
@@ -436,6 +479,7 @@
     {
       "geo": "SK",
       "name": "Slovakia",
+      "is_eu": true,
       "year": 2024,
       "population": 5424687,
       "chickens": 9593000,
@@ -450,6 +494,7 @@
     {
       "geo": "ME",
       "name": "Montenegro",
+      "is_eu": false,
       "year": 2024,
       "population": 623680,
       "chickens": 1070000,
@@ -464,6 +509,7 @@
     {
       "geo": "EE",
       "name": "Estonia",
+      "is_eu": true,
       "year": 2024,
       "population": 1374687,
       "chickens": 2274000,
@@ -478,6 +524,7 @@
     {
       "geo": "CH",
       "name": "Switzerland",
+      "is_eu": false,
       "year": 2024,
       "population": 8962258,
       "chickens": 13168000,
@@ -492,6 +539,7 @@
     {
       "geo": "MT",
       "name": "Malta",
+      "is_eu": true,
       "year": 2023,
       "population": 542051,
       "chickens": 790000,
@@ -506,6 +554,7 @@
     {
       "geo": "MK",
       "name": "North Macedonia",
+      "is_eu": false,
       "year": 2024,
       "population": 1826247,
       "chickens": 2573000,
@@ -520,6 +569,7 @@
     {
       "geo": "IS",
       "name": "Iceland",
+      "is_eu": false,
       "year": 2024,
       "population": 383567,
       "chickens": 230000,
@@ -534,6 +584,7 @@
     {
       "geo": "LU",
       "name": "Luxembourg",
+      "is_eu": true,
       "year": 2024,
       "population": 672050,
       "chickens": 186000,
@@ -550,6 +601,7 @@
     {
       "geo": "AT",
       "name": "Austria",
+      "is_eu": true,
       "year": 2015,
       "population": 8584926,
       "chickens": 16465000,
@@ -558,6 +610,7 @@
     {
       "geo": "AT",
       "name": "Austria",
+      "is_eu": true,
       "year": 2016,
       "population": 8700471,
       "chickens": 16745000,
@@ -566,6 +619,7 @@
     {
       "geo": "AT",
       "name": "Austria",
+      "is_eu": true,
       "year": 2017,
       "population": 8772865,
       "chickens": 16736000,
@@ -574,6 +628,7 @@
     {
       "geo": "AT",
       "name": "Austria",
+      "is_eu": true,
       "year": 2018,
       "population": 8822267,
       "chickens": "",
@@ -582,6 +637,7 @@
     {
       "geo": "AT",
       "name": "Austria",
+      "is_eu": true,
       "year": 2019,
       "population": 8858775,
       "chickens": "",
@@ -590,6 +646,7 @@
     {
       "geo": "AT",
       "name": "Austria",
+      "is_eu": true,
       "year": 2020,
       "population": 8901064,
       "chickens": 16857000,
@@ -598,6 +655,7 @@
     {
       "geo": "AT",
       "name": "Austria",
+      "is_eu": true,
       "year": 2021,
       "population": 8932664,
       "chickens": "",
@@ -606,6 +664,7 @@
     {
       "geo": "AT",
       "name": "Austria",
+      "is_eu": true,
       "year": 2022,
       "population": 8978929,
       "chickens": "",
@@ -614,6 +673,7 @@
     {
       "geo": "AT",
       "name": "Austria",
+      "is_eu": true,
       "year": 2023,
       "population": 9104772,
       "chickens": 17804000,
@@ -622,6 +682,7 @@
     {
       "geo": "AT",
       "name": "Austria",
+      "is_eu": true,
       "year": 2024,
       "population": 9158750,
       "chickens": "",
@@ -630,6 +691,7 @@
     {
       "geo": "BE",
       "name": "Belgium",
+      "is_eu": true,
       "year": 2015,
       "population": 11237274,
       "chickens": 37739000,
@@ -638,6 +700,7 @@
     {
       "geo": "BE",
       "name": "Belgium",
+      "is_eu": true,
       "year": 2016,
       "population": 11311117,
       "chickens": 42553000,
@@ -646,6 +709,7 @@
     {
       "geo": "BE",
       "name": "Belgium",
+      "is_eu": true,
       "year": 2017,
       "population": 11351727,
       "chickens": 40179000,
@@ -654,6 +718,7 @@
     {
       "geo": "BE",
       "name": "Belgium",
+      "is_eu": true,
       "year": 2018,
       "population": 11398589,
       "chickens": 47469000,
@@ -662,6 +727,7 @@
     {
       "geo": "BE",
       "name": "Belgium",
+      "is_eu": true,
       "year": 2019,
       "population": 11455519,
       "chickens": 49127000,
@@ -670,6 +736,7 @@
     {
       "geo": "BE",
       "name": "Belgium",
+      "is_eu": true,
       "year": 2020,
       "population": 11522440,
       "chickens": 53362000,
@@ -678,6 +745,7 @@
     {
       "geo": "BE",
       "name": "Belgium",
+      "is_eu": true,
       "year": 2021,
       "population": 11554767,
       "chickens": 53188000,
@@ -686,6 +754,7 @@
     {
       "geo": "BE",
       "name": "Belgium",
+      "is_eu": true,
       "year": 2022,
       "population": 11617623,
       "chickens": 53283000,
@@ -694,6 +763,7 @@
     {
       "geo": "BE",
       "name": "Belgium",
+      "is_eu": true,
       "year": 2023,
       "population": 11742796,
       "chickens": 48754000,
@@ -702,6 +772,7 @@
     {
       "geo": "BE",
       "name": "Belgium",
+      "is_eu": true,
       "year": 2024,
       "population": 11817096,
       "chickens": "",
@@ -710,6 +781,7 @@
     {
       "geo": "BG",
       "name": "Bulgaria",
+      "is_eu": true,
       "year": 2015,
       "population": 7029690,
       "chickens": 12970000,
@@ -718,6 +790,7 @@
     {
       "geo": "BG",
       "name": "Bulgaria",
+      "is_eu": true,
       "year": 2016,
       "population": 6938759,
       "chickens": 14258000,
@@ -726,6 +799,7 @@
     {
       "geo": "BG",
       "name": "Bulgaria",
+      "is_eu": true,
       "year": 2017,
       "population": 6849518,
       "chickens": 17738000,
@@ -734,6 +808,7 @@
     {
       "geo": "BG",
       "name": "Bulgaria",
+      "is_eu": true,
       "year": 2018,
       "population": 6757418,
       "chickens": 18830000,
@@ -742,6 +817,7 @@
     {
       "geo": "BG",
       "name": "Bulgaria",
+      "is_eu": true,
       "year": 2019,
       "population": 6664177,
       "chickens": 20793000,
@@ -750,6 +826,7 @@
     {
       "geo": "BG",
       "name": "Bulgaria",
+      "is_eu": true,
       "year": 2020,
       "population": 6569275,
       "chickens": 17177000,
@@ -758,6 +835,7 @@
     {
       "geo": "BG",
       "name": "Bulgaria",
+      "is_eu": true,
       "year": 2021,
       "population": 6532117,
       "chickens": "",
@@ -766,6 +844,7 @@
     {
       "geo": "BG",
       "name": "Bulgaria",
+      "is_eu": true,
       "year": 2022,
       "population": 6482484,
       "chickens": "",
@@ -774,6 +853,7 @@
     {
       "geo": "BG",
       "name": "Bulgaria",
+      "is_eu": true,
       "year": 2023,
       "population": 6447710,
       "chickens": "",
@@ -782,6 +862,7 @@
     {
       "geo": "BG",
       "name": "Bulgaria",
+      "is_eu": true,
       "year": 2024,
       "population": 6445481,
       "chickens": "",
@@ -790,6 +871,7 @@
     {
       "geo": "HR",
       "name": "Croatia",
+      "is_eu": true,
       "year": 2015,
       "population": 4180915,
       "chickens": 9599000,
@@ -798,6 +880,7 @@
     {
       "geo": "HR",
       "name": "Croatia",
+      "is_eu": true,
       "year": 2016,
       "population": 4131115,
       "chickens": 9220000,
@@ -806,6 +889,7 @@
     {
       "geo": "HR",
       "name": "Croatia",
+      "is_eu": true,
       "year": 2017,
       "population": 4078769,
       "chickens": 9840000,
@@ -814,6 +898,7 @@
     {
       "geo": "HR",
       "name": "Croatia",
+      "is_eu": true,
       "year": 2018,
       "population": 4014341,
       "chickens": 10881000,
@@ -822,6 +907,7 @@
     {
       "geo": "HR",
       "name": "Croatia",
+      "is_eu": true,
       "year": 2019,
       "population": 3968676,
       "chickens": 12162000,
@@ -830,6 +916,7 @@
     {
       "geo": "HR",
       "name": "Croatia",
+      "is_eu": true,
       "year": 2020,
       "population": 3933511,
       "chickens": 12508000,
@@ -838,6 +925,7 @@
     {
       "geo": "HR",
       "name": "Croatia",
+      "is_eu": true,
       "year": 2021,
       "population": 3893026,
       "chickens": 11629000,
@@ -846,6 +934,7 @@
     {
       "geo": "HR",
       "name": "Croatia",
+      "is_eu": true,
       "year": 2022,
       "population": 3862305,
       "chickens": 10436000,
@@ -854,6 +943,7 @@
     {
       "geo": "HR",
       "name": "Croatia",
+      "is_eu": true,
       "year": 2023,
       "population": 3850894,
       "chickens": 10080000,
@@ -862,6 +952,7 @@
     {
       "geo": "HR",
       "name": "Croatia",
+      "is_eu": true,
       "year": 2024,
       "population": 3861967,
       "chickens": 10936000,
@@ -870,6 +961,7 @@
     {
       "geo": "CY",
       "name": "Cyprus",
+      "is_eu": true,
       "year": 2015,
       "population": 860846,
       "chickens": 3206000,
@@ -878,6 +970,7 @@
     {
       "geo": "CY",
       "name": "Cyprus",
+      "is_eu": true,
       "year": 2016,
       "population": 863764,
       "chickens": 3050000,
@@ -886,6 +979,7 @@
     {
       "geo": "CY",
       "name": "Cyprus",
+      "is_eu": true,
       "year": 2017,
       "population": 869878,
       "chickens": 3428000,
@@ -894,6 +988,7 @@
     {
       "geo": "CY",
       "name": "Cyprus",
+      "is_eu": true,
       "year": 2018,
       "population": 878601,
       "chickens": "",
@@ -902,6 +997,7 @@
     {
       "geo": "CY",
       "name": "Cyprus",
+      "is_eu": true,
       "year": 2019,
       "population": 890194,
       "chickens": "",
@@ -910,6 +1006,7 @@
     {
       "geo": "CY",
       "name": "Cyprus",
+      "is_eu": true,
       "year": 2020,
       "population": 902429,
       "chickens": 4655000,
@@ -918,6 +1015,7 @@
     {
       "geo": "CY",
       "name": "Cyprus",
+      "is_eu": true,
       "year": 2021,
       "population": 914476,
       "chickens": "",
@@ -926,6 +1024,7 @@
     {
       "geo": "CY",
       "name": "Cyprus",
+      "is_eu": true,
       "year": 2022,
       "population": 929764,
       "chickens": "",
@@ -934,6 +1033,7 @@
     {
       "geo": "CY",
       "name": "Cyprus",
+      "is_eu": true,
       "year": 2023,
       "population": 949084,
       "chickens": 4655000,
@@ -942,6 +1042,7 @@
     {
       "geo": "CY",
       "name": "Cyprus",
+      "is_eu": true,
       "year": 2024,
       "population": 966365,
       "chickens": "",
@@ -950,6 +1051,7 @@
     {
       "geo": "CZ",
       "name": "Czechia",
+      "is_eu": true,
       "year": 2015,
       "population": 10538275,
       "chickens": 21483000,
@@ -958,6 +1060,7 @@
     {
       "geo": "CZ",
       "name": "Czechia",
+      "is_eu": true,
       "year": 2016,
       "population": 10553843,
       "chickens": 20422000,
@@ -966,6 +1069,7 @@
     {
       "geo": "CZ",
       "name": "Czechia",
+      "is_eu": true,
       "year": 2017,
       "population": 10578820,
       "chickens": 20587000,
@@ -974,6 +1078,7 @@
     {
       "geo": "CZ",
       "name": "Czechia",
+      "is_eu": true,
       "year": 2018,
       "population": 10610055,
       "chickens": 22428000,
@@ -982,6 +1087,7 @@
     {
       "geo": "CZ",
       "name": "Czechia",
+      "is_eu": true,
       "year": 2019,
       "population": 10649800,
       "chickens": 21844000,
@@ -990,6 +1096,7 @@
     {
       "geo": "CZ",
       "name": "Czechia",
+      "is_eu": true,
       "year": 2020,
       "population": 10693939,
       "chickens": 21018000,
@@ -998,6 +1105,7 @@
     {
       "geo": "CZ",
       "name": "Czechia",
+      "is_eu": true,
       "year": 2021,
       "population": 10494836,
       "chickens": "",
@@ -1006,6 +1114,7 @@
     {
       "geo": "CZ",
       "name": "Czechia",
+      "is_eu": true,
       "year": 2022,
       "population": 10516707,
       "chickens": 22955000,
@@ -1014,6 +1123,7 @@
     {
       "geo": "CZ",
       "name": "Czechia",
+      "is_eu": true,
       "year": 2023,
       "population": 10827529,
       "chickens": 21794000,
@@ -1022,6 +1132,7 @@
     {
       "geo": "CZ",
       "name": "Czechia",
+      "is_eu": true,
       "year": 2024,
       "population": 10900555,
       "chickens": 24917000,
@@ -1030,6 +1141,7 @@
     {
       "geo": "DK",
       "name": "Denmark",
+      "is_eu": true,
       "year": 2015,
       "population": 5659715,
       "chickens": 16887000,
@@ -1038,6 +1150,7 @@
     {
       "geo": "DK",
       "name": "Denmark",
+      "is_eu": true,
       "year": 2016,
       "population": 5707251,
       "chickens": 17898000,
@@ -1046,6 +1159,7 @@
     {
       "geo": "DK",
       "name": "Denmark",
+      "is_eu": true,
       "year": 2017,
       "population": 5748769,
       "chickens": 20733000,
@@ -1054,6 +1168,7 @@
     {
       "geo": "DK",
       "name": "Denmark",
+      "is_eu": true,
       "year": 2018,
       "population": 5781190,
       "chickens": 19351000,
@@ -1062,6 +1177,7 @@
     {
       "geo": "DK",
       "name": "Denmark",
+      "is_eu": true,
       "year": 2019,
       "population": 5806081,
       "chickens": 22463000,
@@ -1070,6 +1186,7 @@
     {
       "geo": "DK",
       "name": "Denmark",
+      "is_eu": true,
       "year": 2020,
       "population": 5822763,
       "chickens": 21250000,
@@ -1078,6 +1195,7 @@
     {
       "geo": "DK",
       "name": "Denmark",
+      "is_eu": true,
       "year": 2021,
       "population": 5840045,
       "chickens": 21454000,
@@ -1086,6 +1204,7 @@
     {
       "geo": "DK",
       "name": "Denmark",
+      "is_eu": true,
       "year": 2022,
       "population": 5873420,
       "chickens": 22412000,
@@ -1094,6 +1213,7 @@
     {
       "geo": "DK",
       "name": "Denmark",
+      "is_eu": true,
       "year": 2023,
       "population": 5932654,
       "chickens": 21844000,
@@ -1102,6 +1222,7 @@
     {
       "geo": "DK",
       "name": "Denmark",
+      "is_eu": true,
       "year": 2024,
       "population": 5961249,
       "chickens": 20718000,
@@ -1110,6 +1231,7 @@
     {
       "geo": "EE",
       "name": "Estonia",
+      "is_eu": true,
       "year": 2015,
       "population": 1313271,
       "chickens": 2285000,
@@ -1118,6 +1240,7 @@
     {
       "geo": "EE",
       "name": "Estonia",
+      "is_eu": true,
       "year": 2016,
       "population": 1315944,
       "chickens": 2054000,
@@ -1126,6 +1249,7 @@
     {
       "geo": "EE",
       "name": "Estonia",
+      "is_eu": true,
       "year": 2017,
       "population": 1315635,
       "chickens": 2195000,
@@ -1134,6 +1258,7 @@
     {
       "geo": "EE",
       "name": "Estonia",
+      "is_eu": true,
       "year": 2018,
       "population": 1319133,
       "chickens": 2059000,
@@ -1142,6 +1267,7 @@
     {
       "geo": "EE",
       "name": "Estonia",
+      "is_eu": true,
       "year": 2019,
       "population": 1324820,
       "chickens": 2080000,
@@ -1150,6 +1276,7 @@
     {
       "geo": "EE",
       "name": "Estonia",
+      "is_eu": true,
       "year": 2020,
       "population": 1328889,
       "chickens": 2055000,
@@ -1158,6 +1285,7 @@
     {
       "geo": "EE",
       "name": "Estonia",
+      "is_eu": true,
       "year": 2021,
       "population": 1330068,
       "chickens": 2032000,
@@ -1166,6 +1294,7 @@
     {
       "geo": "EE",
       "name": "Estonia",
+      "is_eu": true,
       "year": 2022,
       "population": 1331796,
       "chickens": 2092000,
@@ -1174,6 +1303,7 @@
     {
       "geo": "EE",
       "name": "Estonia",
+      "is_eu": true,
       "year": 2023,
       "population": 1365884,
       "chickens": 2132000,
@@ -1182,6 +1312,7 @@
     {
       "geo": "EE",
       "name": "Estonia",
+      "is_eu": true,
       "year": 2024,
       "population": 1374687,
       "chickens": 2274000,
@@ -1190,6 +1321,7 @@
     {
       "geo": "FI",
       "name": "Finland",
+      "is_eu": true,
       "year": 2015,
       "population": 5471753,
       "chickens": 11970000,
@@ -1198,6 +1330,7 @@
     {
       "geo": "FI",
       "name": "Finland",
+      "is_eu": true,
       "year": 2016,
       "population": 5487308,
       "chickens": 12394000,
@@ -1206,6 +1339,7 @@
     {
       "geo": "FI",
       "name": "Finland",
+      "is_eu": true,
       "year": 2017,
       "population": 5503297,
       "chickens": 12266000,
@@ -1214,6 +1348,7 @@
     {
       "geo": "FI",
       "name": "Finland",
+      "is_eu": true,
       "year": 2018,
       "population": 5513130,
       "chickens": 13190000,
@@ -1222,6 +1357,7 @@
     {
       "geo": "FI",
       "name": "Finland",
+      "is_eu": true,
       "year": 2019,
       "population": 5517919,
       "chickens": 13407000,
@@ -1230,6 +1366,7 @@
     {
       "geo": "FI",
       "name": "Finland",
+      "is_eu": true,
       "year": 2020,
       "population": 5525292,
       "chickens": 12715000,
@@ -1238,6 +1375,7 @@
     {
       "geo": "FI",
       "name": "Finland",
+      "is_eu": true,
       "year": 2021,
       "population": 5533793,
       "chickens": 12707000,
@@ -1246,6 +1384,7 @@
     {
       "geo": "FI",
       "name": "Finland",
+      "is_eu": true,
       "year": 2022,
       "population": 5548241,
       "chickens": 13364000,
@@ -1254,6 +1393,7 @@
     {
       "geo": "FI",
       "name": "Finland",
+      "is_eu": true,
       "year": 2023,
       "population": 5563970,
       "chickens": 13380000,
@@ -1262,6 +1402,7 @@
     {
       "geo": "FI",
       "name": "Finland",
+      "is_eu": true,
       "year": 2024,
       "population": 5603851,
       "chickens": 14425000,
@@ -1270,6 +1411,7 @@
     {
       "geo": "FR",
       "name": "France",
+      "is_eu": true,
       "year": 2015,
       "population": 66458153,
       "chickens": 247298000,
@@ -1278,6 +1420,7 @@
     {
       "geo": "FR",
       "name": "France",
+      "is_eu": true,
       "year": 2016,
       "population": 66638391,
       "chickens": 243526000,
@@ -1286,6 +1429,7 @@
     {
       "geo": "FR",
       "name": "France",
+      "is_eu": true,
       "year": 2017,
       "population": 66809816,
       "chickens": 244774000,
@@ -1294,6 +1438,7 @@
     {
       "geo": "FR",
       "name": "France",
+      "is_eu": true,
       "year": 2018,
       "population": 67026224,
       "chickens": 239290000,
@@ -1302,6 +1447,7 @@
     {
       "geo": "FR",
       "name": "France",
+      "is_eu": true,
       "year": 2019,
       "population": 67290471,
       "chickens": 237864000,
@@ -1310,6 +1456,7 @@
     {
       "geo": "FR",
       "name": "France",
+      "is_eu": true,
       "year": 2020,
       "population": 67473651,
       "chickens": 242015000,
@@ -1318,6 +1465,7 @@
     {
       "geo": "FR",
       "name": "France",
+      "is_eu": true,
       "year": 2021,
       "population": 67728568,
       "chickens": 239840000,
@@ -1326,6 +1474,7 @@
     {
       "geo": "FR",
       "name": "France",
+      "is_eu": true,
       "year": 2022,
       "population": 68091703,
       "chickens": 231096000,
@@ -1334,6 +1483,7 @@
     {
       "geo": "FR",
       "name": "France",
+      "is_eu": true,
       "year": 2023,
       "population": 68436003,
       "chickens": 211370000,
@@ -1342,6 +1492,7 @@
     {
       "geo": "FR",
       "name": "France",
+      "is_eu": true,
       "year": 2024,
       "population": 68669303,
       "chickens": 229317000,
@@ -1350,6 +1501,7 @@
     {
       "geo": "DE",
       "name": "Germany",
+      "is_eu": true,
       "year": 2015,
       "population": 81197537,
       "chickens": 140037000,
@@ -1358,6 +1510,7 @@
     {
       "geo": "DE",
       "name": "Germany",
+      "is_eu": true,
       "year": 2016,
       "population": 82175684,
       "chickens": 158649000,
@@ -1366,6 +1519,7 @@
     {
       "geo": "DE",
       "name": "Germany",
+      "is_eu": true,
       "year": 2017,
       "population": 82521653,
       "chickens": 160000000,
@@ -1374,6 +1528,7 @@
     {
       "geo": "DE",
       "name": "Germany",
+      "is_eu": true,
       "year": 2018,
       "population": 82792351,
       "chickens": "",
@@ -1382,6 +1537,7 @@
     {
       "geo": "DE",
       "name": "Germany",
+      "is_eu": true,
       "year": 2019,
       "population": 83019213,
       "chickens": "",
@@ -1390,6 +1546,7 @@
     {
       "geo": "DE",
       "name": "Germany",
+      "is_eu": true,
       "year": 2020,
       "population": 83166711,
       "chickens": 159118000,
@@ -1398,6 +1555,7 @@
     {
       "geo": "DE",
       "name": "Germany",
+      "is_eu": true,
       "year": 2021,
       "population": 83155031,
       "chickens": "",
@@ -1406,6 +1564,7 @@
     {
       "geo": "DE",
       "name": "Germany",
+      "is_eu": true,
       "year": 2022,
       "population": 83237124,
       "chickens": "",
@@ -1414,6 +1573,7 @@
     {
       "geo": "DE",
       "name": "Germany",
+      "is_eu": true,
       "year": 2023,
       "population": 83118501,
       "chickens": 156301000,
@@ -1422,6 +1582,7 @@
     {
       "geo": "DE",
       "name": "Germany",
+      "is_eu": true,
       "year": 2024,
       "population": 83456045,
       "chickens": "",
@@ -1430,6 +1591,7 @@
     {
       "geo": "EL",
       "name": "Greece",
+      "is_eu": true,
       "year": 2015,
       "population": 10818041,
       "chickens": 34477000,
@@ -1438,6 +1600,7 @@
     {
       "geo": "EL",
       "name": "Greece",
+      "is_eu": true,
       "year": 2016,
       "population": 10735415,
       "chickens": 35545000,
@@ -1446,6 +1609,7 @@
     {
       "geo": "EL",
       "name": "Greece",
+      "is_eu": true,
       "year": 2017,
       "population": 10707527,
       "chickens": 37262000,
@@ -1454,6 +1618,7 @@
     {
       "geo": "EL",
       "name": "Greece",
+      "is_eu": true,
       "year": 2018,
       "population": 10667336,
       "chickens": 37300000,
@@ -1462,6 +1627,7 @@
     {
       "geo": "EL",
       "name": "Greece",
+      "is_eu": true,
       "year": 2019,
       "population": 10635213,
       "chickens": 39188000,
@@ -1470,6 +1636,7 @@
     {
       "geo": "EL",
       "name": "Greece",
+      "is_eu": true,
       "year": 2020,
       "population": 10612591,
       "chickens": 34033000,
@@ -1478,6 +1645,7 @@
     {
       "geo": "EL",
       "name": "Greece",
+      "is_eu": true,
       "year": 2021,
       "population": 10555344,
       "chickens": 36597000,
@@ -1486,6 +1654,7 @@
     {
       "geo": "EL",
       "name": "Greece",
+      "is_eu": true,
       "year": 2022,
       "population": 10461627,
       "chickens": 38649000,
@@ -1494,6 +1663,7 @@
     {
       "geo": "EL",
       "name": "Greece",
+      "is_eu": true,
       "year": 2023,
       "population": 10401868,
       "chickens": 38508000,
@@ -1502,6 +1672,7 @@
     {
       "geo": "EL",
       "name": "Greece",
+      "is_eu": true,
       "year": 2024,
       "population": 10375764,
       "chickens": "",
@@ -1510,6 +1681,7 @@
     {
       "geo": "HU",
       "name": "Hungary",
+      "is_eu": true,
       "year": 2015,
       "population": 9815858,
       "chickens": 30521000,
@@ -1518,6 +1690,7 @@
     {
       "geo": "HU",
       "name": "Hungary",
+      "is_eu": true,
       "year": 2016,
       "population": 9779652,
       "chickens": 32432000,
@@ -1526,6 +1699,7 @@
     {
       "geo": "HU",
       "name": "Hungary",
+      "is_eu": true,
       "year": 2017,
       "population": 9739857,
       "chickens": 32027000,
@@ -1534,6 +1708,7 @@
     {
       "geo": "HU",
       "name": "Hungary",
+      "is_eu": true,
       "year": 2018,
       "population": 9713655,
       "chickens": 31844000,
@@ -1542,6 +1717,7 @@
     {
       "geo": "HU",
       "name": "Hungary",
+      "is_eu": true,
       "year": 2019,
       "population": 9700272,
       "chickens": 30658000,
@@ -1550,6 +1726,7 @@
     {
       "geo": "HU",
       "name": "Hungary",
+      "is_eu": true,
       "year": 2020,
       "population": 9689376,
       "chickens": 30874000,
@@ -1558,6 +1735,7 @@
     {
       "geo": "HU",
       "name": "Hungary",
+      "is_eu": true,
       "year": 2021,
       "population": 9651461,
       "chickens": 28888000,
@@ -1566,6 +1744,7 @@
     {
       "geo": "HU",
       "name": "Hungary",
+      "is_eu": true,
       "year": 2022,
       "population": 9610403,
       "chickens": 32114000,
@@ -1574,6 +1753,7 @@
     {
       "geo": "HU",
       "name": "Hungary",
+      "is_eu": true,
       "year": 2023,
       "population": 9599744,
       "chickens": 27081000,
@@ -1582,6 +1762,7 @@
     {
       "geo": "HU",
       "name": "Hungary",
+      "is_eu": true,
       "year": 2024,
       "population": 9584627,
       "chickens": 28733000,
@@ -1590,6 +1771,7 @@
     {
       "geo": "IE",
       "name": "Ireland",
+      "is_eu": true,
       "year": 2015,
       "population": 4677627,
       "chickens": 15202000,
@@ -1598,6 +1780,7 @@
     {
       "geo": "IE",
       "name": "Ireland",
+      "is_eu": true,
       "year": 2016,
       "population": 4726286,
       "chickens": 15438000,
@@ -1606,6 +1789,7 @@
     {
       "geo": "IE",
       "name": "Ireland",
+      "is_eu": true,
       "year": 2017,
       "population": 4799157,
       "chickens": 15504000,
@@ -1614,6 +1798,7 @@
     {
       "geo": "IE",
       "name": "Ireland",
+      "is_eu": true,
       "year": 2018,
       "population": 4855733,
       "chickens": "",
@@ -1622,6 +1807,7 @@
     {
       "geo": "IE",
       "name": "Ireland",
+      "is_eu": true,
       "year": 2019,
       "population": 4940311,
       "chickens": "",
@@ -1630,6 +1816,7 @@
     {
       "geo": "IE",
       "name": "Ireland",
+      "is_eu": true,
       "year": 2020,
       "population": 5012600,
       "chickens": 15236000,
@@ -1638,6 +1825,7 @@
     {
       "geo": "IE",
       "name": "Ireland",
+      "is_eu": true,
       "year": 2021,
       "population": 5066893,
       "chickens": "",
@@ -1646,6 +1834,7 @@
     {
       "geo": "IE",
       "name": "Ireland",
+      "is_eu": true,
       "year": 2022,
       "population": 5154277,
       "chickens": "",
@@ -1654,6 +1843,7 @@
     {
       "geo": "IE",
       "name": "Ireland",
+      "is_eu": true,
       "year": 2023,
       "population": 5271395,
       "chickens": "",
@@ -1662,6 +1852,7 @@
     {
       "geo": "IE",
       "name": "Ireland",
+      "is_eu": true,
       "year": 2024,
       "population": 5351681,
       "chickens": "",
@@ -1670,6 +1861,7 @@
     {
       "geo": "IT",
       "name": "Italy",
+      "is_eu": true,
       "year": 2015,
       "population": 60295497,
       "chickens": 137712000,
@@ -1678,6 +1870,7 @@
     {
       "geo": "IT",
       "name": "Italy",
+      "is_eu": true,
       "year": 2016,
       "population": 60163712,
       "chickens": 142265000,
@@ -1686,6 +1879,7 @@
     {
       "geo": "IT",
       "name": "Italy",
+      "is_eu": true,
       "year": 2017,
       "population": 60066734,
       "chickens": 146948000,
@@ -1694,6 +1888,7 @@
     {
       "geo": "IT",
       "name": "Italy",
+      "is_eu": true,
       "year": 2018,
       "population": 59937769,
       "chickens": "",
@@ -1702,6 +1897,7 @@
     {
       "geo": "IT",
       "name": "Italy",
+      "is_eu": true,
       "year": 2019,
       "population": 59816673,
       "chickens": "",
@@ -1710,6 +1906,7 @@
     {
       "geo": "IT",
       "name": "Italy",
+      "is_eu": true,
       "year": 2020,
       "population": 59641488,
       "chickens": 142503000,
@@ -1718,6 +1915,7 @@
     {
       "geo": "IT",
       "name": "Italy",
+      "is_eu": true,
       "year": 2021,
       "population": 59236213,
       "chickens": "",
@@ -1726,6 +1924,7 @@
     {
       "geo": "IT",
       "name": "Italy",
+      "is_eu": true,
       "year": 2022,
       "population": 59030133,
       "chickens": "",
@@ -1734,6 +1933,7 @@
     {
       "geo": "IT",
       "name": "Italy",
+      "is_eu": true,
       "year": 2023,
       "population": 58997201,
       "chickens": "",
@@ -1742,6 +1942,7 @@
     {
       "geo": "IT",
       "name": "Italy",
+      "is_eu": true,
       "year": 2024,
       "population": 58971230,
       "chickens": "",
@@ -1750,6 +1951,7 @@
     {
       "geo": "LV",
       "name": "Latvia",
+      "is_eu": true,
       "year": 2015,
       "population": 1986096,
       "chickens": 4414000,
@@ -1758,6 +1960,7 @@
     {
       "geo": "LV",
       "name": "Latvia",
+      "is_eu": true,
       "year": 2016,
       "population": 1968957,
       "chickens": 4483000,
@@ -1766,6 +1969,7 @@
     {
       "geo": "LV",
       "name": "Latvia",
+      "is_eu": true,
       "year": 2017,
       "population": 1950116,
       "chickens": 4774000,
@@ -1774,6 +1978,7 @@
     {
       "geo": "LV",
       "name": "Latvia",
+      "is_eu": true,
       "year": 2018,
       "population": 1934379,
       "chickens": "",
@@ -1782,6 +1987,7 @@
     {
       "geo": "LV",
       "name": "Latvia",
+      "is_eu": true,
       "year": 2019,
       "population": 1919968,
       "chickens": "",
@@ -1790,6 +1996,7 @@
     {
       "geo": "LV",
       "name": "Latvia",
+      "is_eu": true,
       "year": 2020,
       "population": 1907675,
       "chickens": 5643000,
@@ -1798,6 +2005,7 @@
     {
       "geo": "LV",
       "name": "Latvia",
+      "is_eu": true,
       "year": 2021,
       "population": 1893223,
       "chickens": 5858000,
@@ -1806,6 +2014,7 @@
     {
       "geo": "LV",
       "name": "Latvia",
+      "is_eu": true,
       "year": 2022,
       "population": 1875757,
       "chickens": 5744000,
@@ -1814,6 +2023,7 @@
     {
       "geo": "LV",
       "name": "Latvia",
+      "is_eu": true,
       "year": 2023,
       "population": 1895239,
       "chickens": 5922000,
@@ -1822,6 +2032,7 @@
     {
       "geo": "LV",
       "name": "Latvia",
+      "is_eu": true,
       "year": 2024,
       "population": 1878575,
       "chickens": 5985000,
@@ -1830,6 +2041,7 @@
     {
       "geo": "LT",
       "name": "Lithuania",
+      "is_eu": true,
       "year": 2015,
       "population": 2926644,
       "chickens": 10093000,
@@ -1838,6 +2050,7 @@
     {
       "geo": "LT",
       "name": "Lithuania",
+      "is_eu": true,
       "year": 2016,
       "population": 2895573,
       "chickens": 9148000,
@@ -1846,6 +2059,7 @@
     {
       "geo": "LT",
       "name": "Lithuania",
+      "is_eu": true,
       "year": 2017,
       "population": 2859077,
       "chickens": 9917000,
@@ -1854,6 +2068,7 @@
     {
       "geo": "LT",
       "name": "Lithuania",
+      "is_eu": true,
       "year": 2018,
       "population": 2826200,
       "chickens": 10204000,
@@ -1862,6 +2077,7 @@
     {
       "geo": "LT",
       "name": "Lithuania",
+      "is_eu": true,
       "year": 2019,
       "population": 2812200,
       "chickens": 11562000,
@@ -1870,6 +2086,7 @@
     {
       "geo": "LT",
       "name": "Lithuania",
+      "is_eu": true,
       "year": 2020,
       "population": 2809977,
       "chickens": 9852000,
@@ -1878,6 +2095,7 @@
     {
       "geo": "LT",
       "name": "Lithuania",
+      "is_eu": true,
       "year": 2021,
       "population": 2810761,
       "chickens": 8124000,
@@ -1886,6 +2104,7 @@
     {
       "geo": "LT",
       "name": "Lithuania",
+      "is_eu": true,
       "year": 2022,
       "population": 2805998,
       "chickens": 8897000,
@@ -1894,6 +2113,7 @@
     {
       "geo": "LT",
       "name": "Lithuania",
+      "is_eu": true,
       "year": 2023,
       "population": 2857279,
       "chickens": 9729000,
@@ -1902,6 +2122,7 @@
     {
       "geo": "LT",
       "name": "Lithuania",
+      "is_eu": true,
       "year": 2024,
       "population": 2885891,
       "chickens": 10476000,
@@ -1910,6 +2131,7 @@
     {
       "geo": "LU",
       "name": "Luxembourg",
+      "is_eu": true,
       "year": 2015,
       "population": 562958,
       "chickens": 114000,
@@ -1918,6 +2140,7 @@
     {
       "geo": "LU",
       "name": "Luxembourg",
+      "is_eu": true,
       "year": 2016,
       "population": 576249,
       "chickens": 114000,
@@ -1926,6 +2149,7 @@
     {
       "geo": "LU",
       "name": "Luxembourg",
+      "is_eu": true,
       "year": 2017,
       "population": 590667,
       "chickens": 123000,
@@ -1934,6 +2158,7 @@
     {
       "geo": "LU",
       "name": "Luxembourg",
+      "is_eu": true,
       "year": 2018,
       "population": 602005,
       "chickens": 123000,
@@ -1942,6 +2167,7 @@
     {
       "geo": "LU",
       "name": "Luxembourg",
+      "is_eu": true,
       "year": 2019,
       "population": 613894,
       "chickens": 132000,
@@ -1950,6 +2176,7 @@
     {
       "geo": "LU",
       "name": "Luxembourg",
+      "is_eu": true,
       "year": 2020,
       "population": 626108,
       "chickens": 136000,
@@ -1958,6 +2185,7 @@
     {
       "geo": "LU",
       "name": "Luxembourg",
+      "is_eu": true,
       "year": 2021,
       "population": 634730,
       "chickens": 171000,
@@ -1966,6 +2194,7 @@
     {
       "geo": "LU",
       "name": "Luxembourg",
+      "is_eu": true,
       "year": 2022,
       "population": 645397,
       "chickens": 186000,
@@ -1974,6 +2203,7 @@
     {
       "geo": "LU",
       "name": "Luxembourg",
+      "is_eu": true,
       "year": 2023,
       "population": 660809,
       "chickens": 183000,
@@ -1982,6 +2212,7 @@
     {
       "geo": "LU",
       "name": "Luxembourg",
+      "is_eu": true,
       "year": 2024,
       "population": 672050,
       "chickens": 186000,
@@ -1990,6 +2221,7 @@
     {
       "geo": "MT",
       "name": "Malta",
+      "is_eu": true,
       "year": 2015,
       "population": 438805,
       "chickens": 1035000,
@@ -1998,6 +2230,7 @@
     {
       "geo": "MT",
       "name": "Malta",
+      "is_eu": true,
       "year": 2016,
       "population": 449635,
       "chickens": 1024000,
@@ -2006,6 +2239,7 @@
     {
       "geo": "MT",
       "name": "Malta",
+      "is_eu": true,
       "year": 2017,
       "population": 459375,
       "chickens": 1004000,
@@ -2014,6 +2248,7 @@
     {
       "geo": "MT",
       "name": "Malta",
+      "is_eu": true,
       "year": 2018,
       "population": 474837,
       "chickens": "",
@@ -2022,6 +2257,7 @@
     {
       "geo": "MT",
       "name": "Malta",
+      "is_eu": true,
       "year": 2019,
       "population": 492968,
       "chickens": "",
@@ -2030,6 +2266,7 @@
     {
       "geo": "MT",
       "name": "Malta",
+      "is_eu": true,
       "year": 2020,
       "population": 514855,
       "chickens": 884000,
@@ -2038,6 +2275,7 @@
     {
       "geo": "MT",
       "name": "Malta",
+      "is_eu": true,
       "year": 2021,
       "population": 516125,
       "chickens": "",
@@ -2046,6 +2284,7 @@
     {
       "geo": "MT",
       "name": "Malta",
+      "is_eu": true,
       "year": 2022,
       "population": 520174,
       "chickens": "",
@@ -2054,6 +2293,7 @@
     {
       "geo": "MT",
       "name": "Malta",
+      "is_eu": true,
       "year": 2023,
       "population": 542051,
       "chickens": 790000,
@@ -2062,6 +2302,7 @@
     {
       "geo": "MT",
       "name": "Malta",
+      "is_eu": true,
       "year": 2024,
       "population": 563443,
       "chickens": "",
@@ -2070,6 +2311,7 @@
     {
       "geo": "NL",
       "name": "Netherlands",
+      "is_eu": true,
       "year": 2015,
       "population": 16900726,
       "chickens": 106763000,
@@ -2078,6 +2320,7 @@
     {
       "geo": "NL",
       "name": "Netherlands",
+      "is_eu": true,
       "year": 2016,
       "population": 16979120,
       "chickens": 105620000,
@@ -2086,6 +2329,7 @@
     {
       "geo": "NL",
       "name": "Netherlands",
+      "is_eu": true,
       "year": 2017,
       "population": 17081507,
       "chickens": 105184000,
@@ -2094,6 +2338,7 @@
     {
       "geo": "NL",
       "name": "Netherlands",
+      "is_eu": true,
       "year": 2018,
       "population": 17181084,
       "chickens": 105104000,
@@ -2102,6 +2347,7 @@
     {
       "geo": "NL",
       "name": "Netherlands",
+      "is_eu": true,
       "year": 2019,
       "population": 17282163,
       "chickens": 101741000,
@@ -2110,6 +2356,7 @@
     {
       "geo": "NL",
       "name": "Netherlands",
+      "is_eu": true,
       "year": 2020,
       "population": 17407585,
       "chickens": 101863000,
@@ -2118,6 +2365,7 @@
     {
       "geo": "NL",
       "name": "Netherlands",
+      "is_eu": true,
       "year": 2021,
       "population": 17475415,
       "chickens": 99887000,
@@ -2126,6 +2374,7 @@
     {
       "geo": "NL",
       "name": "Netherlands",
+      "is_eu": true,
       "year": 2022,
       "population": 17590672,
       "chickens": 97533000,
@@ -2134,6 +2383,7 @@
     {
       "geo": "NL",
       "name": "Netherlands",
+      "is_eu": true,
       "year": 2023,
       "population": 17811291,
       "chickens": 93004000,
@@ -2142,6 +2392,7 @@
     {
       "geo": "NL",
       "name": "Netherlands",
+      "is_eu": true,
       "year": 2024,
       "population": 17942942,
       "chickens": 89231000,
@@ -2150,6 +2401,7 @@
     {
       "geo": "PL",
       "name": "Poland",
+      "is_eu": true,
       "year": 2015,
       "population": 38005614,
       "chickens": 146123000,
@@ -2158,6 +2410,7 @@
     {
       "geo": "PL",
       "name": "Poland",
+      "is_eu": true,
       "year": 2016,
       "population": 37967209,
       "chickens": 169033000,
@@ -2166,6 +2419,7 @@
     {
       "geo": "PL",
       "name": "Poland",
+      "is_eu": true,
       "year": 2017,
       "population": 37972964,
       "chickens": 177640000,
@@ -2174,6 +2428,7 @@
     {
       "geo": "PL",
       "name": "Poland",
+      "is_eu": true,
       "year": 2018,
       "population": 37976687,
       "chickens": 182200000,
@@ -2182,6 +2437,7 @@
     {
       "geo": "PL",
       "name": "Poland",
+      "is_eu": true,
       "year": 2019,
       "population": 37972812,
       "chickens": 183121000,
@@ -2190,6 +2446,7 @@
     {
       "geo": "PL",
       "name": "Poland",
+      "is_eu": true,
       "year": 2020,
       "population": 37958138,
       "chickens": 195825000,
@@ -2198,6 +2455,7 @@
     {
       "geo": "PL",
       "name": "Poland",
+      "is_eu": true,
       "year": 2021,
       "population": 37073357,
       "chickens": 168629000,
@@ -2206,6 +2464,7 @@
     {
       "geo": "PL",
       "name": "Poland",
+      "is_eu": true,
       "year": 2022,
       "population": 36889761,
       "chickens": 176580000,
@@ -2214,6 +2473,7 @@
     {
       "geo": "PL",
       "name": "Poland",
+      "is_eu": true,
       "year": 2023,
       "population": 36753736,
       "chickens": 195145000,
@@ -2222,6 +2482,7 @@
     {
       "geo": "PL",
       "name": "Poland",
+      "is_eu": true,
       "year": 2024,
       "population": 36620970,
       "chickens": 244680000,
@@ -2230,6 +2491,7 @@
     {
       "geo": "PT",
       "name": "Portugal",
+      "is_eu": true,
       "year": 2015,
       "population": 10395121,
       "chickens": 30656000,
@@ -2238,6 +2500,7 @@
     {
       "geo": "PT",
       "name": "Portugal",
+      "is_eu": true,
       "year": 2016,
       "population": 10368554,
       "chickens": 33450000,
@@ -2246,6 +2509,7 @@
     {
       "geo": "PT",
       "name": "Portugal",
+      "is_eu": true,
       "year": 2017,
       "population": 10344478,
       "chickens": 37228000,
@@ -2254,6 +2518,7 @@
     {
       "geo": "PT",
       "name": "Portugal",
+      "is_eu": true,
       "year": 2018,
       "population": 10335770,
       "chickens": "",
@@ -2262,6 +2527,7 @@
     {
       "geo": "PT",
       "name": "Portugal",
+      "is_eu": true,
       "year": 2019,
       "population": 10333496,
       "chickens": "",
@@ -2270,6 +2536,7 @@
     {
       "geo": "PT",
       "name": "Portugal",
+      "is_eu": true,
       "year": 2020,
       "population": 10375395,
       "chickens": 49307000,
@@ -2278,6 +2545,7 @@
     {
       "geo": "PT",
       "name": "Portugal",
+      "is_eu": true,
       "year": 2021,
       "population": 10394297,
       "chickens": "",
@@ -2286,6 +2554,7 @@
     {
       "geo": "PT",
       "name": "Portugal",
+      "is_eu": true,
       "year": 2022,
       "population": 10599117,
       "chickens": "",
@@ -2294,6 +2563,7 @@
     {
       "geo": "PT",
       "name": "Portugal",
+      "is_eu": true,
       "year": 2023,
       "population": 10929704,
       "chickens": 44098000,
@@ -2302,6 +2572,7 @@
     {
       "geo": "PT",
       "name": "Portugal",
+      "is_eu": true,
       "year": 2024,
       "population": 11204347,
       "chickens": "",
@@ -2310,6 +2581,7 @@
     {
       "geo": "RO",
       "name": "Romania",
+      "is_eu": true,
       "year": 2015,
       "population": 19870647,
       "chickens": 75447000,
@@ -2318,6 +2590,7 @@
     {
       "geo": "RO",
       "name": "Romania",
+      "is_eu": true,
       "year": 2016,
       "population": 19760585,
       "chickens": 78648000,
@@ -2326,6 +2599,7 @@
     {
       "geo": "RO",
       "name": "Romania",
+      "is_eu": true,
       "year": 2017,
       "population": 19643949,
       "chickens": 75690000,
@@ -2334,6 +2608,7 @@
     {
       "geo": "RO",
       "name": "Romania",
+      "is_eu": true,
       "year": 2018,
       "population": 19533481,
       "chickens": 73289000,
@@ -2342,6 +2617,7 @@
     {
       "geo": "RO",
       "name": "Romania",
+      "is_eu": true,
       "year": 2019,
       "population": 19414458,
       "chickens": 73993000,
@@ -2350,6 +2626,7 @@
     {
       "geo": "RO",
       "name": "Romania",
+      "is_eu": true,
       "year": 2020,
       "population": 19328838,
       "chickens": 73901000,
@@ -2358,6 +2635,7 @@
     {
       "geo": "RO",
       "name": "Romania",
+      "is_eu": true,
       "year": 2021,
       "population": 19201662,
       "chickens": 77148000,
@@ -2366,6 +2644,7 @@
     {
       "geo": "RO",
       "name": "Romania",
+      "is_eu": true,
       "year": 2022,
       "population": 19043098,
       "chickens": 78268000,
@@ -2374,6 +2653,7 @@
     {
       "geo": "RO",
       "name": "Romania",
+      "is_eu": true,
       "year": 2023,
       "population": 19055228,
       "chickens": 74068000,
@@ -2382,6 +2662,7 @@
     {
       "geo": "RO",
       "name": "Romania",
+      "is_eu": true,
       "year": 2024,
       "population": 19067576,
       "chickens": "",
@@ -2390,6 +2671,7 @@
     {
       "geo": "SK",
       "name": "Slovakia",
+      "is_eu": true,
       "year": 2015,
       "population": 5421349,
       "chickens": 12181000,
@@ -2398,6 +2680,7 @@
     {
       "geo": "SK",
       "name": "Slovakia",
+      "is_eu": true,
       "year": 2016,
       "population": 5426252,
       "chickens": 12513000,
@@ -2406,6 +2689,7 @@
     {
       "geo": "SK",
       "name": "Slovakia",
+      "is_eu": true,
       "year": 2017,
       "population": 5435343,
       "chickens": 11806000,
@@ -2414,6 +2698,7 @@
     {
       "geo": "SK",
       "name": "Slovakia",
+      "is_eu": true,
       "year": 2018,
       "population": 5443120,
       "chickens": 13030000,
@@ -2422,6 +2707,7 @@
     {
       "geo": "SK",
       "name": "Slovakia",
+      "is_eu": true,
       "year": 2019,
       "population": 5450421,
       "chickens": 12853000,
@@ -2430,6 +2716,7 @@
     {
       "geo": "SK",
       "name": "Slovakia",
+      "is_eu": true,
       "year": 2020,
       "population": 5457873,
       "chickens": 13153000,
@@ -2438,6 +2725,7 @@
     {
       "geo": "SK",
       "name": "Slovakia",
+      "is_eu": true,
       "year": 2021,
       "population": 5459781,
       "chickens": 10136000,
@@ -2446,6 +2734,7 @@
     {
       "geo": "SK",
       "name": "Slovakia",
+      "is_eu": true,
       "year": 2022,
       "population": 5434712,
       "chickens": 9096000,
@@ -2454,6 +2743,7 @@
     {
       "geo": "SK",
       "name": "Slovakia",
+      "is_eu": true,
       "year": 2023,
       "population": 5428792,
       "chickens": 9815000,
@@ -2462,6 +2752,7 @@
     {
       "geo": "SK",
       "name": "Slovakia",
+      "is_eu": true,
       "year": 2024,
       "population": 5424687,
       "chickens": 9593000,
@@ -2470,6 +2761,7 @@
     {
       "geo": "SI",
       "name": "Slovenia",
+      "is_eu": true,
       "year": 2015,
       "population": 2062874,
       "chickens": 3281000,
@@ -2478,6 +2770,7 @@
     {
       "geo": "SI",
       "name": "Slovenia",
+      "is_eu": true,
       "year": 2016,
       "population": 2064188,
       "chickens": 3479000,
@@ -2486,6 +2779,7 @@
     {
       "geo": "SI",
       "name": "Slovenia",
+      "is_eu": true,
       "year": 2017,
       "population": 2065895,
       "chickens": 3639000,
@@ -2494,6 +2788,7 @@
     {
       "geo": "SI",
       "name": "Slovenia",
+      "is_eu": true,
       "year": 2018,
       "population": 2066880,
       "chickens": 3866000,
@@ -2502,6 +2797,7 @@
     {
       "geo": "SI",
       "name": "Slovenia",
+      "is_eu": true,
       "year": 2019,
       "population": 2080908,
       "chickens": 4028000,
@@ -2510,6 +2806,7 @@
     {
       "geo": "SI",
       "name": "Slovenia",
+      "is_eu": true,
       "year": 2020,
       "population": 2095861,
       "chickens": 5770000,
@@ -2518,6 +2815,7 @@
     {
       "geo": "SI",
       "name": "Slovenia",
+      "is_eu": true,
       "year": 2021,
       "population": 2108977,
       "chickens": 4671000,
@@ -2526,6 +2824,7 @@
     {
       "geo": "SI",
       "name": "Slovenia",
+      "is_eu": true,
       "year": 2022,
       "population": 2107180,
       "chickens": 5023000,
@@ -2534,6 +2833,7 @@
     {
       "geo": "SI",
       "name": "Slovenia",
+      "is_eu": true,
       "year": 2023,
       "population": 2116972,
       "chickens": 4059000,
@@ -2542,6 +2842,7 @@
     {
       "geo": "SI",
       "name": "Slovenia",
+      "is_eu": true,
       "year": 2024,
       "population": 2123949,
       "chickens": 5054000,
@@ -2550,6 +2851,7 @@
     {
       "geo": "ES",
       "name": "Spain",
+      "is_eu": true,
       "year": 2015,
       "population": 46425722,
       "chickens": 184311000,
@@ -2558,6 +2860,7 @@
     {
       "geo": "ES",
       "name": "Spain",
+      "is_eu": true,
       "year": 2016,
       "population": 46418884,
       "chickens": 182200000,
@@ -2566,6 +2869,7 @@
     {
       "geo": "ES",
       "name": "Spain",
+      "is_eu": true,
       "year": 2017,
       "population": 46497393,
       "chickens": 187784000,
@@ -2574,6 +2878,7 @@
     {
       "geo": "ES",
       "name": "Spain",
+      "is_eu": true,
       "year": 2018,
       "population": 46645070,
       "chickens": "",
@@ -2582,6 +2887,7 @@
     {
       "geo": "ES",
       "name": "Spain",
+      "is_eu": true,
       "year": 2019,
       "population": 46918951,
       "chickens": "",
@@ -2590,6 +2896,7 @@
     {
       "geo": "ES",
       "name": "Spain",
+      "is_eu": true,
       "year": 2020,
       "population": 47318050,
       "chickens": 193476000,
@@ -2598,6 +2905,7 @@
     {
       "geo": "ES",
       "name": "Spain",
+      "is_eu": true,
       "year": 2021,
       "population": 47400798,
       "chickens": "",
@@ -2606,6 +2914,7 @@
     {
       "geo": "ES",
       "name": "Spain",
+      "is_eu": true,
       "year": 2022,
       "population": 47486843,
       "chickens": "",
@@ -2614,6 +2923,7 @@
     {
       "geo": "ES",
       "name": "Spain",
+      "is_eu": true,
       "year": 2023,
       "population": 48085361,
       "chickens": "",
@@ -2622,6 +2932,7 @@
     {
       "geo": "ES",
       "name": "Spain",
+      "is_eu": true,
       "year": 2024,
       "population": 48619695,
       "chickens": "",
@@ -2630,6 +2941,7 @@
     {
       "geo": "SE",
       "name": "Sweden",
+      "is_eu": true,
       "year": 2015,
       "population": 9747355,
       "chickens": 28958000,
@@ -2638,6 +2950,7 @@
     {
       "geo": "SE",
       "name": "Sweden",
+      "is_eu": true,
       "year": 2016,
       "population": 9851017,
       "chickens": 29761000,
@@ -2646,6 +2959,7 @@
     {
       "geo": "SE",
       "name": "Sweden",
+      "is_eu": true,
       "year": 2017,
       "population": 9995153,
       "chickens": 30559000,
@@ -2654,6 +2968,7 @@
     {
       "geo": "SE",
       "name": "Sweden",
+      "is_eu": true,
       "year": 2018,
       "population": 10120242,
       "chickens": 31756000,
@@ -2662,6 +2977,7 @@
     {
       "geo": "SE",
       "name": "Sweden",
+      "is_eu": true,
       "year": 2019,
       "population": 10230185,
       "chickens": 33900000,
@@ -2670,6 +2986,7 @@
     {
       "geo": "SE",
       "name": "Sweden",
+      "is_eu": true,
       "year": 2020,
       "population": 10327589,
       "chickens": "",
@@ -2678,6 +2995,7 @@
     {
       "geo": "SE",
       "name": "Sweden",
+      "is_eu": true,
       "year": 2021,
       "population": 10379295,
       "chickens": "",
@@ -2686,6 +3004,7 @@
     {
       "geo": "SE",
       "name": "Sweden",
+      "is_eu": true,
       "year": 2022,
       "population": 10452326,
       "chickens": "",
@@ -2694,6 +3013,7 @@
     {
       "geo": "SE",
       "name": "Sweden",
+      "is_eu": true,
       "year": 2023,
       "population": 10521556,
       "chickens": 25729000,
@@ -2702,6 +3022,7 @@
     {
       "geo": "SE",
       "name": "Sweden",
+      "is_eu": true,
       "year": 2024,
       "population": 10551707,
       "chickens": "",
@@ -2710,6 +3031,7 @@
     {
       "geo": "IS",
       "name": "Iceland",
+      "is_eu": false,
       "year": 2015,
       "population": 329100,
       "chickens": 221000,
@@ -2718,6 +3040,7 @@
     {
       "geo": "IS",
       "name": "Iceland",
+      "is_eu": false,
       "year": 2016,
       "population": 332529,
       "chickens": 226000,
@@ -2726,6 +3049,7 @@
     {
       "geo": "IS",
       "name": "Iceland",
+      "is_eu": false,
       "year": 2017,
       "population": 338349,
       "chickens": 230000,
@@ -2734,6 +3058,7 @@
     {
       "geo": "IS",
       "name": "Iceland",
+      "is_eu": false,
       "year": 2018,
       "population": 348450,
       "chickens": 228000,
@@ -2742,6 +3067,7 @@
     {
       "geo": "IS",
       "name": "Iceland",
+      "is_eu": false,
       "year": 2019,
       "population": 356991,
       "chickens": 227000,
@@ -2750,6 +3076,7 @@
     {
       "geo": "IS",
       "name": "Iceland",
+      "is_eu": false,
       "year": 2020,
       "population": 364134,
       "chickens": 222000,
@@ -2758,6 +3085,7 @@
     {
       "geo": "IS",
       "name": "Iceland",
+      "is_eu": false,
       "year": 2021,
       "population": 368792,
       "chickens": 220000,
@@ -2766,6 +3094,7 @@
     {
       "geo": "IS",
       "name": "Iceland",
+      "is_eu": false,
       "year": 2022,
       "population": 376248,
       "chickens": 220000,
@@ -2774,6 +3103,7 @@
     {
       "geo": "IS",
       "name": "Iceland",
+      "is_eu": false,
       "year": 2023,
       "population": 387758,
       "chickens": 220000,
@@ -2782,6 +3112,7 @@
     {
       "geo": "IS",
       "name": "Iceland",
+      "is_eu": false,
       "year": 2024,
       "population": 383567,
       "chickens": 230000,
@@ -2790,6 +3121,7 @@
     {
       "geo": "NO",
       "name": "Norway",
+      "is_eu": false,
       "year": 2015,
       "population": 5165802,
       "chickens": 14584000,
@@ -2798,6 +3130,7 @@
     {
       "geo": "NO",
       "name": "Norway",
+      "is_eu": false,
       "year": 2016,
       "population": 5213985,
       "chickens": 13919000,
@@ -2806,6 +3139,7 @@
     {
       "geo": "NO",
       "name": "Norway",
+      "is_eu": false,
       "year": 2017,
       "population": 5258317,
       "chickens": 15643000,
@@ -2814,6 +3148,7 @@
     {
       "geo": "NO",
       "name": "Norway",
+      "is_eu": false,
       "year": 2018,
       "population": 5295619,
       "chickens": 15598000,
@@ -2822,6 +3157,7 @@
     {
       "geo": "NO",
       "name": "Norway",
+      "is_eu": false,
       "year": 2019,
       "population": 5328212,
       "chickens": 16096000,
@@ -2830,6 +3166,7 @@
     {
       "geo": "NO",
       "name": "Norway",
+      "is_eu": false,
       "year": 2020,
       "population": 5367580,
       "chickens": 14218000,
@@ -2838,6 +3175,7 @@
     {
       "geo": "NO",
       "name": "Norway",
+      "is_eu": false,
       "year": 2021,
       "population": 5391369,
       "chickens": 16336000,
@@ -2846,6 +3184,7 @@
     {
       "geo": "NO",
       "name": "Norway",
+      "is_eu": false,
       "year": 2022,
       "population": 5425270,
       "chickens": 16131000,
@@ -2854,6 +3193,7 @@
     {
       "geo": "NO",
       "name": "Norway",
+      "is_eu": false,
       "year": 2023,
       "population": 5488984,
       "chickens": 16484000,
@@ -2862,6 +3202,7 @@
     {
       "geo": "NO",
       "name": "Norway",
+      "is_eu": false,
       "year": 2024,
       "population": 5550203,
       "chickens": 16579000,
@@ -2870,6 +3211,7 @@
     {
       "geo": "CH",
       "name": "Switzerland",
+      "is_eu": false,
       "year": 2015,
       "population": 8237666,
       "chickens": 10753000,
@@ -2878,6 +3220,7 @@
     {
       "geo": "CH",
       "name": "Switzerland",
+      "is_eu": false,
       "year": 2016,
       "population": 8327126,
       "chickens": 10893000,
@@ -2886,6 +3229,7 @@
     {
       "geo": "CH",
       "name": "Switzerland",
+      "is_eu": false,
       "year": 2017,
       "population": 8419550,
       "chickens": 11409000,
@@ -2894,6 +3238,7 @@
     {
       "geo": "CH",
       "name": "Switzerland",
+      "is_eu": false,
       "year": 2018,
       "population": 8484130,
       "chickens": 11535000,
@@ -2902,6 +3247,7 @@
     {
       "geo": "CH",
       "name": "Switzerland",
+      "is_eu": false,
       "year": 2019,
       "population": 8544527,
       "chickens": 11829000,
@@ -2910,6 +3256,7 @@
     {
       "geo": "CH",
       "name": "Switzerland",
+      "is_eu": false,
       "year": 2020,
       "population": 8606033,
       "chickens": 12429000,
@@ -2918,6 +3265,7 @@
     {
       "geo": "CH",
       "name": "Switzerland",
+      "is_eu": false,
       "year": 2021,
       "population": 8670300,
       "chickens": 12568000,
@@ -2926,6 +3274,7 @@
     {
       "geo": "CH",
       "name": "Switzerland",
+      "is_eu": false,
       "year": 2022,
       "population": 8738791,
       "chickens": 13109000,
@@ -2934,6 +3283,7 @@
     {
       "geo": "CH",
       "name": "Switzerland",
+      "is_eu": false,
       "year": 2023,
       "population": 8815385,
       "chickens": 13152000,
@@ -2942,6 +3292,7 @@
     {
       "geo": "CH",
       "name": "Switzerland",
+      "is_eu": false,
       "year": 2024,
       "population": 8962258,
       "chickens": 13168000,
@@ -2950,6 +3301,7 @@
     {
       "geo": "UK",
       "name": "United Kingdom",
+      "is_eu": false,
       "year": 2015,
       "population": 64852826,
       "chickens": 157000000,
@@ -2958,6 +3310,7 @@
     {
       "geo": "UK",
       "name": "United Kingdom",
+      "is_eu": false,
       "year": 2016,
       "population": 65346400,
       "chickens": 161000000,
@@ -2966,6 +3319,7 @@
     {
       "geo": "UK",
       "name": "United Kingdom",
+      "is_eu": false,
       "year": 2017,
       "population": 65785067,
       "chickens": 171000000,
@@ -2974,6 +3328,7 @@
     {
       "geo": "UK",
       "name": "United Kingdom",
+      "is_eu": false,
       "year": 2018,
       "population": 66125510,
       "chickens": 178000000,
@@ -2982,6 +3337,7 @@
     {
       "geo": "UK",
       "name": "United Kingdom",
+      "is_eu": false,
       "year": 2019,
       "population": 66457117,
       "chickens": 176000000,
@@ -2990,6 +3346,7 @@
     {
       "geo": "UK",
       "name": "United Kingdom",
+      "is_eu": false,
       "year": 2020,
       "population": 66683687,
       "chickens": 172000000,
@@ -2998,6 +3355,7 @@
     {
       "geo": "UK",
       "name": "United Kingdom",
+      "is_eu": false,
       "year": 2021,
       "population": 66858928,
       "chickens": 180000000,
@@ -3006,6 +3364,7 @@
     {
       "geo": "UK",
       "name": "United Kingdom",
+      "is_eu": false,
       "year": 2022,
       "population": 67307061,
       "chickens": 174193000,
@@ -3014,6 +3373,7 @@
     {
       "geo": "UK",
       "name": "United Kingdom",
+      "is_eu": false,
       "year": 2023,
       "population": 68081159,
       "chickens": 170233000,
@@ -3022,6 +3382,7 @@
     {
       "geo": "UK",
       "name": "United Kingdom",
+      "is_eu": false,
       "year": 2024,
       "population": 68903810,
       "chickens": 166986000,
@@ -3030,6 +3391,7 @@
     {
       "geo": "AL",
       "name": "Albania",
+      "is_eu": false,
       "year": 2015,
       "population": 2885796,
       "chickens": 8555000,
@@ -3038,6 +3400,7 @@
     {
       "geo": "AL",
       "name": "Albania",
+      "is_eu": false,
       "year": 2016,
       "population": 2875592,
       "chickens": 7634000,
@@ -3046,6 +3409,7 @@
     {
       "geo": "AL",
       "name": "Albania",
+      "is_eu": false,
       "year": 2017,
       "population": 2876591,
       "chickens": 7835000,
@@ -3054,6 +3418,7 @@
     {
       "geo": "AL",
       "name": "Albania",
+      "is_eu": false,
       "year": 2018,
       "population": 2870324,
       "chickens": 7272000,
@@ -3062,6 +3427,7 @@
     {
       "geo": "AL",
       "name": "Albania",
+      "is_eu": false,
       "year": 2019,
       "population": 2862427,
       "chickens": 7090000,
@@ -3070,6 +3436,7 @@
     {
       "geo": "AL",
       "name": "Albania",
+      "is_eu": false,
       "year": 2020,
       "population": 2845955,
       "chickens": 6774000,
@@ -3078,6 +3445,7 @@
     {
       "geo": "AL",
       "name": "Albania",
+      "is_eu": false,
       "year": 2021,
       "population": 2829741,
       "chickens": 5249000,
@@ -3086,6 +3454,7 @@
     {
       "geo": "AL",
       "name": "Albania",
+      "is_eu": false,
       "year": 2022,
       "population": 2793592,
       "chickens": 4999000,
@@ -3094,6 +3463,7 @@
     {
       "geo": "AL",
       "name": "Albania",
+      "is_eu": false,
       "year": 2023,
       "population": 2761785,
       "chickens": 4877000,
@@ -3102,6 +3472,7 @@
     {
       "geo": "AL",
       "name": "Albania",
+      "is_eu": false,
       "year": 2024,
       "population": 2390942,
       "chickens": 4557000,
@@ -3110,6 +3481,7 @@
     {
       "geo": "BA",
       "name": "Bosnia and Herzegovina",
+      "is_eu": false,
       "year": 2015,
       "population": 3825334,
       "chickens": 15390000,
@@ -3118,6 +3490,7 @@
     {
       "geo": "BA",
       "name": "Bosnia and Herzegovina",
+      "is_eu": false,
       "year": 2016,
       "population": 3515982,
       "chickens": 15066000,
@@ -3126,6 +3499,7 @@
     {
       "geo": "BA",
       "name": "Bosnia and Herzegovina",
+      "is_eu": false,
       "year": 2017,
       "population": 3509728,
       "chickens": 16282000,
@@ -3134,6 +3508,7 @@
     {
       "geo": "BA",
       "name": "Bosnia and Herzegovina",
+      "is_eu": false,
       "year": 2018,
       "population": 3500295,
       "chickens": 16229000,
@@ -3142,6 +3517,7 @@
     {
       "geo": "BA",
       "name": "Bosnia and Herzegovina",
+      "is_eu": false,
       "year": 2019,
       "population": 3492018,
       "chickens": 16669000,
@@ -3150,6 +3526,7 @@
     {
       "geo": "BA",
       "name": "Bosnia and Herzegovina",
+      "is_eu": false,
       "year": 2020,
       "population": "",
       "chickens": 16658000,
@@ -3158,6 +3535,7 @@
     {
       "geo": "BA",
       "name": "Bosnia and Herzegovina",
+      "is_eu": false,
       "year": 2021,
       "population": "",
       "chickens": 8727000,
@@ -3166,6 +3544,7 @@
     {
       "geo": "BA",
       "name": "Bosnia and Herzegovina",
+      "is_eu": false,
       "year": 2022,
       "population": 3464384,
       "chickens": 9299000,
@@ -3174,6 +3553,7 @@
     {
       "geo": "BA",
       "name": "Bosnia and Herzegovina",
+      "is_eu": false,
       "year": 2023,
       "population": 3441194,
       "chickens": 9383000,
@@ -3182,6 +3562,7 @@
     {
       "geo": "BA",
       "name": "Bosnia and Herzegovina",
+      "is_eu": false,
       "year": 2024,
       "population": 3417089,
       "chickens": 11523000,
@@ -3190,6 +3571,7 @@
     {
       "geo": "GE",
       "name": "Georgia",
+      "is_eu": false,
       "year": 2015,
       "population": 3729500,
       "chickens": 6658000,
@@ -3198,6 +3580,7 @@
     {
       "geo": "GE",
       "name": "Georgia",
+      "is_eu": false,
       "year": 2016,
       "population": 3720400,
       "chickens": 8309000,
@@ -3206,6 +3589,7 @@
     {
       "geo": "GE",
       "name": "Georgia",
+      "is_eu": false,
       "year": 2017,
       "population": 3718200,
       "chickens": 8046000,
@@ -3214,6 +3598,7 @@
     {
       "geo": "GE",
       "name": "Georgia",
+      "is_eu": false,
       "year": 2018,
       "population": 3729633,
       "chickens": 8220000,
@@ -3222,6 +3607,7 @@
     {
       "geo": "GE",
       "name": "Georgia",
+      "is_eu": false,
       "year": 2019,
       "population": 3723464,
       "chickens": 7942000,
@@ -3230,6 +3616,7 @@
     {
       "geo": "GE",
       "name": "Georgia",
+      "is_eu": false,
       "year": 2020,
       "population": 3716858,
       "chickens": 9298000,
@@ -3238,6 +3625,7 @@
     {
       "geo": "GE",
       "name": "Georgia",
+      "is_eu": false,
       "year": 2021,
       "population": 3728573,
       "chickens": 9980000,
@@ -3246,6 +3634,7 @@
     {
       "geo": "GE",
       "name": "Georgia",
+      "is_eu": false,
       "year": 2022,
       "population": 3688647,
       "chickens": 9092000,
@@ -3254,6 +3643,7 @@
     {
       "geo": "GE",
       "name": "Georgia",
+      "is_eu": false,
       "year": 2023,
       "population": 3736357,
       "chickens": 8812000,
@@ -3262,6 +3652,7 @@
     {
       "geo": "GE",
       "name": "Georgia",
+      "is_eu": false,
       "year": 2024,
       "population": 3694608,
       "chickens": 7475000,
@@ -3270,6 +3661,7 @@
     {
       "geo": "ME",
       "name": "Montenegro",
+      "is_eu": false,
       "year": 2015,
       "population": 622099,
       "chickens": 597000,
@@ -3278,6 +3670,7 @@
     {
       "geo": "ME",
       "name": "Montenegro",
+      "is_eu": false,
       "year": 2016,
       "population": 622218,
       "chickens": 723000,
@@ -3286,6 +3679,7 @@
     {
       "geo": "ME",
       "name": "Montenegro",
+      "is_eu": false,
       "year": 2017,
       "population": 622387,
       "chickens": 722000,
@@ -3294,6 +3688,7 @@
     {
       "geo": "ME",
       "name": "Montenegro",
+      "is_eu": false,
       "year": 2018,
       "population": 622359,
       "chickens": 651000,
@@ -3302,6 +3697,7 @@
     {
       "geo": "ME",
       "name": "Montenegro",
+      "is_eu": false,
       "year": 2019,
       "population": 622182,
       "chickens": 621000,
@@ -3310,6 +3706,7 @@
     {
       "geo": "ME",
       "name": "Montenegro",
+      "is_eu": false,
       "year": 2020,
       "population": 621873,
       "chickens": 587000,
@@ -3318,6 +3715,7 @@
     {
       "geo": "ME",
       "name": "Montenegro",
+      "is_eu": false,
       "year": 2021,
       "population": 620739,
       "chickens": 587000,
@@ -3326,6 +3724,7 @@
     {
       "geo": "ME",
       "name": "Montenegro",
+      "is_eu": false,
       "year": 2022,
       "population": 617683,
       "chickens": 844000,
@@ -3334,6 +3733,7 @@
     {
       "geo": "ME",
       "name": "Montenegro",
+      "is_eu": false,
       "year": 2023,
       "population": 616695,
       "chickens": 855000,
@@ -3342,6 +3742,7 @@
     {
       "geo": "ME",
       "name": "Montenegro",
+      "is_eu": false,
       "year": 2024,
       "population": 623680,
       "chickens": 1070000,
@@ -3350,6 +3751,7 @@
     {
       "geo": "MK",
       "name": "North Macedonia",
+      "is_eu": false,
       "year": 2015,
       "population": 2069172,
       "chickens": 1761000,
@@ -3358,6 +3760,7 @@
     {
       "geo": "MK",
       "name": "North Macedonia",
+      "is_eu": false,
       "year": 2016,
       "population": 2071278,
       "chickens": 1866000,
@@ -3366,6 +3769,7 @@
     {
       "geo": "MK",
       "name": "North Macedonia",
+      "is_eu": false,
       "year": 2017,
       "population": 2073702,
       "chickens": 1840000,
@@ -3374,6 +3778,7 @@
     {
       "geo": "MK",
       "name": "North Macedonia",
+      "is_eu": false,
       "year": 2018,
       "population": 2075301,
       "chickens": 1828000,
@@ -3382,6 +3787,7 @@
     {
       "geo": "MK",
       "name": "North Macedonia",
+      "is_eu": false,
       "year": 2019,
       "population": 2077132,
       "chickens": 1562000,
@@ -3390,6 +3796,7 @@
     {
       "geo": "MK",
       "name": "North Macedonia",
+      "is_eu": false,
       "year": 2020,
       "population": 2076255,
       "chickens": 1643000,
@@ -3398,6 +3805,7 @@
     {
       "geo": "MK",
       "name": "North Macedonia",
+      "is_eu": false,
       "year": 2021,
       "population": 2068808,
       "chickens": 1484000,
@@ -3406,6 +3814,7 @@
     {
       "geo": "MK",
       "name": "North Macedonia",
+      "is_eu": false,
       "year": 2022,
       "population": 1837114,
       "chickens": 1562000,
@@ -3414,6 +3823,7 @@
     {
       "geo": "MK",
       "name": "North Macedonia",
+      "is_eu": false,
       "year": 2023,
       "population": 1829954,
       "chickens": 1746000,
@@ -3422,6 +3832,7 @@
     {
       "geo": "MK",
       "name": "North Macedonia",
+      "is_eu": false,
       "year": 2024,
       "population": 1826247,
       "chickens": 2573000,
@@ -3430,6 +3841,7 @@
     {
       "geo": "RS",
       "name": "Serbia",
+      "is_eu": false,
       "year": 2015,
       "population": 7114393,
       "chickens": 16919000,
@@ -3438,6 +3850,7 @@
     {
       "geo": "RS",
       "name": "Serbia",
+      "is_eu": false,
       "year": 2016,
       "population": 7076372,
       "chickens": 15708000,
@@ -3446,6 +3859,7 @@
     {
       "geo": "RS",
       "name": "Serbia",
+      "is_eu": false,
       "year": 2017,
       "population": 7040272,
       "chickens": 16338000,
@@ -3454,6 +3868,7 @@
     {
       "geo": "RS",
       "name": "Serbia",
+      "is_eu": false,
       "year": 2018,
       "population": 7001444,
       "chickens": 15685000,
@@ -3462,6 +3877,7 @@
     {
       "geo": "RS",
       "name": "Serbia",
+      "is_eu": false,
       "year": 2019,
       "population": 6963764,
       "chickens": 15417000,
@@ -3470,6 +3886,7 @@
     {
       "geo": "RS",
       "name": "Serbia",
+      "is_eu": false,
       "year": 2020,
       "population": 6926705,
       "chickens": 14927000,
@@ -3478,6 +3895,7 @@
     {
       "geo": "RS",
       "name": "Serbia",
+      "is_eu": false,
       "year": 2021,
       "population": 6871547,
       "chickens": 15122000,
@@ -3486,6 +3904,7 @@
     {
       "geo": "RS",
       "name": "Serbia",
+      "is_eu": false,
       "year": 2022,
       "population": 6797105,
       "chickens": 14624000,
@@ -3494,6 +3913,7 @@
     {
       "geo": "RS",
       "name": "Serbia",
+      "is_eu": false,
       "year": 2023,
       "population": 6641197,
       "chickens": 13913000,
@@ -3502,6 +3922,7 @@
     {
       "geo": "RS",
       "name": "Serbia",
+      "is_eu": false,
       "year": 2024,
       "population": 6605168,
       "chickens": 14417000,
@@ -3510,6 +3931,7 @@
     {
       "geo": "TR",
       "name": "Türkiye",
+      "is_eu": false,
       "year": 2015,
       "population": 77695904,
       "chickens": 312256000,
@@ -3518,6 +3940,7 @@
     {
       "geo": "TR",
       "name": "Türkiye",
+      "is_eu": false,
       "year": 2016,
       "population": 78741053,
       "chickens": 329011000,
@@ -3526,6 +3949,7 @@
     {
       "geo": "TR",
       "name": "Türkiye",
+      "is_eu": false,
       "year": 2017,
       "population": 79814871,
       "chickens": 342801000,
@@ -3534,6 +3958,7 @@
     {
       "geo": "TR",
       "name": "Türkiye",
+      "is_eu": false,
       "year": 2018,
       "population": 80810525,
       "chickens": 353561000,
@@ -3542,6 +3967,7 @@
     {
       "geo": "TR",
       "name": "Türkiye",
+      "is_eu": false,
       "year": 2019,
       "population": 82003882,
       "chickens": 342567000,
@@ -3550,6 +3976,7 @@
     {
       "geo": "TR",
       "name": "Türkiye",
+      "is_eu": false,
       "year": 2020,
       "population": 83154997,
       "chickens": 379349000,
@@ -3558,6 +3985,7 @@
     {
       "geo": "TR",
       "name": "Türkiye",
+      "is_eu": false,
       "year": 2021,
       "population": 83614362,
       "chickens": 391394000,
@@ -3566,6 +3994,7 @@
     {
       "geo": "TR",
       "name": "Türkiye",
+      "is_eu": false,
       "year": 2022,
       "population": 84680273,
       "chickens": 361096000,
@@ -3574,6 +4003,7 @@
     {
       "geo": "TR",
       "name": "Türkiye",
+      "is_eu": false,
       "year": 2023,
       "population": 85279553,
       "chickens": 368624000,
@@ -3582,6 +4012,7 @@
     {
       "geo": "TR",
       "name": "Türkiye",
+      "is_eu": false,
       "year": 2024,
       "population": 85372377,
       "chickens": 379627000,
