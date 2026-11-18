@@ -1,0 +1,3844 @@
+{
+  "reference_year": 2024,
+  "trend_start": 2015,
+  "scope": "Eurostat-demographic Europe (EU27 + EFTA + UK + candidates)",
+  "sources": {
+    "population": "Eurostat demo_gind (indic_de JAN) - population on 1 January, usually resident",
+    "chickens": "FAOSTAT QCL, item 1057 'Chickens', element 'Stocks' (1000 head)"
+  },
+  "corrections": [
+    "Moldova: FAOSTAT 'Chickens' (48,451,000, imputed) replaced with NBS 'all poultry' 3,972,100 (1 Jan 2024) — see docs/uncertainties.md"
+  ],
+  "rows": [
+    {
+      "geo": "PL",
+      "name": "Poland",
+      "year": 2024,
+      "population": 36620970,
+      "chickens": 244680000,
+      "ratio": 6.681,
+      "chicken_flag": "A",
+      "chicken_source": "FAOSTAT",
+      "more_chickens_than_people": true,
+      "data_note": ""
+    },
+    {
+      "geo": "NL",
+      "name": "Netherlands",
+      "year": 2024,
+      "population": 17942942,
+      "chickens": 89231000,
+      "ratio": 4.973,
+      "chicken_flag": "A",
+      "chicken_source": "FAOSTAT",
+      "more_chickens_than_people": true,
+      "data_note": ""
+    },
+    {
+      "geo": "CY",
+      "name": "Cyprus",
+      "year": 2023,
+      "population": 949084,
+      "chickens": 4655000,
+      "ratio": 4.905,
+      "chicken_flag": "A",
+      "chicken_source": "FAOSTAT",
+      "more_chickens_than_people": true,
+      "data_note": "data from 2023 (2024 chicken data unavailable)"
+    },
+    {
+      "geo": "TR",
+      "name": "Türkiye",
+      "year": 2024,
+      "population": 85372377,
+      "chickens": 379627000,
+      "ratio": 4.447,
+      "chicken_flag": "A",
+      "chicken_source": "FAOSTAT",
+      "more_chickens_than_people": true,
+      "data_note": ""
+    },
+    {
+      "geo": "BE",
+      "name": "Belgium",
+      "year": 2023,
+      "population": 11742796,
+      "chickens": 48754000,
+      "ratio": 4.152,
+      "chicken_flag": "A",
+      "chicken_source": "FAOSTAT",
+      "more_chickens_than_people": true,
+      "data_note": "data from 2023 (2024 chicken data unavailable)"
+    },
+    {
+      "geo": "ES",
+      "name": "Spain",
+      "year": 2020,
+      "population": 47318050,
+      "chickens": 193476000,
+      "ratio": 4.089,
+      "chicken_flag": "A",
+      "chicken_source": "FAOSTAT",
+      "more_chickens_than_people": true,
+      "data_note": "data from 2020 (2024 chicken data unavailable)"
+    },
+    {
+      "geo": "PT",
+      "name": "Portugal",
+      "year": 2023,
+      "population": 10929704,
+      "chickens": 44098000,
+      "ratio": 4.035,
+      "chicken_flag": "A",
+      "chicken_source": "FAOSTAT",
+      "more_chickens_than_people": true,
+      "data_note": "data from 2023 (2024 chicken data unavailable)"
+    },
+    {
+      "geo": "RO",
+      "name": "Romania",
+      "year": 2023,
+      "population": 19055228,
+      "chickens": 74068000,
+      "ratio": 3.887,
+      "chicken_flag": "A",
+      "chicken_source": "FAOSTAT",
+      "more_chickens_than_people": true,
+      "data_note": "data from 2023 (2024 chicken data unavailable)"
+    },
+    {
+      "geo": "EL",
+      "name": "Greece",
+      "year": 2023,
+      "population": 10401868,
+      "chickens": 38508000,
+      "ratio": 3.702,
+      "chicken_flag": "A",
+      "chicken_source": "FAOSTAT",
+      "more_chickens_than_people": true,
+      "data_note": "data from 2023 (2024 chicken data unavailable)"
+    },
+    {
+      "geo": "LT",
+      "name": "Lithuania",
+      "year": 2024,
+      "population": 2885891,
+      "chickens": 10476000,
+      "ratio": 3.63,
+      "chicken_flag": "A",
+      "chicken_source": "FAOSTAT",
+      "more_chickens_than_people": true,
+      "data_note": ""
+    },
+    {
+      "geo": "DK",
+      "name": "Denmark",
+      "year": 2024,
+      "population": 5961249,
+      "chickens": 20718000,
+      "ratio": 3.475,
+      "chicken_flag": "A",
+      "chicken_source": "FAOSTAT",
+      "more_chickens_than_people": true,
+      "data_note": ""
+    },
+    {
+      "geo": "BA",
+      "name": "Bosnia and Herzegovina",
+      "year": 2024,
+      "population": 3417089,
+      "chickens": 11523000,
+      "ratio": 3.372,
+      "chicken_flag": "A",
+      "chicken_source": "FAOSTAT",
+      "more_chickens_than_people": true,
+      "data_note": ""
+    },
+    {
+      "geo": "FR",
+      "name": "France",
+      "year": 2024,
+      "population": 68669303,
+      "chickens": 229317000,
+      "ratio": 3.339,
+      "chicken_flag": "A",
+      "chicken_source": "FAOSTAT",
+      "more_chickens_than_people": true,
+      "data_note": ""
+    },
+    {
+      "geo": "LV",
+      "name": "Latvia",
+      "year": 2024,
+      "population": 1878575,
+      "chickens": 5985000,
+      "ratio": 3.186,
+      "chicken_flag": "A",
+      "chicken_source": "FAOSTAT",
+      "more_chickens_than_people": true,
+      "data_note": ""
+    },
+    {
+      "geo": "IE",
+      "name": "Ireland",
+      "year": 2020,
+      "population": 5012600,
+      "chickens": 15236000,
+      "ratio": 3.04,
+      "chicken_flag": "A",
+      "chicken_source": "FAOSTAT",
+      "more_chickens_than_people": true,
+      "data_note": "data from 2020 (2024 chicken data unavailable)"
+    },
+    {
+      "geo": "HU",
+      "name": "Hungary",
+      "year": 2024,
+      "population": 9584627,
+      "chickens": 28733000,
+      "ratio": 2.998,
+      "chicken_flag": "A",
+      "chicken_source": "FAOSTAT",
+      "more_chickens_than_people": true,
+      "data_note": ""
+    },
+    {
+      "geo": "NO",
+      "name": "Norway",
+      "year": 2024,
+      "population": 5550203,
+      "chickens": 16579000,
+      "ratio": 2.987,
+      "chicken_flag": "A",
+      "chicken_source": "FAOSTAT",
+      "more_chickens_than_people": true,
+      "data_note": ""
+    },
+    {
+      "geo": "HR",
+      "name": "Croatia",
+      "year": 2024,
+      "population": 3861967,
+      "chickens": 10936000,
+      "ratio": 2.832,
+      "chicken_flag": "A",
+      "chicken_source": "FAOSTAT",
+      "more_chickens_than_people": true,
+      "data_note": ""
+    },
+    {
+      "geo": "BG",
+      "name": "Bulgaria",
+      "year": 2020,
+      "population": 6569275,
+      "chickens": 17177000,
+      "ratio": 2.615,
+      "chicken_flag": "A",
+      "chicken_source": "FAOSTAT",
+      "more_chickens_than_people": true,
+      "data_note": "data from 2020 (2024 chicken data unavailable)"
+    },
+    {
+      "geo": "FI",
+      "name": "Finland",
+      "year": 2024,
+      "population": 5603851,
+      "chickens": 14425000,
+      "ratio": 2.574,
+      "chicken_flag": "A",
+      "chicken_source": "FAOSTAT",
+      "more_chickens_than_people": true,
+      "data_note": ""
+    },
+    {
+      "geo": "SE",
+      "name": "Sweden",
+      "year": 2023,
+      "population": 10521556,
+      "chickens": 25729000,
+      "ratio": 2.445,
+      "chicken_flag": "A",
+      "chicken_source": "FAOSTAT",
+      "more_chickens_than_people": true,
+      "data_note": "data from 2023 (2024 chicken data unavailable)"
+    },
+    {
+      "geo": "UK",
+      "name": "United Kingdom",
+      "year": 2024,
+      "population": 68903810,
+      "chickens": 166986000,
+      "ratio": 2.423,
+      "chicken_flag": "A",
+      "chicken_source": "FAOSTAT",
+      "more_chickens_than_people": true,
+      "data_note": ""
+    },
+    {
+      "geo": "IT",
+      "name": "Italy",
+      "year": 2020,
+      "population": 59641488,
+      "chickens": 142503000,
+      "ratio": 2.389,
+      "chicken_flag": "A",
+      "chicken_source": "FAOSTAT",
+      "more_chickens_than_people": true,
+      "data_note": "data from 2020 (2024 chicken data unavailable)"
+    },
+    {
+      "geo": "SI",
+      "name": "Slovenia",
+      "year": 2024,
+      "population": 2123949,
+      "chickens": 5054000,
+      "ratio": 2.38,
+      "chicken_flag": "A",
+      "chicken_source": "FAOSTAT",
+      "more_chickens_than_people": true,
+      "data_note": ""
+    },
+    {
+      "geo": "CZ",
+      "name": "Czechia",
+      "year": 2024,
+      "population": 10900555,
+      "chickens": 24917000,
+      "ratio": 2.286,
+      "chicken_flag": "A",
+      "chicken_source": "FAOSTAT",
+      "more_chickens_than_people": true,
+      "data_note": ""
+    },
+    {
+      "geo": "RS",
+      "name": "Serbia",
+      "year": 2024,
+      "population": 6605168,
+      "chickens": 14417000,
+      "ratio": 2.183,
+      "chicken_flag": "A",
+      "chicken_source": "FAOSTAT",
+      "more_chickens_than_people": true,
+      "data_note": ""
+    },
+    {
+      "geo": "GE",
+      "name": "Georgia",
+      "year": 2024,
+      "population": 3694608,
+      "chickens": 7475000,
+      "ratio": 2.023,
+      "chicken_flag": "A",
+      "chicken_source": "FAOSTAT",
+      "more_chickens_than_people": true,
+      "data_note": ""
+    },
+    {
+      "geo": "AT",
+      "name": "Austria",
+      "year": 2023,
+      "population": 9104772,
+      "chickens": 17804000,
+      "ratio": 1.955,
+      "chicken_flag": "A",
+      "chicken_source": "FAOSTAT",
+      "more_chickens_than_people": true,
+      "data_note": "data from 2023 (2024 chicken data unavailable)"
+    },
+    {
+      "geo": "AL",
+      "name": "Albania",
+      "year": 2024,
+      "population": 2390942,
+      "chickens": 4557000,
+      "ratio": 1.906,
+      "chicken_flag": "A",
+      "chicken_source": "FAOSTAT",
+      "more_chickens_than_people": true,
+      "data_note": ""
+    },
+    {
+      "geo": "DE",
+      "name": "Germany",
+      "year": 2023,
+      "population": 83118501,
+      "chickens": 156301000,
+      "ratio": 1.88,
+      "chicken_flag": "A",
+      "chicken_source": "FAOSTAT",
+      "more_chickens_than_people": true,
+      "data_note": "data from 2023 (2024 chicken data unavailable)"
+    },
+    {
+      "geo": "SK",
+      "name": "Slovakia",
+      "year": 2024,
+      "population": 5424687,
+      "chickens": 9593000,
+      "ratio": 1.768,
+      "chicken_flag": "A",
+      "chicken_source": "FAOSTAT",
+      "more_chickens_than_people": true,
+      "data_note": ""
+    },
+    {
+      "geo": "ME",
+      "name": "Montenegro",
+      "year": 2024,
+      "population": 623680,
+      "chickens": 1070000,
+      "ratio": 1.716,
+      "chicken_flag": "A",
+      "chicken_source": "FAOSTAT",
+      "more_chickens_than_people": true,
+      "data_note": ""
+    },
+    {
+      "geo": "EE",
+      "name": "Estonia",
+      "year": 2024,
+      "population": 1374687,
+      "chickens": 2274000,
+      "ratio": 1.654,
+      "chicken_flag": "A",
+      "chicken_source": "FAOSTAT",
+      "more_chickens_than_people": true,
+      "data_note": ""
+    },
+    {
+      "geo": "MD",
+      "name": "Moldova",
+      "year": 2024,
+      "population": 2423287,
+      "chickens": 3972100,
+      "ratio": 1.639,
+      "chicken_flag": "I",
+      "chicken_source": "NBS (corrected)",
+      "more_chickens_than_people": true,
+      "data_note": "chickens corrected to NBS 'all poultry' 3,972,100; FAOSTAT 48,451,000 is imputed and ~10x too high"
+    },
+    {
+      "geo": "CH",
+      "name": "Switzerland",
+      "year": 2024,
+      "population": 8962258,
+      "chickens": 13168000,
+      "ratio": 1.469,
+      "chicken_flag": "A",
+      "chicken_source": "FAOSTAT",
+      "more_chickens_than_people": true,
+      "data_note": ""
+    },
+    {
+      "geo": "MT",
+      "name": "Malta",
+      "year": 2023,
+      "population": 542051,
+      "chickens": 790000,
+      "ratio": 1.457,
+      "chicken_flag": "A",
+      "chicken_source": "FAOSTAT",
+      "more_chickens_than_people": true,
+      "data_note": "data from 2023 (2024 chicken data unavailable)"
+    },
+    {
+      "geo": "MK",
+      "name": "North Macedonia",
+      "year": 2024,
+      "population": 1826247,
+      "chickens": 2573000,
+      "ratio": 1.409,
+      "chicken_flag": "A",
+      "chicken_source": "FAOSTAT",
+      "more_chickens_than_people": true,
+      "data_note": ""
+    },
+    {
+      "geo": "IS",
+      "name": "Iceland",
+      "year": 2024,
+      "population": 383567,
+      "chickens": 230000,
+      "ratio": 0.6,
+      "chicken_flag": "A",
+      "chicken_source": "FAOSTAT",
+      "more_chickens_than_people": false,
+      "data_note": ""
+    },
+    {
+      "geo": "LU",
+      "name": "Luxembourg",
+      "year": 2024,
+      "population": 672050,
+      "chickens": 186000,
+      "ratio": 0.277,
+      "chicken_flag": "A",
+      "chicken_source": "FAOSTAT",
+      "more_chickens_than_people": false,
+      "data_note": ""
+    }
+  ],
+  "timeseries": [
+    {
+      "geo": "AT",
+      "name": "Austria",
+      "year": 2015,
+      "population": 8584926,
+      "chickens": 16465000,
+      "chicken_flag": "I"
+    },
+    {
+      "geo": "AT",
+      "name": "Austria",
+      "year": 2016,
+      "population": 8700471,
+      "chickens": 16745000,
+      "chicken_flag": "A"
+    },
+    {
+      "geo": "AT",
+      "name": "Austria",
+      "year": 2017,
+      "population": 8772865,
+      "chickens": 16736000,
+      "chicken_flag": "I"
+    },
+    {
+      "geo": "AT",
+      "name": "Austria",
+      "year": 2018,
+      "population": 8822267,
+      "chickens": "",
+      "chicken_flag": ""
+    },
+    {
+      "geo": "AT",
+      "name": "Austria",
+      "year": 2019,
+      "population": 8858775,
+      "chickens": "",
+      "chicken_flag": ""
+    },
+    {
+      "geo": "AT",
+      "name": "Austria",
+      "year": 2020,
+      "population": 8901064,
+      "chickens": 16857000,
+      "chicken_flag": "A"
+    },
+    {
+      "geo": "AT",
+      "name": "Austria",
+      "year": 2021,
+      "population": 8932664,
+      "chickens": "",
+      "chicken_flag": ""
+    },
+    {
+      "geo": "AT",
+      "name": "Austria",
+      "year": 2022,
+      "population": 8978929,
+      "chickens": "",
+      "chicken_flag": ""
+    },
+    {
+      "geo": "AT",
+      "name": "Austria",
+      "year": 2023,
+      "population": 9104772,
+      "chickens": 17804000,
+      "chicken_flag": "A"
+    },
+    {
+      "geo": "AT",
+      "name": "Austria",
+      "year": 2024,
+      "population": 9158750,
+      "chickens": "",
+      "chicken_flag": ""
+    },
+    {
+      "geo": "BE",
+      "name": "Belgium",
+      "year": 2015,
+      "population": 11237274,
+      "chickens": 37739000,
+      "chicken_flag": "A"
+    },
+    {
+      "geo": "BE",
+      "name": "Belgium",
+      "year": 2016,
+      "population": 11311117,
+      "chickens": 42553000,
+      "chicken_flag": "A"
+    },
+    {
+      "geo": "BE",
+      "name": "Belgium",
+      "year": 2017,
+      "population": 11351727,
+      "chickens": 40179000,
+      "chicken_flag": "A"
+    },
+    {
+      "geo": "BE",
+      "name": "Belgium",
+      "year": 2018,
+      "population": 11398589,
+      "chickens": 47469000,
+      "chicken_flag": "A"
+    },
+    {
+      "geo": "BE",
+      "name": "Belgium",
+      "year": 2019,
+      "population": 11455519,
+      "chickens": 49127000,
+      "chicken_flag": "A"
+    },
+    {
+      "geo": "BE",
+      "name": "Belgium",
+      "year": 2020,
+      "population": 11522440,
+      "chickens": 53362000,
+      "chicken_flag": "A"
+    },
+    {
+      "geo": "BE",
+      "name": "Belgium",
+      "year": 2021,
+      "population": 11554767,
+      "chickens": 53188000,
+      "chicken_flag": "A"
+    },
+    {
+      "geo": "BE",
+      "name": "Belgium",
+      "year": 2022,
+      "population": 11617623,
+      "chickens": 53283000,
+      "chicken_flag": "A"
+    },
+    {
+      "geo": "BE",
+      "name": "Belgium",
+      "year": 2023,
+      "population": 11742796,
+      "chickens": 48754000,
+      "chicken_flag": "A"
+    },
+    {
+      "geo": "BE",
+      "name": "Belgium",
+      "year": 2024,
+      "population": 11817096,
+      "chickens": "",
+      "chicken_flag": ""
+    },
+    {
+      "geo": "BG",
+      "name": "Bulgaria",
+      "year": 2015,
+      "population": 7029690,
+      "chickens": 12970000,
+      "chicken_flag": "A"
+    },
+    {
+      "geo": "BG",
+      "name": "Bulgaria",
+      "year": 2016,
+      "population": 6938759,
+      "chickens": 14258000,
+      "chicken_flag": "A"
+    },
+    {
+      "geo": "BG",
+      "name": "Bulgaria",
+      "year": 2017,
+      "population": 6849518,
+      "chickens": 17738000,
+      "chicken_flag": "A"
+    },
+    {
+      "geo": "BG",
+      "name": "Bulgaria",
+      "year": 2018,
+      "population": 6757418,
+      "chickens": 18830000,
+      "chicken_flag": "A"
+    },
+    {
+      "geo": "BG",
+      "name": "Bulgaria",
+      "year": 2019,
+      "population": 6664177,
+      "chickens": 20793000,
+      "chicken_flag": "A"
+    },
+    {
+      "geo": "BG",
+      "name": "Bulgaria",
+      "year": 2020,
+      "population": 6569275,
+      "chickens": 17177000,
+      "chicken_flag": "A"
+    },
+    {
+      "geo": "BG",
+      "name": "Bulgaria",
+      "year": 2021,
+      "population": 6532117,
+      "chickens": "",
+      "chicken_flag": ""
+    },
+    {
+      "geo": "BG",
+      "name": "Bulgaria",
+      "year": 2022,
+      "population": 6482484,
+      "chickens": "",
+      "chicken_flag": ""
+    },
+    {
+      "geo": "BG",
+      "name": "Bulgaria",
+      "year": 2023,
+      "population": 6447710,
+      "chickens": "",
+      "chicken_flag": ""
+    },
+    {
+      "geo": "BG",
+      "name": "Bulgaria",
+      "year": 2024,
+      "population": 6445481,
+      "chickens": "",
+      "chicken_flag": ""
+    },
+    {
+      "geo": "HR",
+      "name": "Croatia",
+      "year": 2015,
+      "population": 4180915,
+      "chickens": 9599000,
+      "chicken_flag": "A"
+    },
+    {
+      "geo": "HR",
+      "name": "Croatia",
+      "year": 2016,
+      "population": 4131115,
+      "chickens": 9220000,
+      "chicken_flag": "A"
+    },
+    {
+      "geo": "HR",
+      "name": "Croatia",
+      "year": 2017,
+      "population": 4078769,
+      "chickens": 9840000,
+      "chicken_flag": "A"
+    },
+    {
+      "geo": "HR",
+      "name": "Croatia",
+      "year": 2018,
+      "population": 4014341,
+      "chickens": 10881000,
+      "chicken_flag": "A"
+    },
+    {
+      "geo": "HR",
+      "name": "Croatia",
+      "year": 2019,
+      "population": 3968676,
+      "chickens": 12162000,
+      "chicken_flag": "A"
+    },
+    {
+      "geo": "HR",
+      "name": "Croatia",
+      "year": 2020,
+      "population": 3933511,
+      "chickens": 12508000,
+      "chicken_flag": "A"
+    },
+    {
+      "geo": "HR",
+      "name": "Croatia",
+      "year": 2021,
+      "population": 3893026,
+      "chickens": 11629000,
+      "chicken_flag": "A"
+    },
+    {
+      "geo": "HR",
+      "name": "Croatia",
+      "year": 2022,
+      "population": 3862305,
+      "chickens": 10436000,
+      "chicken_flag": "A"
+    },
+    {
+      "geo": "HR",
+      "name": "Croatia",
+      "year": 2023,
+      "population": 3850894,
+      "chickens": 10080000,
+      "chicken_flag": "A"
+    },
+    {
+      "geo": "HR",
+      "name": "Croatia",
+      "year": 2024,
+      "population": 3861967,
+      "chickens": 10936000,
+      "chicken_flag": "A"
+    },
+    {
+      "geo": "CY",
+      "name": "Cyprus",
+      "year": 2015,
+      "population": 860846,
+      "chickens": 3206000,
+      "chicken_flag": "I"
+    },
+    {
+      "geo": "CY",
+      "name": "Cyprus",
+      "year": 2016,
+      "population": 863764,
+      "chickens": 3050000,
+      "chicken_flag": "A"
+    },
+    {
+      "geo": "CY",
+      "name": "Cyprus",
+      "year": 2017,
+      "population": 869878,
+      "chickens": 3428000,
+      "chicken_flag": "I"
+    },
+    {
+      "geo": "CY",
+      "name": "Cyprus",
+      "year": 2018,
+      "population": 878601,
+      "chickens": "",
+      "chicken_flag": ""
+    },
+    {
+      "geo": "CY",
+      "name": "Cyprus",
+      "year": 2019,
+      "population": 890194,
+      "chickens": "",
+      "chicken_flag": ""
+    },
+    {
+      "geo": "CY",
+      "name": "Cyprus",
+      "year": 2020,
+      "population": 902429,
+      "chickens": 4655000,
+      "chicken_flag": "A"
+    },
+    {
+      "geo": "CY",
+      "name": "Cyprus",
+      "year": 2021,
+      "population": 914476,
+      "chickens": "",
+      "chicken_flag": ""
+    },
+    {
+      "geo": "CY",
+      "name": "Cyprus",
+      "year": 2022,
+      "population": 929764,
+      "chickens": "",
+      "chicken_flag": ""
+    },
+    {
+      "geo": "CY",
+      "name": "Cyprus",
+      "year": 2023,
+      "population": 949084,
+      "chickens": 4655000,
+      "chicken_flag": "A"
+    },
+    {
+      "geo": "CY",
+      "name": "Cyprus",
+      "year": 2024,
+      "population": 966365,
+      "chickens": "",
+      "chicken_flag": ""
+    },
+    {
+      "geo": "CZ",
+      "name": "Czechia",
+      "year": 2015,
+      "population": 10538275,
+      "chickens": 21483000,
+      "chicken_flag": "A"
+    },
+    {
+      "geo": "CZ",
+      "name": "Czechia",
+      "year": 2016,
+      "population": 10553843,
+      "chickens": 20422000,
+      "chicken_flag": "A"
+    },
+    {
+      "geo": "CZ",
+      "name": "Czechia",
+      "year": 2017,
+      "population": 10578820,
+      "chickens": 20587000,
+      "chicken_flag": "A"
+    },
+    {
+      "geo": "CZ",
+      "name": "Czechia",
+      "year": 2018,
+      "population": 10610055,
+      "chickens": 22428000,
+      "chicken_flag": "A"
+    },
+    {
+      "geo": "CZ",
+      "name": "Czechia",
+      "year": 2019,
+      "population": 10649800,
+      "chickens": 21844000,
+      "chicken_flag": "A"
+    },
+    {
+      "geo": "CZ",
+      "name": "Czechia",
+      "year": 2020,
+      "population": 10693939,
+      "chickens": 21018000,
+      "chicken_flag": "A"
+    },
+    {
+      "geo": "CZ",
+      "name": "Czechia",
+      "year": 2021,
+      "population": 10494836,
+      "chickens": "",
+      "chicken_flag": ""
+    },
+    {
+      "geo": "CZ",
+      "name": "Czechia",
+      "year": 2022,
+      "population": 10516707,
+      "chickens": 22955000,
+      "chicken_flag": "A"
+    },
+    {
+      "geo": "CZ",
+      "name": "Czechia",
+      "year": 2023,
+      "population": 10827529,
+      "chickens": 21794000,
+      "chicken_flag": "A"
+    },
+    {
+      "geo": "CZ",
+      "name": "Czechia",
+      "year": 2024,
+      "population": 10900555,
+      "chickens": 24917000,
+      "chicken_flag": "A"
+    },
+    {
+      "geo": "DK",
+      "name": "Denmark",
+      "year": 2015,
+      "population": 5659715,
+      "chickens": 16887000,
+      "chicken_flag": "A"
+    },
+    {
+      "geo": "DK",
+      "name": "Denmark",
+      "year": 2016,
+      "population": 5707251,
+      "chickens": 17898000,
+      "chicken_flag": "A"
+    },
+    {
+      "geo": "DK",
+      "name": "Denmark",
+      "year": 2017,
+      "population": 5748769,
+      "chickens": 20733000,
+      "chicken_flag": "A"
+    },
+    {
+      "geo": "DK",
+      "name": "Denmark",
+      "year": 2018,
+      "population": 5781190,
+      "chickens": 19351000,
+      "chicken_flag": "A"
+    },
+    {
+      "geo": "DK",
+      "name": "Denmark",
+      "year": 2019,
+      "population": 5806081,
+      "chickens": 22463000,
+      "chicken_flag": "A"
+    },
+    {
+      "geo": "DK",
+      "name": "Denmark",
+      "year": 2020,
+      "population": 5822763,
+      "chickens": 21250000,
+      "chicken_flag": "A"
+    },
+    {
+      "geo": "DK",
+      "name": "Denmark",
+      "year": 2021,
+      "population": 5840045,
+      "chickens": 21454000,
+      "chicken_flag": "A"
+    },
+    {
+      "geo": "DK",
+      "name": "Denmark",
+      "year": 2022,
+      "population": 5873420,
+      "chickens": 22412000,
+      "chicken_flag": "A"
+    },
+    {
+      "geo": "DK",
+      "name": "Denmark",
+      "year": 2023,
+      "population": 5932654,
+      "chickens": 21844000,
+      "chicken_flag": "A"
+    },
+    {
+      "geo": "DK",
+      "name": "Denmark",
+      "year": 2024,
+      "population": 5961249,
+      "chickens": 20718000,
+      "chicken_flag": "A"
+    },
+    {
+      "geo": "EE",
+      "name": "Estonia",
+      "year": 2015,
+      "population": 1313271,
+      "chickens": 2285000,
+      "chicken_flag": "A"
+    },
+    {
+      "geo": "EE",
+      "name": "Estonia",
+      "year": 2016,
+      "population": 1315944,
+      "chickens": 2054000,
+      "chicken_flag": "A"
+    },
+    {
+      "geo": "EE",
+      "name": "Estonia",
+      "year": 2017,
+      "population": 1315635,
+      "chickens": 2195000,
+      "chicken_flag": "A"
+    },
+    {
+      "geo": "EE",
+      "name": "Estonia",
+      "year": 2018,
+      "population": 1319133,
+      "chickens": 2059000,
+      "chicken_flag": "A"
+    },
+    {
+      "geo": "EE",
+      "name": "Estonia",
+      "year": 2019,
+      "population": 1324820,
+      "chickens": 2080000,
+      "chicken_flag": "A"
+    },
+    {
+      "geo": "EE",
+      "name": "Estonia",
+      "year": 2020,
+      "population": 1328889,
+      "chickens": 2055000,
+      "chicken_flag": "A"
+    },
+    {
+      "geo": "EE",
+      "name": "Estonia",
+      "year": 2021,
+      "population": 1330068,
+      "chickens": 2032000,
+      "chicken_flag": "A"
+    },
+    {
+      "geo": "EE",
+      "name": "Estonia",
+      "year": 2022,
+      "population": 1331796,
+      "chickens": 2092000,
+      "chicken_flag": "A"
+    },
+    {
+      "geo": "EE",
+      "name": "Estonia",
+      "year": 2023,
+      "population": 1365884,
+      "chickens": 2132000,
+      "chicken_flag": "A"
+    },
+    {
+      "geo": "EE",
+      "name": "Estonia",
+      "year": 2024,
+      "population": 1374687,
+      "chickens": 2274000,
+      "chicken_flag": "A"
+    },
+    {
+      "geo": "FI",
+      "name": "Finland",
+      "year": 2015,
+      "population": 5471753,
+      "chickens": 11970000,
+      "chicken_flag": "A"
+    },
+    {
+      "geo": "FI",
+      "name": "Finland",
+      "year": 2016,
+      "population": 5487308,
+      "chickens": 12394000,
+      "chicken_flag": "A"
+    },
+    {
+      "geo": "FI",
+      "name": "Finland",
+      "year": 2017,
+      "population": 5503297,
+      "chickens": 12266000,
+      "chicken_flag": "A"
+    },
+    {
+      "geo": "FI",
+      "name": "Finland",
+      "year": 2018,
+      "population": 5513130,
+      "chickens": 13190000,
+      "chicken_flag": "A"
+    },
+    {
+      "geo": "FI",
+      "name": "Finland",
+      "year": 2019,
+      "population": 5517919,
+      "chickens": 13407000,
+      "chicken_flag": "A"
+    },
+    {
+      "geo": "FI",
+      "name": "Finland",
+      "year": 2020,
+      "population": 5525292,
+      "chickens": 12715000,
+      "chicken_flag": "A"
+    },
+    {
+      "geo": "FI",
+      "name": "Finland",
+      "year": 2021,
+      "population": 5533793,
+      "chickens": 12707000,
+      "chicken_flag": "A"
+    },
+    {
+      "geo": "FI",
+      "name": "Finland",
+      "year": 2022,
+      "population": 5548241,
+      "chickens": 13364000,
+      "chicken_flag": "A"
+    },
+    {
+      "geo": "FI",
+      "name": "Finland",
+      "year": 2023,
+      "population": 5563970,
+      "chickens": 13380000,
+      "chicken_flag": "A"
+    },
+    {
+      "geo": "FI",
+      "name": "Finland",
+      "year": 2024,
+      "population": 5603851,
+      "chickens": 14425000,
+      "chicken_flag": "A"
+    },
+    {
+      "geo": "FR",
+      "name": "France",
+      "year": 2015,
+      "population": 66458153,
+      "chickens": 247298000,
+      "chicken_flag": "A"
+    },
+    {
+      "geo": "FR",
+      "name": "France",
+      "year": 2016,
+      "population": 66638391,
+      "chickens": 243526000,
+      "chicken_flag": "A"
+    },
+    {
+      "geo": "FR",
+      "name": "France",
+      "year": 2017,
+      "population": 66809816,
+      "chickens": 244774000,
+      "chicken_flag": "A"
+    },
+    {
+      "geo": "FR",
+      "name": "France",
+      "year": 2018,
+      "population": 67026224,
+      "chickens": 239290000,
+      "chicken_flag": "A"
+    },
+    {
+      "geo": "FR",
+      "name": "France",
+      "year": 2019,
+      "population": 67290471,
+      "chickens": 237864000,
+      "chicken_flag": "A"
+    },
+    {
+      "geo": "FR",
+      "name": "France",
+      "year": 2020,
+      "population": 67473651,
+      "chickens": 242015000,
+      "chicken_flag": "A"
+    },
+    {
+      "geo": "FR",
+      "name": "France",
+      "year": 2021,
+      "population": 67728568,
+      "chickens": 239840000,
+      "chicken_flag": "A"
+    },
+    {
+      "geo": "FR",
+      "name": "France",
+      "year": 2022,
+      "population": 68091703,
+      "chickens": 231096000,
+      "chicken_flag": "A"
+    },
+    {
+      "geo": "FR",
+      "name": "France",
+      "year": 2023,
+      "population": 68436003,
+      "chickens": 211370000,
+      "chicken_flag": "A"
+    },
+    {
+      "geo": "FR",
+      "name": "France",
+      "year": 2024,
+      "population": 68669303,
+      "chickens": 229317000,
+      "chicken_flag": "A"
+    },
+    {
+      "geo": "DE",
+      "name": "Germany",
+      "year": 2015,
+      "population": 81197537,
+      "chickens": 140037000,
+      "chicken_flag": "I"
+    },
+    {
+      "geo": "DE",
+      "name": "Germany",
+      "year": 2016,
+      "population": 82175684,
+      "chickens": 158649000,
+      "chicken_flag": "A"
+    },
+    {
+      "geo": "DE",
+      "name": "Germany",
+      "year": 2017,
+      "population": 82521653,
+      "chickens": 160000000,
+      "chicken_flag": "E"
+    },
+    {
+      "geo": "DE",
+      "name": "Germany",
+      "year": 2018,
+      "population": 82792351,
+      "chickens": "",
+      "chicken_flag": ""
+    },
+    {
+      "geo": "DE",
+      "name": "Germany",
+      "year": 2019,
+      "population": 83019213,
+      "chickens": "",
+      "chicken_flag": ""
+    },
+    {
+      "geo": "DE",
+      "name": "Germany",
+      "year": 2020,
+      "population": 83166711,
+      "chickens": 159118000,
+      "chicken_flag": "A"
+    },
+    {
+      "geo": "DE",
+      "name": "Germany",
+      "year": 2021,
+      "population": 83155031,
+      "chickens": "",
+      "chicken_flag": ""
+    },
+    {
+      "geo": "DE",
+      "name": "Germany",
+      "year": 2022,
+      "population": 83237124,
+      "chickens": "",
+      "chicken_flag": ""
+    },
+    {
+      "geo": "DE",
+      "name": "Germany",
+      "year": 2023,
+      "population": 83118501,
+      "chickens": 156301000,
+      "chicken_flag": "A"
+    },
+    {
+      "geo": "DE",
+      "name": "Germany",
+      "year": 2024,
+      "population": 83456045,
+      "chickens": "",
+      "chicken_flag": ""
+    },
+    {
+      "geo": "EL",
+      "name": "Greece",
+      "year": 2015,
+      "population": 10818041,
+      "chickens": 34477000,
+      "chicken_flag": "A"
+    },
+    {
+      "geo": "EL",
+      "name": "Greece",
+      "year": 2016,
+      "population": 10735415,
+      "chickens": 35545000,
+      "chicken_flag": "A"
+    },
+    {
+      "geo": "EL",
+      "name": "Greece",
+      "year": 2017,
+      "population": 10707527,
+      "chickens": 37262000,
+      "chicken_flag": "A"
+    },
+    {
+      "geo": "EL",
+      "name": "Greece",
+      "year": 2018,
+      "population": 10667336,
+      "chickens": 37300000,
+      "chicken_flag": "A"
+    },
+    {
+      "geo": "EL",
+      "name": "Greece",
+      "year": 2019,
+      "population": 10635213,
+      "chickens": 39188000,
+      "chicken_flag": "A"
+    },
+    {
+      "geo": "EL",
+      "name": "Greece",
+      "year": 2020,
+      "population": 10612591,
+      "chickens": 34033000,
+      "chicken_flag": "A"
+    },
+    {
+      "geo": "EL",
+      "name": "Greece",
+      "year": 2021,
+      "population": 10555344,
+      "chickens": 36597000,
+      "chicken_flag": "A"
+    },
+    {
+      "geo": "EL",
+      "name": "Greece",
+      "year": 2022,
+      "population": 10461627,
+      "chickens": 38649000,
+      "chicken_flag": "A"
+    },
+    {
+      "geo": "EL",
+      "name": "Greece",
+      "year": 2023,
+      "population": 10401868,
+      "chickens": 38508000,
+      "chicken_flag": "A"
+    },
+    {
+      "geo": "EL",
+      "name": "Greece",
+      "year": 2024,
+      "population": 10375764,
+      "chickens": "",
+      "chicken_flag": ""
+    },
+    {
+      "geo": "HU",
+      "name": "Hungary",
+      "year": 2015,
+      "population": 9815858,
+      "chickens": 30521000,
+      "chicken_flag": "A"
+    },
+    {
+      "geo": "HU",
+      "name": "Hungary",
+      "year": 2016,
+      "population": 9779652,
+      "chickens": 32432000,
+      "chicken_flag": "A"
+    },
+    {
+      "geo": "HU",
+      "name": "Hungary",
+      "year": 2017,
+      "population": 9739857,
+      "chickens": 32027000,
+      "chicken_flag": "A"
+    },
+    {
+      "geo": "HU",
+      "name": "Hungary",
+      "year": 2018,
+      "population": 9713655,
+      "chickens": 31844000,
+      "chicken_flag": "A"
+    },
+    {
+      "geo": "HU",
+      "name": "Hungary",
+      "year": 2019,
+      "population": 9700272,
+      "chickens": 30658000,
+      "chicken_flag": "A"
+    },
+    {
+      "geo": "HU",
+      "name": "Hungary",
+      "year": 2020,
+      "population": 9689376,
+      "chickens": 30874000,
+      "chicken_flag": "A"
+    },
+    {
+      "geo": "HU",
+      "name": "Hungary",
+      "year": 2021,
+      "population": 9651461,
+      "chickens": 28888000,
+      "chicken_flag": "A"
+    },
+    {
+      "geo": "HU",
+      "name": "Hungary",
+      "year": 2022,
+      "population": 9610403,
+      "chickens": 32114000,
+      "chicken_flag": "A"
+    },
+    {
+      "geo": "HU",
+      "name": "Hungary",
+      "year": 2023,
+      "population": 9599744,
+      "chickens": 27081000,
+      "chicken_flag": "A"
+    },
+    {
+      "geo": "HU",
+      "name": "Hungary",
+      "year": 2024,
+      "population": 9584627,
+      "chickens": 28733000,
+      "chicken_flag": "A"
+    },
+    {
+      "geo": "IE",
+      "name": "Ireland",
+      "year": 2015,
+      "population": 4677627,
+      "chickens": 15202000,
+      "chicken_flag": "I"
+    },
+    {
+      "geo": "IE",
+      "name": "Ireland",
+      "year": 2016,
+      "population": 4726286,
+      "chickens": 15438000,
+      "chicken_flag": "I"
+    },
+    {
+      "geo": "IE",
+      "name": "Ireland",
+      "year": 2017,
+      "population": 4799157,
+      "chickens": 15504000,
+      "chicken_flag": "I"
+    },
+    {
+      "geo": "IE",
+      "name": "Ireland",
+      "year": 2018,
+      "population": 4855733,
+      "chickens": "",
+      "chicken_flag": ""
+    },
+    {
+      "geo": "IE",
+      "name": "Ireland",
+      "year": 2019,
+      "population": 4940311,
+      "chickens": "",
+      "chicken_flag": ""
+    },
+    {
+      "geo": "IE",
+      "name": "Ireland",
+      "year": 2020,
+      "population": 5012600,
+      "chickens": 15236000,
+      "chicken_flag": "A"
+    },
+    {
+      "geo": "IE",
+      "name": "Ireland",
+      "year": 2021,
+      "population": 5066893,
+      "chickens": "",
+      "chicken_flag": ""
+    },
+    {
+      "geo": "IE",
+      "name": "Ireland",
+      "year": 2022,
+      "population": 5154277,
+      "chickens": "",
+      "chicken_flag": ""
+    },
+    {
+      "geo": "IE",
+      "name": "Ireland",
+      "year": 2023,
+      "population": 5271395,
+      "chickens": "",
+      "chicken_flag": ""
+    },
+    {
+      "geo": "IE",
+      "name": "Ireland",
+      "year": 2024,
+      "population": 5351681,
+      "chickens": "",
+      "chicken_flag": ""
+    },
+    {
+      "geo": "IT",
+      "name": "Italy",
+      "year": 2015,
+      "population": 60295497,
+      "chickens": 137712000,
+      "chicken_flag": "I"
+    },
+    {
+      "geo": "IT",
+      "name": "Italy",
+      "year": 2016,
+      "population": 60163712,
+      "chickens": 142265000,
+      "chicken_flag": "I"
+    },
+    {
+      "geo": "IT",
+      "name": "Italy",
+      "year": 2017,
+      "population": 60066734,
+      "chickens": 146948000,
+      "chicken_flag": "I"
+    },
+    {
+      "geo": "IT",
+      "name": "Italy",
+      "year": 2018,
+      "population": 59937769,
+      "chickens": "",
+      "chicken_flag": ""
+    },
+    {
+      "geo": "IT",
+      "name": "Italy",
+      "year": 2019,
+      "population": 59816673,
+      "chickens": "",
+      "chicken_flag": ""
+    },
+    {
+      "geo": "IT",
+      "name": "Italy",
+      "year": 2020,
+      "population": 59641488,
+      "chickens": 142503000,
+      "chicken_flag": "A"
+    },
+    {
+      "geo": "IT",
+      "name": "Italy",
+      "year": 2021,
+      "population": 59236213,
+      "chickens": "",
+      "chicken_flag": ""
+    },
+    {
+      "geo": "IT",
+      "name": "Italy",
+      "year": 2022,
+      "population": 59030133,
+      "chickens": "",
+      "chicken_flag": ""
+    },
+    {
+      "geo": "IT",
+      "name": "Italy",
+      "year": 2023,
+      "population": 58997201,
+      "chickens": "",
+      "chicken_flag": ""
+    },
+    {
+      "geo": "IT",
+      "name": "Italy",
+      "year": 2024,
+      "population": 58971230,
+      "chickens": "",
+      "chicken_flag": ""
+    },
+    {
+      "geo": "LV",
+      "name": "Latvia",
+      "year": 2015,
+      "population": 1986096,
+      "chickens": 4414000,
+      "chicken_flag": "A"
+    },
+    {
+      "geo": "LV",
+      "name": "Latvia",
+      "year": 2016,
+      "population": 1968957,
+      "chickens": 4483000,
+      "chicken_flag": "A"
+    },
+    {
+      "geo": "LV",
+      "name": "Latvia",
+      "year": 2017,
+      "population": 1950116,
+      "chickens": 4774000,
+      "chicken_flag": "I"
+    },
+    {
+      "geo": "LV",
+      "name": "Latvia",
+      "year": 2018,
+      "population": 1934379,
+      "chickens": "",
+      "chicken_flag": ""
+    },
+    {
+      "geo": "LV",
+      "name": "Latvia",
+      "year": 2019,
+      "population": 1919968,
+      "chickens": "",
+      "chicken_flag": ""
+    },
+    {
+      "geo": "LV",
+      "name": "Latvia",
+      "year": 2020,
+      "population": 1907675,
+      "chickens": 5643000,
+      "chicken_flag": "A"
+    },
+    {
+      "geo": "LV",
+      "name": "Latvia",
+      "year": 2021,
+      "population": 1893223,
+      "chickens": 5858000,
+      "chicken_flag": "A"
+    },
+    {
+      "geo": "LV",
+      "name": "Latvia",
+      "year": 2022,
+      "population": 1875757,
+      "chickens": 5744000,
+      "chicken_flag": "A"
+    },
+    {
+      "geo": "LV",
+      "name": "Latvia",
+      "year": 2023,
+      "population": 1895239,
+      "chickens": 5922000,
+      "chicken_flag": "A"
+    },
+    {
+      "geo": "LV",
+      "name": "Latvia",
+      "year": 2024,
+      "population": 1878575,
+      "chickens": 5985000,
+      "chicken_flag": "A"
+    },
+    {
+      "geo": "LT",
+      "name": "Lithuania",
+      "year": 2015,
+      "population": 2926644,
+      "chickens": 10093000,
+      "chicken_flag": "A"
+    },
+    {
+      "geo": "LT",
+      "name": "Lithuania",
+      "year": 2016,
+      "population": 2895573,
+      "chickens": 9148000,
+      "chicken_flag": "A"
+    },
+    {
+      "geo": "LT",
+      "name": "Lithuania",
+      "year": 2017,
+      "population": 2859077,
+      "chickens": 9917000,
+      "chicken_flag": "A"
+    },
+    {
+      "geo": "LT",
+      "name": "Lithuania",
+      "year": 2018,
+      "population": 2826200,
+      "chickens": 10204000,
+      "chicken_flag": "A"
+    },
+    {
+      "geo": "LT",
+      "name": "Lithuania",
+      "year": 2019,
+      "population": 2812200,
+      "chickens": 11562000,
+      "chicken_flag": "A"
+    },
+    {
+      "geo": "LT",
+      "name": "Lithuania",
+      "year": 2020,
+      "population": 2809977,
+      "chickens": 9852000,
+      "chicken_flag": "A"
+    },
+    {
+      "geo": "LT",
+      "name": "Lithuania",
+      "year": 2021,
+      "population": 2810761,
+      "chickens": 8124000,
+      "chicken_flag": "A"
+    },
+    {
+      "geo": "LT",
+      "name": "Lithuania",
+      "year": 2022,
+      "population": 2805998,
+      "chickens": 8897000,
+      "chicken_flag": "A"
+    },
+    {
+      "geo": "LT",
+      "name": "Lithuania",
+      "year": 2023,
+      "population": 2857279,
+      "chickens": 9729000,
+      "chicken_flag": "A"
+    },
+    {
+      "geo": "LT",
+      "name": "Lithuania",
+      "year": 2024,
+      "population": 2885891,
+      "chickens": 10476000,
+      "chicken_flag": "A"
+    },
+    {
+      "geo": "LU",
+      "name": "Luxembourg",
+      "year": 2015,
+      "population": 562958,
+      "chickens": 114000,
+      "chicken_flag": "A"
+    },
+    {
+      "geo": "LU",
+      "name": "Luxembourg",
+      "year": 2016,
+      "population": 576249,
+      "chickens": 114000,
+      "chicken_flag": "A"
+    },
+    {
+      "geo": "LU",
+      "name": "Luxembourg",
+      "year": 2017,
+      "population": 590667,
+      "chickens": 123000,
+      "chicken_flag": "A"
+    },
+    {
+      "geo": "LU",
+      "name": "Luxembourg",
+      "year": 2018,
+      "population": 602005,
+      "chickens": 123000,
+      "chicken_flag": "A"
+    },
+    {
+      "geo": "LU",
+      "name": "Luxembourg",
+      "year": 2019,
+      "population": 613894,
+      "chickens": 132000,
+      "chicken_flag": "A"
+    },
+    {
+      "geo": "LU",
+      "name": "Luxembourg",
+      "year": 2020,
+      "population": 626108,
+      "chickens": 136000,
+      "chicken_flag": "A"
+    },
+    {
+      "geo": "LU",
+      "name": "Luxembourg",
+      "year": 2021,
+      "population": 634730,
+      "chickens": 171000,
+      "chicken_flag": "A"
+    },
+    {
+      "geo": "LU",
+      "name": "Luxembourg",
+      "year": 2022,
+      "population": 645397,
+      "chickens": 186000,
+      "chicken_flag": "A"
+    },
+    {
+      "geo": "LU",
+      "name": "Luxembourg",
+      "year": 2023,
+      "population": 660809,
+      "chickens": 183000,
+      "chicken_flag": "A"
+    },
+    {
+      "geo": "LU",
+      "name": "Luxembourg",
+      "year": 2024,
+      "population": 672050,
+      "chickens": 186000,
+      "chicken_flag": "A"
+    },
+    {
+      "geo": "MT",
+      "name": "Malta",
+      "year": 2015,
+      "population": 438805,
+      "chickens": 1035000,
+      "chicken_flag": "I"
+    },
+    {
+      "geo": "MT",
+      "name": "Malta",
+      "year": 2016,
+      "population": 449635,
+      "chickens": 1024000,
+      "chicken_flag": "I"
+    },
+    {
+      "geo": "MT",
+      "name": "Malta",
+      "year": 2017,
+      "population": 459375,
+      "chickens": 1004000,
+      "chicken_flag": "I"
+    },
+    {
+      "geo": "MT",
+      "name": "Malta",
+      "year": 2018,
+      "population": 474837,
+      "chickens": "",
+      "chicken_flag": ""
+    },
+    {
+      "geo": "MT",
+      "name": "Malta",
+      "year": 2019,
+      "population": 492968,
+      "chickens": "",
+      "chicken_flag": ""
+    },
+    {
+      "geo": "MT",
+      "name": "Malta",
+      "year": 2020,
+      "population": 514855,
+      "chickens": 884000,
+      "chicken_flag": "A"
+    },
+    {
+      "geo": "MT",
+      "name": "Malta",
+      "year": 2021,
+      "population": 516125,
+      "chickens": "",
+      "chicken_flag": ""
+    },
+    {
+      "geo": "MT",
+      "name": "Malta",
+      "year": 2022,
+      "population": 520174,
+      "chickens": "",
+      "chicken_flag": ""
+    },
+    {
+      "geo": "MT",
+      "name": "Malta",
+      "year": 2023,
+      "population": 542051,
+      "chickens": 790000,
+      "chicken_flag": "A"
+    },
+    {
+      "geo": "MT",
+      "name": "Malta",
+      "year": 2024,
+      "population": 563443,
+      "chickens": "",
+      "chicken_flag": ""
+    },
+    {
+      "geo": "NL",
+      "name": "Netherlands",
+      "year": 2015,
+      "population": 16900726,
+      "chickens": 106763000,
+      "chicken_flag": "A"
+    },
+    {
+      "geo": "NL",
+      "name": "Netherlands",
+      "year": 2016,
+      "population": 16979120,
+      "chickens": 105620000,
+      "chicken_flag": "A"
+    },
+    {
+      "geo": "NL",
+      "name": "Netherlands",
+      "year": 2017,
+      "population": 17081507,
+      "chickens": 105184000,
+      "chicken_flag": "A"
+    },
+    {
+      "geo": "NL",
+      "name": "Netherlands",
+      "year": 2018,
+      "population": 17181084,
+      "chickens": 105104000,
+      "chicken_flag": "A"
+    },
+    {
+      "geo": "NL",
+      "name": "Netherlands",
+      "year": 2019,
+      "population": 17282163,
+      "chickens": 101741000,
+      "chicken_flag": "A"
+    },
+    {
+      "geo": "NL",
+      "name": "Netherlands",
+      "year": 2020,
+      "population": 17407585,
+      "chickens": 101863000,
+      "chicken_flag": "A"
+    },
+    {
+      "geo": "NL",
+      "name": "Netherlands",
+      "year": 2021,
+      "population": 17475415,
+      "chickens": 99887000,
+      "chicken_flag": "A"
+    },
+    {
+      "geo": "NL",
+      "name": "Netherlands",
+      "year": 2022,
+      "population": 17590672,
+      "chickens": 97533000,
+      "chicken_flag": "A"
+    },
+    {
+      "geo": "NL",
+      "name": "Netherlands",
+      "year": 2023,
+      "population": 17811291,
+      "chickens": 93004000,
+      "chicken_flag": "A"
+    },
+    {
+      "geo": "NL",
+      "name": "Netherlands",
+      "year": 2024,
+      "population": 17942942,
+      "chickens": 89231000,
+      "chicken_flag": "A"
+    },
+    {
+      "geo": "PL",
+      "name": "Poland",
+      "year": 2015,
+      "population": 38005614,
+      "chickens": 146123000,
+      "chicken_flag": "A"
+    },
+    {
+      "geo": "PL",
+      "name": "Poland",
+      "year": 2016,
+      "population": 37967209,
+      "chickens": 169033000,
+      "chicken_flag": "A"
+    },
+    {
+      "geo": "PL",
+      "name": "Poland",
+      "year": 2017,
+      "population": 37972964,
+      "chickens": 177640000,
+      "chicken_flag": "A"
+    },
+    {
+      "geo": "PL",
+      "name": "Poland",
+      "year": 2018,
+      "population": 37976687,
+      "chickens": 182200000,
+      "chicken_flag": "A"
+    },
+    {
+      "geo": "PL",
+      "name": "Poland",
+      "year": 2019,
+      "population": 37972812,
+      "chickens": 183121000,
+      "chicken_flag": "A"
+    },
+    {
+      "geo": "PL",
+      "name": "Poland",
+      "year": 2020,
+      "population": 37958138,
+      "chickens": 195825000,
+      "chicken_flag": "A"
+    },
+    {
+      "geo": "PL",
+      "name": "Poland",
+      "year": 2021,
+      "population": 37073357,
+      "chickens": 168629000,
+      "chicken_flag": "A"
+    },
+    {
+      "geo": "PL",
+      "name": "Poland",
+      "year": 2022,
+      "population": 36889761,
+      "chickens": 176580000,
+      "chicken_flag": "A"
+    },
+    {
+      "geo": "PL",
+      "name": "Poland",
+      "year": 2023,
+      "population": 36753736,
+      "chickens": 195145000,
+      "chicken_flag": "A"
+    },
+    {
+      "geo": "PL",
+      "name": "Poland",
+      "year": 2024,
+      "population": 36620970,
+      "chickens": 244680000,
+      "chicken_flag": "A"
+    },
+    {
+      "geo": "PT",
+      "name": "Portugal",
+      "year": 2015,
+      "population": 10395121,
+      "chickens": 30656000,
+      "chicken_flag": "I"
+    },
+    {
+      "geo": "PT",
+      "name": "Portugal",
+      "year": 2016,
+      "population": 10368554,
+      "chickens": 33450000,
+      "chicken_flag": "A"
+    },
+    {
+      "geo": "PT",
+      "name": "Portugal",
+      "year": 2017,
+      "population": 10344478,
+      "chickens": 37228000,
+      "chicken_flag": "I"
+    },
+    {
+      "geo": "PT",
+      "name": "Portugal",
+      "year": 2018,
+      "population": 10335770,
+      "chickens": "",
+      "chicken_flag": ""
+    },
+    {
+      "geo": "PT",
+      "name": "Portugal",
+      "year": 2019,
+      "population": 10333496,
+      "chickens": "",
+      "chicken_flag": ""
+    },
+    {
+      "geo": "PT",
+      "name": "Portugal",
+      "year": 2020,
+      "population": 10375395,
+      "chickens": 49307000,
+      "chicken_flag": "A"
+    },
+    {
+      "geo": "PT",
+      "name": "Portugal",
+      "year": 2021,
+      "population": 10394297,
+      "chickens": "",
+      "chicken_flag": ""
+    },
+    {
+      "geo": "PT",
+      "name": "Portugal",
+      "year": 2022,
+      "population": 10599117,
+      "chickens": "",
+      "chicken_flag": ""
+    },
+    {
+      "geo": "PT",
+      "name": "Portugal",
+      "year": 2023,
+      "population": 10929704,
+      "chickens": 44098000,
+      "chicken_flag": "A"
+    },
+    {
+      "geo": "PT",
+      "name": "Portugal",
+      "year": 2024,
+      "population": 11204347,
+      "chickens": "",
+      "chicken_flag": ""
+    },
+    {
+      "geo": "RO",
+      "name": "Romania",
+      "year": 2015,
+      "population": 19870647,
+      "chickens": 75447000,
+      "chicken_flag": "A"
+    },
+    {
+      "geo": "RO",
+      "name": "Romania",
+      "year": 2016,
+      "population": 19760585,
+      "chickens": 78648000,
+      "chicken_flag": "A"
+    },
+    {
+      "geo": "RO",
+      "name": "Romania",
+      "year": 2017,
+      "population": 19643949,
+      "chickens": 75690000,
+      "chicken_flag": "A"
+    },
+    {
+      "geo": "RO",
+      "name": "Romania",
+      "year": 2018,
+      "population": 19533481,
+      "chickens": 73289000,
+      "chicken_flag": "A"
+    },
+    {
+      "geo": "RO",
+      "name": "Romania",
+      "year": 2019,
+      "population": 19414458,
+      "chickens": 73993000,
+      "chicken_flag": "A"
+    },
+    {
+      "geo": "RO",
+      "name": "Romania",
+      "year": 2020,
+      "population": 19328838,
+      "chickens": 73901000,
+      "chicken_flag": "A"
+    },
+    {
+      "geo": "RO",
+      "name": "Romania",
+      "year": 2021,
+      "population": 19201662,
+      "chickens": 77148000,
+      "chicken_flag": "A"
+    },
+    {
+      "geo": "RO",
+      "name": "Romania",
+      "year": 2022,
+      "population": 19043098,
+      "chickens": 78268000,
+      "chicken_flag": "A"
+    },
+    {
+      "geo": "RO",
+      "name": "Romania",
+      "year": 2023,
+      "population": 19055228,
+      "chickens": 74068000,
+      "chicken_flag": "A"
+    },
+    {
+      "geo": "RO",
+      "name": "Romania",
+      "year": 2024,
+      "population": 19067576,
+      "chickens": "",
+      "chicken_flag": ""
+    },
+    {
+      "geo": "SK",
+      "name": "Slovakia",
+      "year": 2015,
+      "population": 5421349,
+      "chickens": 12181000,
+      "chicken_flag": "A"
+    },
+    {
+      "geo": "SK",
+      "name": "Slovakia",
+      "year": 2016,
+      "population": 5426252,
+      "chickens": 12513000,
+      "chicken_flag": "A"
+    },
+    {
+      "geo": "SK",
+      "name": "Slovakia",
+      "year": 2017,
+      "population": 5435343,
+      "chickens": 11806000,
+      "chicken_flag": "A"
+    },
+    {
+      "geo": "SK",
+      "name": "Slovakia",
+      "year": 2018,
+      "population": 5443120,
+      "chickens": 13030000,
+      "chicken_flag": "A"
+    },
+    {
+      "geo": "SK",
+      "name": "Slovakia",
+      "year": 2019,
+      "population": 5450421,
+      "chickens": 12853000,
+      "chicken_flag": "A"
+    },
+    {
+      "geo": "SK",
+      "name": "Slovakia",
+      "year": 2020,
+      "population": 5457873,
+      "chickens": 13153000,
+      "chicken_flag": "A"
+    },
+    {
+      "geo": "SK",
+      "name": "Slovakia",
+      "year": 2021,
+      "population": 5459781,
+      "chickens": 10136000,
+      "chicken_flag": "A"
+    },
+    {
+      "geo": "SK",
+      "name": "Slovakia",
+      "year": 2022,
+      "population": 5434712,
+      "chickens": 9096000,
+      "chicken_flag": "A"
+    },
+    {
+      "geo": "SK",
+      "name": "Slovakia",
+      "year": 2023,
+      "population": 5428792,
+      "chickens": 9815000,
+      "chicken_flag": "A"
+    },
+    {
+      "geo": "SK",
+      "name": "Slovakia",
+      "year": 2024,
+      "population": 5424687,
+      "chickens": 9593000,
+      "chicken_flag": "A"
+    },
+    {
+      "geo": "SI",
+      "name": "Slovenia",
+      "year": 2015,
+      "population": 2062874,
+      "chickens": 3281000,
+      "chicken_flag": "A"
+    },
+    {
+      "geo": "SI",
+      "name": "Slovenia",
+      "year": 2016,
+      "population": 2064188,
+      "chickens": 3479000,
+      "chicken_flag": "A"
+    },
+    {
+      "geo": "SI",
+      "name": "Slovenia",
+      "year": 2017,
+      "population": 2065895,
+      "chickens": 3639000,
+      "chicken_flag": "A"
+    },
+    {
+      "geo": "SI",
+      "name": "Slovenia",
+      "year": 2018,
+      "population": 2066880,
+      "chickens": 3866000,
+      "chicken_flag": "A"
+    },
+    {
+      "geo": "SI",
+      "name": "Slovenia",
+      "year": 2019,
+      "population": 2080908,
+      "chickens": 4028000,
+      "chicken_flag": "A"
+    },
+    {
+      "geo": "SI",
+      "name": "Slovenia",
+      "year": 2020,
+      "population": 2095861,
+      "chickens": 5770000,
+      "chicken_flag": "A"
+    },
+    {
+      "geo": "SI",
+      "name": "Slovenia",
+      "year": 2021,
+      "population": 2108977,
+      "chickens": 4671000,
+      "chicken_flag": "A"
+    },
+    {
+      "geo": "SI",
+      "name": "Slovenia",
+      "year": 2022,
+      "population": 2107180,
+      "chickens": 5023000,
+      "chicken_flag": "A"
+    },
+    {
+      "geo": "SI",
+      "name": "Slovenia",
+      "year": 2023,
+      "population": 2116972,
+      "chickens": 4059000,
+      "chicken_flag": "A"
+    },
+    {
+      "geo": "SI",
+      "name": "Slovenia",
+      "year": 2024,
+      "population": 2123949,
+      "chickens": 5054000,
+      "chicken_flag": "A"
+    },
+    {
+      "geo": "ES",
+      "name": "Spain",
+      "year": 2015,
+      "population": 46425722,
+      "chickens": 184311000,
+      "chicken_flag": "I"
+    },
+    {
+      "geo": "ES",
+      "name": "Spain",
+      "year": 2016,
+      "population": 46418884,
+      "chickens": 182200000,
+      "chicken_flag": "A"
+    },
+    {
+      "geo": "ES",
+      "name": "Spain",
+      "year": 2017,
+      "population": 46497393,
+      "chickens": 187784000,
+      "chicken_flag": "I"
+    },
+    {
+      "geo": "ES",
+      "name": "Spain",
+      "year": 2018,
+      "population": 46645070,
+      "chickens": "",
+      "chicken_flag": ""
+    },
+    {
+      "geo": "ES",
+      "name": "Spain",
+      "year": 2019,
+      "population": 46918951,
+      "chickens": "",
+      "chicken_flag": ""
+    },
+    {
+      "geo": "ES",
+      "name": "Spain",
+      "year": 2020,
+      "population": 47318050,
+      "chickens": 193476000,
+      "chicken_flag": "A"
+    },
+    {
+      "geo": "ES",
+      "name": "Spain",
+      "year": 2021,
+      "population": 47400798,
+      "chickens": "",
+      "chicken_flag": ""
+    },
+    {
+      "geo": "ES",
+      "name": "Spain",
+      "year": 2022,
+      "population": 47486843,
+      "chickens": "",
+      "chicken_flag": ""
+    },
+    {
+      "geo": "ES",
+      "name": "Spain",
+      "year": 2023,
+      "population": 48085361,
+      "chickens": "",
+      "chicken_flag": ""
+    },
+    {
+      "geo": "ES",
+      "name": "Spain",
+      "year": 2024,
+      "population": 48619695,
+      "chickens": "",
+      "chicken_flag": ""
+    },
+    {
+      "geo": "SE",
+      "name": "Sweden",
+      "year": 2015,
+      "population": 9747355,
+      "chickens": 28958000,
+      "chicken_flag": "A"
+    },
+    {
+      "geo": "SE",
+      "name": "Sweden",
+      "year": 2016,
+      "population": 9851017,
+      "chickens": 29761000,
+      "chicken_flag": "I"
+    },
+    {
+      "geo": "SE",
+      "name": "Sweden",
+      "year": 2017,
+      "population": 9995153,
+      "chickens": 30559000,
+      "chicken_flag": "A"
+    },
+    {
+      "geo": "SE",
+      "name": "Sweden",
+      "year": 2018,
+      "population": 10120242,
+      "chickens": 31756000,
+      "chicken_flag": "A"
+    },
+    {
+      "geo": "SE",
+      "name": "Sweden",
+      "year": 2019,
+      "population": 10230185,
+      "chickens": 33900000,
+      "chicken_flag": "A"
+    },
+    {
+      "geo": "SE",
+      "name": "Sweden",
+      "year": 2020,
+      "population": 10327589,
+      "chickens": "",
+      "chicken_flag": ""
+    },
+    {
+      "geo": "SE",
+      "name": "Sweden",
+      "year": 2021,
+      "population": 10379295,
+      "chickens": "",
+      "chicken_flag": ""
+    },
+    {
+      "geo": "SE",
+      "name": "Sweden",
+      "year": 2022,
+      "population": 10452326,
+      "chickens": "",
+      "chicken_flag": ""
+    },
+    {
+      "geo": "SE",
+      "name": "Sweden",
+      "year": 2023,
+      "population": 10521556,
+      "chickens": 25729000,
+      "chicken_flag": "A"
+    },
+    {
+      "geo": "SE",
+      "name": "Sweden",
+      "year": 2024,
+      "population": 10551707,
+      "chickens": "",
+      "chicken_flag": ""
+    },
+    {
+      "geo": "IS",
+      "name": "Iceland",
+      "year": 2015,
+      "population": 329100,
+      "chickens": 221000,
+      "chicken_flag": "A"
+    },
+    {
+      "geo": "IS",
+      "name": "Iceland",
+      "year": 2016,
+      "population": 332529,
+      "chickens": 226000,
+      "chicken_flag": "A"
+    },
+    {
+      "geo": "IS",
+      "name": "Iceland",
+      "year": 2017,
+      "population": 338349,
+      "chickens": 230000,
+      "chicken_flag": "A"
+    },
+    {
+      "geo": "IS",
+      "name": "Iceland",
+      "year": 2018,
+      "population": 348450,
+      "chickens": 228000,
+      "chicken_flag": "A"
+    },
+    {
+      "geo": "IS",
+      "name": "Iceland",
+      "year": 2019,
+      "population": 356991,
+      "chickens": 227000,
+      "chicken_flag": "A"
+    },
+    {
+      "geo": "IS",
+      "name": "Iceland",
+      "year": 2020,
+      "population": 364134,
+      "chickens": 222000,
+      "chicken_flag": "A"
+    },
+    {
+      "geo": "IS",
+      "name": "Iceland",
+      "year": 2021,
+      "population": 368792,
+      "chickens": 220000,
+      "chicken_flag": "A"
+    },
+    {
+      "geo": "IS",
+      "name": "Iceland",
+      "year": 2022,
+      "population": 376248,
+      "chickens": 220000,
+      "chicken_flag": "A"
+    },
+    {
+      "geo": "IS",
+      "name": "Iceland",
+      "year": 2023,
+      "population": 387758,
+      "chickens": 220000,
+      "chicken_flag": "A"
+    },
+    {
+      "geo": "IS",
+      "name": "Iceland",
+      "year": 2024,
+      "population": 383567,
+      "chickens": 230000,
+      "chicken_flag": "A"
+    },
+    {
+      "geo": "LI",
+      "name": "Liechtenstein",
+      "year": 2015,
+      "population": 37366,
+      "chickens": "",
+      "chicken_flag": ""
+    },
+    {
+      "geo": "LI",
+      "name": "Liechtenstein",
+      "year": 2016,
+      "population": 37622,
+      "chickens": "",
+      "chicken_flag": ""
+    },
+    {
+      "geo": "LI",
+      "name": "Liechtenstein",
+      "year": 2017,
+      "population": 37810,
+      "chickens": "",
+      "chicken_flag": ""
+    },
+    {
+      "geo": "LI",
+      "name": "Liechtenstein",
+      "year": 2018,
+      "population": 38114,
+      "chickens": "",
+      "chicken_flag": ""
+    },
+    {
+      "geo": "LI",
+      "name": "Liechtenstein",
+      "year": 2019,
+      "population": 38378,
+      "chickens": "",
+      "chicken_flag": ""
+    },
+    {
+      "geo": "LI",
+      "name": "Liechtenstein",
+      "year": 2020,
+      "population": 38747,
+      "chickens": "",
+      "chicken_flag": ""
+    },
+    {
+      "geo": "LI",
+      "name": "Liechtenstein",
+      "year": 2021,
+      "population": 39055,
+      "chickens": "",
+      "chicken_flag": ""
+    },
+    {
+      "geo": "LI",
+      "name": "Liechtenstein",
+      "year": 2022,
+      "population": 39308,
+      "chickens": "",
+      "chicken_flag": ""
+    },
+    {
+      "geo": "LI",
+      "name": "Liechtenstein",
+      "year": 2023,
+      "population": 39677,
+      "chickens": "",
+      "chicken_flag": ""
+    },
+    {
+      "geo": "LI",
+      "name": "Liechtenstein",
+      "year": 2024,
+      "population": 40015,
+      "chickens": "",
+      "chicken_flag": ""
+    },
+    {
+      "geo": "NO",
+      "name": "Norway",
+      "year": 2015,
+      "population": 5165802,
+      "chickens": 14584000,
+      "chicken_flag": "A"
+    },
+    {
+      "geo": "NO",
+      "name": "Norway",
+      "year": 2016,
+      "population": 5213985,
+      "chickens": 13919000,
+      "chicken_flag": "A"
+    },
+    {
+      "geo": "NO",
+      "name": "Norway",
+      "year": 2017,
+      "population": 5258317,
+      "chickens": 15643000,
+      "chicken_flag": "A"
+    },
+    {
+      "geo": "NO",
+      "name": "Norway",
+      "year": 2018,
+      "population": 5295619,
+      "chickens": 15598000,
+      "chicken_flag": "A"
+    },
+    {
+      "geo": "NO",
+      "name": "Norway",
+      "year": 2019,
+      "population": 5328212,
+      "chickens": 16096000,
+      "chicken_flag": "A"
+    },
+    {
+      "geo": "NO",
+      "name": "Norway",
+      "year": 2020,
+      "population": 5367580,
+      "chickens": 14218000,
+      "chicken_flag": "A"
+    },
+    {
+      "geo": "NO",
+      "name": "Norway",
+      "year": 2021,
+      "population": 5391369,
+      "chickens": 16336000,
+      "chicken_flag": "A"
+    },
+    {
+      "geo": "NO",
+      "name": "Norway",
+      "year": 2022,
+      "population": 5425270,
+      "chickens": 16131000,
+      "chicken_flag": "A"
+    },
+    {
+      "geo": "NO",
+      "name": "Norway",
+      "year": 2023,
+      "population": 5488984,
+      "chickens": 16484000,
+      "chicken_flag": "A"
+    },
+    {
+      "geo": "NO",
+      "name": "Norway",
+      "year": 2024,
+      "population": 5550203,
+      "chickens": 16579000,
+      "chicken_flag": "A"
+    },
+    {
+      "geo": "CH",
+      "name": "Switzerland",
+      "year": 2015,
+      "population": 8237666,
+      "chickens": 10753000,
+      "chicken_flag": "A"
+    },
+    {
+      "geo": "CH",
+      "name": "Switzerland",
+      "year": 2016,
+      "population": 8327126,
+      "chickens": 10893000,
+      "chicken_flag": "A"
+    },
+    {
+      "geo": "CH",
+      "name": "Switzerland",
+      "year": 2017,
+      "population": 8419550,
+      "chickens": 11409000,
+      "chicken_flag": "A"
+    },
+    {
+      "geo": "CH",
+      "name": "Switzerland",
+      "year": 2018,
+      "population": 8484130,
+      "chickens": 11535000,
+      "chicken_flag": "A"
+    },
+    {
+      "geo": "CH",
+      "name": "Switzerland",
+      "year": 2019,
+      "population": 8544527,
+      "chickens": 11829000,
+      "chicken_flag": "A"
+    },
+    {
+      "geo": "CH",
+      "name": "Switzerland",
+      "year": 2020,
+      "population": 8606033,
+      "chickens": 12429000,
+      "chicken_flag": "A"
+    },
+    {
+      "geo": "CH",
+      "name": "Switzerland",
+      "year": 2021,
+      "population": 8670300,
+      "chickens": 12568000,
+      "chicken_flag": "A"
+    },
+    {
+      "geo": "CH",
+      "name": "Switzerland",
+      "year": 2022,
+      "population": 8738791,
+      "chickens": 13109000,
+      "chicken_flag": "A"
+    },
+    {
+      "geo": "CH",
+      "name": "Switzerland",
+      "year": 2023,
+      "population": 8815385,
+      "chickens": 13152000,
+      "chicken_flag": "A"
+    },
+    {
+      "geo": "CH",
+      "name": "Switzerland",
+      "year": 2024,
+      "population": 8962258,
+      "chickens": 13168000,
+      "chicken_flag": "A"
+    },
+    {
+      "geo": "UK",
+      "name": "United Kingdom",
+      "year": 2015,
+      "population": 64852826,
+      "chickens": 157000000,
+      "chicken_flag": "A"
+    },
+    {
+      "geo": "UK",
+      "name": "United Kingdom",
+      "year": 2016,
+      "population": 65346400,
+      "chickens": 161000000,
+      "chicken_flag": "A"
+    },
+    {
+      "geo": "UK",
+      "name": "United Kingdom",
+      "year": 2017,
+      "population": 65785067,
+      "chickens": 171000000,
+      "chicken_flag": "A"
+    },
+    {
+      "geo": "UK",
+      "name": "United Kingdom",
+      "year": 2018,
+      "population": 66125510,
+      "chickens": 178000000,
+      "chicken_flag": "A"
+    },
+    {
+      "geo": "UK",
+      "name": "United Kingdom",
+      "year": 2019,
+      "population": 66457117,
+      "chickens": 176000000,
+      "chicken_flag": "A"
+    },
+    {
+      "geo": "UK",
+      "name": "United Kingdom",
+      "year": 2020,
+      "population": 66683687,
+      "chickens": 172000000,
+      "chicken_flag": "A"
+    },
+    {
+      "geo": "UK",
+      "name": "United Kingdom",
+      "year": 2021,
+      "population": 66858928,
+      "chickens": 180000000,
+      "chicken_flag": "A"
+    },
+    {
+      "geo": "UK",
+      "name": "United Kingdom",
+      "year": 2022,
+      "population": 67307061,
+      "chickens": 174193000,
+      "chicken_flag": "A"
+    },
+    {
+      "geo": "UK",
+      "name": "United Kingdom",
+      "year": 2023,
+      "population": 68081159,
+      "chickens": 170233000,
+      "chicken_flag": "A"
+    },
+    {
+      "geo": "UK",
+      "name": "United Kingdom",
+      "year": 2024,
+      "population": 68903810,
+      "chickens": 166986000,
+      "chicken_flag": "A"
+    },
+    {
+      "geo": "AL",
+      "name": "Albania",
+      "year": 2015,
+      "population": 2885796,
+      "chickens": 8555000,
+      "chicken_flag": "A"
+    },
+    {
+      "geo": "AL",
+      "name": "Albania",
+      "year": 2016,
+      "population": 2875592,
+      "chickens": 7634000,
+      "chicken_flag": "A"
+    },
+    {
+      "geo": "AL",
+      "name": "Albania",
+      "year": 2017,
+      "population": 2876591,
+      "chickens": 7835000,
+      "chicken_flag": "A"
+    },
+    {
+      "geo": "AL",
+      "name": "Albania",
+      "year": 2018,
+      "population": 2870324,
+      "chickens": 7272000,
+      "chicken_flag": "A"
+    },
+    {
+      "geo": "AL",
+      "name": "Albania",
+      "year": 2019,
+      "population": 2862427,
+      "chickens": 7090000,
+      "chicken_flag": "A"
+    },
+    {
+      "geo": "AL",
+      "name": "Albania",
+      "year": 2020,
+      "population": 2845955,
+      "chickens": 6774000,
+      "chicken_flag": "A"
+    },
+    {
+      "geo": "AL",
+      "name": "Albania",
+      "year": 2021,
+      "population": 2829741,
+      "chickens": 5249000,
+      "chicken_flag": "A"
+    },
+    {
+      "geo": "AL",
+      "name": "Albania",
+      "year": 2022,
+      "population": 2793592,
+      "chickens": 4999000,
+      "chicken_flag": "A"
+    },
+    {
+      "geo": "AL",
+      "name": "Albania",
+      "year": 2023,
+      "population": 2761785,
+      "chickens": 4877000,
+      "chicken_flag": "A"
+    },
+    {
+      "geo": "AL",
+      "name": "Albania",
+      "year": 2024,
+      "population": 2390942,
+      "chickens": 4557000,
+      "chicken_flag": "A"
+    },
+    {
+      "geo": "BA",
+      "name": "Bosnia and Herzegovina",
+      "year": 2015,
+      "population": 3825334,
+      "chickens": 15390000,
+      "chicken_flag": "A"
+    },
+    {
+      "geo": "BA",
+      "name": "Bosnia and Herzegovina",
+      "year": 2016,
+      "population": 3515982,
+      "chickens": 15066000,
+      "chicken_flag": "A"
+    },
+    {
+      "geo": "BA",
+      "name": "Bosnia and Herzegovina",
+      "year": 2017,
+      "population": 3509728,
+      "chickens": 16282000,
+      "chicken_flag": "A"
+    },
+    {
+      "geo": "BA",
+      "name": "Bosnia and Herzegovina",
+      "year": 2018,
+      "population": 3500295,
+      "chickens": 16229000,
+      "chicken_flag": "A"
+    },
+    {
+      "geo": "BA",
+      "name": "Bosnia and Herzegovina",
+      "year": 2019,
+      "population": 3492018,
+      "chickens": 16669000,
+      "chicken_flag": "A"
+    },
+    {
+      "geo": "BA",
+      "name": "Bosnia and Herzegovina",
+      "year": 2020,
+      "population": "",
+      "chickens": 16658000,
+      "chicken_flag": "A"
+    },
+    {
+      "geo": "BA",
+      "name": "Bosnia and Herzegovina",
+      "year": 2021,
+      "population": "",
+      "chickens": 8727000,
+      "chicken_flag": "A"
+    },
+    {
+      "geo": "BA",
+      "name": "Bosnia and Herzegovina",
+      "year": 2022,
+      "population": 3464384,
+      "chickens": 9299000,
+      "chicken_flag": "A"
+    },
+    {
+      "geo": "BA",
+      "name": "Bosnia and Herzegovina",
+      "year": 2023,
+      "population": 3441194,
+      "chickens": 9383000,
+      "chicken_flag": "A"
+    },
+    {
+      "geo": "BA",
+      "name": "Bosnia and Herzegovina",
+      "year": 2024,
+      "population": 3417089,
+      "chickens": 11523000,
+      "chicken_flag": "A"
+    },
+    {
+      "geo": "GE",
+      "name": "Georgia",
+      "year": 2015,
+      "population": 3729500,
+      "chickens": 6658000,
+      "chicken_flag": "A"
+    },
+    {
+      "geo": "GE",
+      "name": "Georgia",
+      "year": 2016,
+      "population": 3720400,
+      "chickens": 8309000,
+      "chicken_flag": "A"
+    },
+    {
+      "geo": "GE",
+      "name": "Georgia",
+      "year": 2017,
+      "population": 3718200,
+      "chickens": 8046000,
+      "chicken_flag": "A"
+    },
+    {
+      "geo": "GE",
+      "name": "Georgia",
+      "year": 2018,
+      "population": 3729633,
+      "chickens": 8220000,
+      "chicken_flag": "A"
+    },
+    {
+      "geo": "GE",
+      "name": "Georgia",
+      "year": 2019,
+      "population": 3723464,
+      "chickens": 7942000,
+      "chicken_flag": "A"
+    },
+    {
+      "geo": "GE",
+      "name": "Georgia",
+      "year": 2020,
+      "population": 3716858,
+      "chickens": 9298000,
+      "chicken_flag": "A"
+    },
+    {
+      "geo": "GE",
+      "name": "Georgia",
+      "year": 2021,
+      "population": 3728573,
+      "chickens": 9980000,
+      "chicken_flag": "A"
+    },
+    {
+      "geo": "GE",
+      "name": "Georgia",
+      "year": 2022,
+      "population": 3688647,
+      "chickens": 9092000,
+      "chicken_flag": "A"
+    },
+    {
+      "geo": "GE",
+      "name": "Georgia",
+      "year": 2023,
+      "population": 3736357,
+      "chickens": 8812000,
+      "chicken_flag": "A"
+    },
+    {
+      "geo": "GE",
+      "name": "Georgia",
+      "year": 2024,
+      "population": 3694608,
+      "chickens": 7475000,
+      "chicken_flag": "A"
+    },
+    {
+      "geo": "MD",
+      "name": "Moldova",
+      "year": 2015,
+      "population": 3555159,
+      "chickens": 36840000,
+      "chicken_flag": "X"
+    },
+    {
+      "geo": "MD",
+      "name": "Moldova",
+      "year": 2016,
+      "population": 2846327,
+      "chickens": 36727000,
+      "chicken_flag": "I"
+    },
+    {
+      "geo": "MD",
+      "name": "Moldova",
+      "year": 2017,
+      "population": 2825628,
+      "chickens": 37798000,
+      "chicken_flag": "I"
+    },
+    {
+      "geo": "MD",
+      "name": "Moldova",
+      "year": 2018,
+      "population": 2780744,
+      "chickens": 40000000,
+      "chicken_flag": "E"
+    },
+    {
+      "geo": "MD",
+      "name": "Moldova",
+      "year": 2019,
+      "population": 2729634,
+      "chickens": 41818000,
+      "chicken_flag": "I"
+    },
+    {
+      "geo": "MD",
+      "name": "Moldova",
+      "year": 2020,
+      "population": 2684772,
+      "chickens": 42830000,
+      "chicken_flag": "I"
+    },
+    {
+      "geo": "MD",
+      "name": "Moldova",
+      "year": 2021,
+      "population": 2643675,
+      "chickens": 43301000,
+      "chicken_flag": "I"
+    },
+    {
+      "geo": "MD",
+      "name": "Moldova",
+      "year": 2022,
+      "population": 2565030,
+      "chickens": 45259000,
+      "chicken_flag": "I"
+    },
+    {
+      "geo": "MD",
+      "name": "Moldova",
+      "year": 2023,
+      "population": 2512758,
+      "chickens": 46855000,
+      "chicken_flag": "I"
+    },
+    {
+      "geo": "MD",
+      "name": "Moldova",
+      "year": 2024,
+      "population": 2423287,
+      "chickens": 48451000,
+      "chicken_flag": "I"
+    },
+    {
+      "geo": "ME",
+      "name": "Montenegro",
+      "year": 2015,
+      "population": 622099,
+      "chickens": 597000,
+      "chicken_flag": "A"
+    },
+    {
+      "geo": "ME",
+      "name": "Montenegro",
+      "year": 2016,
+      "population": 622218,
+      "chickens": 723000,
+      "chicken_flag": "A"
+    },
+    {
+      "geo": "ME",
+      "name": "Montenegro",
+      "year": 2017,
+      "population": 622387,
+      "chickens": 722000,
+      "chicken_flag": "A"
+    },
+    {
+      "geo": "ME",
+      "name": "Montenegro",
+      "year": 2018,
+      "population": 622359,
+      "chickens": 651000,
+      "chicken_flag": "A"
+    },
+    {
+      "geo": "ME",
+      "name": "Montenegro",
+      "year": 2019,
+      "population": 622182,
+      "chickens": 621000,
+      "chicken_flag": "A"
+    },
+    {
+      "geo": "ME",
+      "name": "Montenegro",
+      "year": 2020,
+      "population": 621873,
+      "chickens": 587000,
+      "chicken_flag": "A"
+    },
+    {
+      "geo": "ME",
+      "name": "Montenegro",
+      "year": 2021,
+      "population": 620739,
+      "chickens": 587000,
+      "chicken_flag": "A"
+    },
+    {
+      "geo": "ME",
+      "name": "Montenegro",
+      "year": 2022,
+      "population": 617683,
+      "chickens": 844000,
+      "chicken_flag": "A"
+    },
+    {
+      "geo": "ME",
+      "name": "Montenegro",
+      "year": 2023,
+      "population": 616695,
+      "chickens": 855000,
+      "chicken_flag": "A"
+    },
+    {
+      "geo": "ME",
+      "name": "Montenegro",
+      "year": 2024,
+      "population": 623680,
+      "chickens": 1070000,
+      "chicken_flag": "A"
+    },
+    {
+      "geo": "MK",
+      "name": "North Macedonia",
+      "year": 2015,
+      "population": 2069172,
+      "chickens": 1761000,
+      "chicken_flag": "A"
+    },
+    {
+      "geo": "MK",
+      "name": "North Macedonia",
+      "year": 2016,
+      "population": 2071278,
+      "chickens": 1866000,
+      "chicken_flag": "A"
+    },
+    {
+      "geo": "MK",
+      "name": "North Macedonia",
+      "year": 2017,
+      "population": 2073702,
+      "chickens": 1840000,
+      "chicken_flag": "A"
+    },
+    {
+      "geo": "MK",
+      "name": "North Macedonia",
+      "year": 2018,
+      "population": 2075301,
+      "chickens": 1828000,
+      "chicken_flag": "A"
+    },
+    {
+      "geo": "MK",
+      "name": "North Macedonia",
+      "year": 2019,
+      "population": 2077132,
+      "chickens": 1562000,
+      "chicken_flag": "A"
+    },
+    {
+      "geo": "MK",
+      "name": "North Macedonia",
+      "year": 2020,
+      "population": 2076255,
+      "chickens": 1643000,
+      "chicken_flag": "A"
+    },
+    {
+      "geo": "MK",
+      "name": "North Macedonia",
+      "year": 2021,
+      "population": 2068808,
+      "chickens": 1484000,
+      "chicken_flag": "A"
+    },
+    {
+      "geo": "MK",
+      "name": "North Macedonia",
+      "year": 2022,
+      "population": 1837114,
+      "chickens": 1562000,
+      "chicken_flag": "A"
+    },
+    {
+      "geo": "MK",
+      "name": "North Macedonia",
+      "year": 2023,
+      "population": 1829954,
+      "chickens": 1746000,
+      "chicken_flag": "A"
+    },
+    {
+      "geo": "MK",
+      "name": "North Macedonia",
+      "year": 2024,
+      "population": 1826247,
+      "chickens": 2573000,
+      "chicken_flag": "A"
+    },
+    {
+      "geo": "RS",
+      "name": "Serbia",
+      "year": 2015,
+      "population": 7114393,
+      "chickens": 16919000,
+      "chicken_flag": "A"
+    },
+    {
+      "geo": "RS",
+      "name": "Serbia",
+      "year": 2016,
+      "population": 7076372,
+      "chickens": 15708000,
+      "chicken_flag": "A"
+    },
+    {
+      "geo": "RS",
+      "name": "Serbia",
+      "year": 2017,
+      "population": 7040272,
+      "chickens": 16338000,
+      "chicken_flag": "A"
+    },
+    {
+      "geo": "RS",
+      "name": "Serbia",
+      "year": 2018,
+      "population": 7001444,
+      "chickens": 15685000,
+      "chicken_flag": "A"
+    },
+    {
+      "geo": "RS",
+      "name": "Serbia",
+      "year": 2019,
+      "population": 6963764,
+      "chickens": 15417000,
+      "chicken_flag": "A"
+    },
+    {
+      "geo": "RS",
+      "name": "Serbia",
+      "year": 2020,
+      "population": 6926705,
+      "chickens": 14927000,
+      "chicken_flag": "A"
+    },
+    {
+      "geo": "RS",
+      "name": "Serbia",
+      "year": 2021,
+      "population": 6871547,
+      "chickens": 15122000,
+      "chicken_flag": "A"
+    },
+    {
+      "geo": "RS",
+      "name": "Serbia",
+      "year": 2022,
+      "population": 6797105,
+      "chickens": 14624000,
+      "chicken_flag": "A"
+    },
+    {
+      "geo": "RS",
+      "name": "Serbia",
+      "year": 2023,
+      "population": 6641197,
+      "chickens": 13913000,
+      "chicken_flag": "A"
+    },
+    {
+      "geo": "RS",
+      "name": "Serbia",
+      "year": 2024,
+      "population": 6605168,
+      "chickens": 14417000,
+      "chicken_flag": "A"
+    },
+    {
+      "geo": "TR",
+      "name": "Türkiye",
+      "year": 2015,
+      "population": 77695904,
+      "chickens": 312256000,
+      "chicken_flag": "A"
+    },
+    {
+      "geo": "TR",
+      "name": "Türkiye",
+      "year": 2016,
+      "population": 78741053,
+      "chickens": 329011000,
+      "chicken_flag": "A"
+    },
+    {
+      "geo": "TR",
+      "name": "Türkiye",
+      "year": 2017,
+      "population": 79814871,
+      "chickens": 342801000,
+      "chicken_flag": "A"
+    },
+    {
+      "geo": "TR",
+      "name": "Türkiye",
+      "year": 2018,
+      "population": 80810525,
+      "chickens": 353561000,
+      "chicken_flag": "A"
+    },
+    {
+      "geo": "TR",
+      "name": "Türkiye",
+      "year": 2019,
+      "population": 82003882,
+      "chickens": 342567000,
+      "chicken_flag": "A"
+    },
+    {
+      "geo": "TR",
+      "name": "Türkiye",
+      "year": 2020,
+      "population": 83154997,
+      "chickens": 379349000,
+      "chicken_flag": "A"
+    },
+    {
+      "geo": "TR",
+      "name": "Türkiye",
+      "year": 2021,
+      "population": 83614362,
+      "chickens": 391394000,
+      "chicken_flag": "A"
+    },
+    {
+      "geo": "TR",
+      "name": "Türkiye",
+      "year": 2022,
+      "population": 84680273,
+      "chickens": 361096000,
+      "chicken_flag": "A"
+    },
+    {
+      "geo": "TR",
+      "name": "Türkiye",
+      "year": 2023,
+      "population": 85279553,
+      "chickens": 368624000,
+      "chicken_flag": "A"
+    },
+    {
+      "geo": "TR",
+      "name": "Türkiye",
+      "year": 2024,
+      "population": 85372377,
+      "chickens": 379627000,
+      "chicken_flag": "A"
+    },
+    {
+      "geo": "UA",
+      "name": "Ukraine",
+      "year": 2015,
+      "population": 42759661,
+      "chickens": 193885000,
+      "chicken_flag": "A"
+    },
+    {
+      "geo": "UA",
+      "name": "Ukraine",
+      "year": 2016,
+      "population": 42590879,
+      "chickens": 186354000,
+      "chicken_flag": "A"
+    },
+    {
+      "geo": "UA",
+      "name": "Ukraine",
+      "year": 2017,
+      "population": 42414905,
+      "chickens": 184336000,
+      "chicken_flag": "A"
+    },
+    {
+      "geo": "UA",
+      "name": "Ukraine",
+      "year": 2018,
+      "population": 42216766,
+      "chickens": 186737000,
+      "chicken_flag": "A"
+    },
+    {
+      "geo": "UA",
+      "name": "Ukraine",
+      "year": 2019,
+      "population": 41983564,
+      "chickens": 191968000,
+      "chicken_flag": "A"
+    },
+    {
+      "geo": "UA",
+      "name": "Ukraine",
+      "year": 2020,
+      "population": 41732779,
+      "chickens": 202511000,
+      "chicken_flag": "A"
+    },
+    {
+      "geo": "UA",
+      "name": "Ukraine",
+      "year": 2021,
+      "population": "",
+      "chickens": 183543000,
+      "chicken_flag": "A"
+    },
+    {
+      "geo": "UA",
+      "name": "Ukraine",
+      "year": 2022,
+      "population": 40997698,
+      "chickens": 186623000,
+      "chicken_flag": "A"
+    },
+    {
+      "geo": "UA",
+      "name": "Ukraine",
+      "year": 2023,
+      "population": "",
+      "chickens": 165468000,
+      "chicken_flag": "A"
+    },
+    {
+      "geo": "UA",
+      "name": "Ukraine",
+      "year": 2024,
+      "population": "",
+      "chickens": 173725000,
+      "chicken_flag": "A"
+    },
+    {
+      "geo": "XK",
+      "name": "Kosovo",
+      "year": 2015,
+      "population": 1804944,
+      "chickens": "",
+      "chicken_flag": ""
+    },
+    {
+      "geo": "XK",
+      "name": "Kosovo",
+      "year": 2016,
+      "population": 1771604,
+      "chickens": "",
+      "chicken_flag": ""
+    },
+    {
+      "geo": "XK",
+      "name": "Kosovo",
+      "year": 2017,
+      "population": 1783531,
+      "chickens": "",
+      "chicken_flag": ""
+    },
+    {
+      "geo": "XK",
+      "name": "Kosovo",
+      "year": 2018,
+      "population": 1798506,
+      "chickens": "",
+      "chicken_flag": ""
+    },
+    {
+      "geo": "XK",
+      "name": "Kosovo",
+      "year": 2019,
+      "population": 1795666,
+      "chickens": "",
+      "chicken_flag": ""
+    },
+    {
+      "geo": "XK",
+      "name": "Kosovo",
+      "year": 2020,
+      "population": 1782115,
+      "chickens": "",
+      "chicken_flag": ""
+    },
+    {
+      "geo": "XK",
+      "name": "Kosovo",
+      "year": 2021,
+      "population": 1798186,
+      "chickens": "",
+      "chicken_flag": ""
+    },
+    {
+      "geo": "XK",
+      "name": "Kosovo",
+      "year": 2022,
+      "population": 1773971,
+      "chickens": "",
+      "chicken_flag": ""
+    },
+    {
+      "geo": "XK",
+      "name": "Kosovo",
+      "year": 2023,
+      "population": "",
+      "chickens": "",
+      "chicken_flag": ""
+    },
+    {
+      "geo": "XK",
+      "name": "Kosovo",
+      "year": 2024,
+      "population": "",
+      "chickens": "",
+      "chicken_flag": ""
+    }
+  ]
+}
