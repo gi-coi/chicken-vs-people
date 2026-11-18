@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Chickens vs People — Europe</title>
+  <meta name="description" content="Which European countries have more chickens than people?" />
+  <link rel="stylesheet" href="index.css" />
+</head>
+<body>
+  <header class="masthead">
+    <h1>Chickens&nbsp;vs&nbsp;People</h1>
+    <p class="subtitle">Which European countries have more chickens than people?</p>
+  </header>
+
+  <div id="load-error" class="banner" hidden>
+    <strong>Couldn't load the data.</strong>
+    <p id="load-error-detail"></p>
+    <p>If you opened this page directly from disk (<code>file://</code>), your browser blocks
+      <code>fetch()</code>. Serve the repo root instead — e.g. <code>python3 -m http.server</code>
+      in the project root, then open <code>http://localhost:8000/dashboard/</code> —
+      or view it on GitHub Pages.</p>
+  </div>
+
+  <main id="app" hidden>
+    <section class="hero">
+      <p class="hero__kicker">Europe</p>
+      <div class="hero__stat"><span id="hero-count">36</span><span class="hero__denom">/&nbsp;38</span></div>
+      <p class="hero__line">European countries have <strong>more chickens than people</strong>.</p>
+      <p id="hero-losers" class="hero__losers"></p>
+      <p id="hero-meta" class="hero__meta muted"></p>
+    </section>
+
+    <section class="panel">
+      <div class="panel__head">
+        <h2>Chickens per person, by country</h2>
+        <p class="muted">Reference line = 1.0&times; (chickens equal people). Bars to its right win.</p>
+      </div>
+      <div id="barchart" class="barchart" role="img"
+           aria-label="Bar chart of chickens per person by country"></div>
+      <p class="muted chart-note">
+        <span class="legend-dot legend-dot--win"></span> more chickens &nbsp;&middot;&nbsp;
+        <span class="legend-dot legend-dot--lose"></span> more people &nbsp;&middot;&nbsp;
+        <span class="year-badge">2020</span> comparison year earlier than 2024
+      </p>
+    </section>
+
+    <section class="panel">
+      <div class="panel__head panel__head--row">
+        <h2>All countries</h2>
+        <input id="search" class="search" type="search" placeholder="Search countries&hellip;"
+               autocomplete="off" aria-label="Search countries" />
+      </div>
+      <div class="table-wrap">
+        <table id="table" class="table">
+          <thead>
+            <tr>
+              <th class="num" scope="col">#</th>
+              <th scope="col" data-sort="name">Country</th>
+              <th class="num" scope="col" data-sort="year">Year</th>
+              <th class="num" scope="col" data-sort="chickens">Chickens</th>
+              <th class="num" scope="col" data-sort="population">People</th>
+              <th class="num" scope="col" data-sort="ratio">Ratio</th>
+              <th class="num" scope="col" data-sort="growth_pct">Growth</th>
+            </tr>
+          </thead>
+          <tbody id="tbody"></tbody>
+        </table>
+      </div>
+      <p class="muted table-note">Click a row to see its chicken-stock trend since 2015; click a column
+        header to sort. A year badge marks a country whose chicken figure is from before 2024
+        (its FAOSTAT series ends there). Growth = change in chicken stock, 2015 &rarr; the country's
+        comparison year.</p>
+    </section>
+
+    <section class="panel note">
+      <h2>What counts as &ldquo;European&rdquo;?</h2>
+      <p id="scope-note"></p>
+      <p class="muted">Chickens: FAOSTAT QCL, item 1057 &ldquo;Chickens&rdquo;, element
+        &ldquo;Stocks&rdquo; (1000 head). People: Eurostat <code>demo_gind</code>, indicator JAN
+        (population on 1 January). Full provenance and known uncertainties in
+        <a href="../docs/sources.md">docs/sources.md</a> and
+        <a href="../docs/uncertainties.md">docs/uncertainties.md</a>.</p>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <p>Built from FAOSTAT &amp; Eurostat data &middot;
+      <a href="../docs/sources.md">sources</a> &middot;
+      <a href="../docs/uncertainties.md">uncertainties</a></p>
+  </footer>
+
+  <script src="index.js"></script>
+</body>
+</html>
