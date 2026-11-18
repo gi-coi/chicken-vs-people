@@ -57,17 +57,17 @@ function renderHero(d) {
   const rows = euRows();
   const winners = rows.filter((r) => r.more_chickens_than_people);
   const losers = rows.filter((r) => !r.more_chickens_than_people);
-  $('#hero-count').textContent = winners.length;
-  $('.hero__denom').textContent = '/ ' + rows.length;
-  $('#hero-losers').textContent = losers.length
-    ? 'The only exception' + (losers.length > 1 ? 's' : '') + ': ' +
-      losers.map((l) => l.name + ' (' + fmtRatio(l.ratio) + '\u00d7)').join(' and ') + '.'
-    : '';
   const eu = d.eu_total;
+  $('#hero-ratio').textContent = fmtRatio(eu.ratio);
   $('#hero-eu').textContent = eu
-    ? 'The EU-27 as a whole: ' + fmtRatio(eu.ratio) + '\u00d7 chickens per person \u2014 ' +
-      fmtBig(eu.chickens) + ' chickens vs ' + fmtBig(eu.population) + ' people.'
+    ? 'That\u2019s ' + fmtBig(eu.chickens) + ' chickens and ' + fmtBig(eu.population) + ' people.'
     : '';
+  $('#hero-countline').textContent =
+    winners.length + ' of ' + rows.length + ' EU countries have more chickens than people' +
+    (losers.length
+      ? ' \u2014 the only exception is ' +
+        losers.map((l) => l.name + ' (' + fmtRatio(l.ratio) + '\u00d7)').join(', ') + '.'
+      : '.');
   $('#hero-meta').textContent =
     'Reference year ' + d.reference_year +
     ' \u00b7 chickens and people compared within the same year, per country.';
@@ -140,9 +140,9 @@ function renderSlopeChart(d) {
   const axisMax = Math.ceil(Math.max.apply(null, items.map((i) => i.r1)));
   const n = items.length;
   const rowH = 26, topPad = 28, bottomPad = 24;
-  const W = 800;
+  const W = 880;
   const H = topPad + n * rowH + bottomPad;
-  const nameX = 132, x0 = 165, x1 = 700;
+  const nameX = 130, x0 = 165, x1 = 650, textX = 872;
   const x = (r) => x0 + (r / axisMax) * (x1 - x0);
   const y = (i) => topPad + i * rowH + rowH / 2;
 
@@ -159,8 +159,10 @@ function renderSlopeChart(d) {
       '<circle class="slope-dot" cx="' + xa.toFixed(1) + '" cy="' + yy + '" r="3.5"/>' +
       '<circle class="slope-dot slope-dot--end" cx="' + xb.toFixed(1) + '" cy="' + yy + '" r="4.5" fill="' + rgb + '"/>' +
       '<text class="slope-name" x="' + nameX + '" y="' + (yy + 3.5) + '" text-anchor="end">' + escapeHtml(name) + '</text>' +
-      '<text class="slope-val slope-val--start" x="' + (xa - 6).toFixed(1) + '" y="' + (yy + 3) + '" text-anchor="end">' + it.r0.toFixed(2) + '\u00d7</text>' +
-      '<text class="slope-val slope-val--end" x="' + (xb + 6).toFixed(1) + '" y="' + (yy + 3) + '" text-anchor="start" fill="' + rgb + '">' + it.r1.toFixed(2) + '\u00d7</text>'
+      '<text class="slope-vals" x="' + textX + '" y="' + (yy + 3.5) + '" text-anchor="end">' +
+        it.r0.toFixed(2) + '\u00d7 \u2192 ' +
+        '<tspan class="slope-vals--end" fill="' + rgb + '">' + it.r1.toFixed(2) + '\u00d7</tspan>' +
+      '</text>'
     );
   });
 
@@ -178,7 +180,7 @@ function renderSlopeChart(d) {
       '<text class="slope-threshold-label" x="' + xth + '" y="' + (topPad - 16) + '" text-anchor="middle">1.0\u00d7</text>' +
       axis + parts.join('') +
     '</svg>' +
-    '<p class="muted slope-note">Open circle = 2015, filled = latest year. Orange line = ratio rose, blue = fell. Dashed line = 1.0\u00d7 (equal).</p>';
+    '<p class="muted slope-note">Open circle = 2015, filled = latest year. Orange = rose, blue = fell. Dashed line = 1.0\u00d7 (equal).</p>';
 }
 
 // ---- render: table ----
