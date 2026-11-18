@@ -52,33 +52,6 @@
 
     <section class="panel">
       <div class="panel__head">
-        <h2>Chickens per person, across the EU</h2>
-        <p class="muted">Chickens per person, latest year. Orange = more chickens, blue = more people,
-          pale = near equal. Hover a country for details.</p>
-      </div>
-      <div id="map" class="map" role="img"
-           aria-label="Map of chickens per person across the EU"></div>
-      <div id="map-legend" class="map-legend"></div>
-      <p class="muted chart-note">Colour-blind-friendly blue&ndash;orange scale. Non-EU neighbours are
-        shown in grey for geographic context.</p>
-    </section>
-
-    <section class="panel">
-      <div class="panel__head">
-        <h2>How chickens per person changed</h2>
-        <p class="muted">Change in chickens-per-person, 2015 &rarr; each country's latest year.
-          Orange = rose, blue = fell.</p>
-      </div>
-      <div id="changechart" class="changechart" role="img"
-           aria-label="Change in chickens per person since 2015, by country"></div>
-      <p class="muted chart-note">
-        <span class="legend-dot legend-dot--up"></span> more chickens per person &nbsp;&middot;&nbsp;
-        <span class="legend-dot legend-dot--down"></span> fewer chickens per person
-      </p>
-    </section>
-
-    <section class="panel">
-      <div class="panel__head">
         <h2>Chickens per person, ranked</h2>
         <p class="muted">Reference line = 1.0&times; (chickens equal people). Bars to its right win.</p>
       </div>
@@ -88,6 +61,22 @@
         <span class="legend-dot legend-dot--win"></span> more chickens &nbsp;&middot;&nbsp;
         <span class="legend-dot legend-dot--lose"></span> more people &nbsp;&middot;&nbsp;
         <span class="year-badge">2020</span> comparison year earlier than 2024
+      </p>
+    </section>
+
+    <section class="panel">
+      <div class="panel__head">
+        <h2>How chickens per person changed</h2>
+        <p class="muted">Each country, 2015 &rarr; its latest year. Open circle = 2015, filled = latest.
+          Orange = rose, blue = fell.</p>
+      </div>
+      <div id="slopechart" class="slopechart" role="img"
+           aria-label="Change in chickens per person, 2015 to latest, by EU country"></div>
+      <p class="muted chart-note">
+        <span class="legend-dot legend-dot--up"></span> ratio rose &nbsp;&middot;&nbsp;
+        <span class="legend-dot legend-dot--down"></span> ratio fell &nbsp;&middot;&nbsp;
+        <span class="legend-dot legend-dot--start"></span> 2015 (open) &nbsp;&middot;&nbsp;
+        <span class="legend-dot legend-dot--end"></span> latest (filled)
       </p>
     </section>
 
@@ -121,8 +110,7 @@
       <p id="scope-note"></p>
       <p class="muted">Chickens: FAOSTAT QCL, item 1057 &ldquo;Chickens&rdquo;, element
         &ldquo;Stocks&rdquo; (1000 head). People: Eurostat <code>demo_gind</code>, indicator JAN
-        (population on 1 January). Map geometry: Eurostat GISCO country boundaries.
-        Full provenance and known uncertainties in
+        (population on 1 January). Full provenance and known uncertainties in
         <a href="../docs/sources.md">docs/sources.md</a> and
         <a href="../docs/uncertainties.md">docs/uncertainties.md</a>.</p>
     </section>

@@ -144,50 +144,6 @@ main {
 }
 .search:focus { outline: 2px solid var(--lose); outline-offset: 1px; }
 
-/* ---- Map ---- */
-.map {
-  margin-top: 0.75rem;
-  max-width: 640px;
-  margin-left: auto;
-  margin-right: auto;
-}
-.map__svg {
-  width: 100%;
-  height: auto;
-  display: block;
-  border: 1px solid var(--line);
-  border-radius: 8px;
-}
-.map__sea { fill: #eaf1f6; }
-.map-ctx {
-  fill: #e2ded5;
-  stroke: #faf8f5;
-  stroke-width: 0.6;
-}
-.map-eu {
-  stroke: #ffffff;
-  stroke-width: 0.7;
-  transition: stroke-width 0.1s ease;
-}
-.map-eu:hover { stroke-width: 1.6; }
-
-.map-legend {
-  margin-top: 0.6rem;
-  max-width: 640px;
-  margin-left: auto;
-  margin-right: auto;
-}
-.map-legend__svg {
-  display: block;
-  max-width: 360px;
-  height: auto;
-}
-.map-legend__tick {
-  fill: var(--muted);
-  font-size: 10px;
-  font-variant-numeric: tabular-nums;
-}
-
 /* ---- Bar chart (current ratio, ranked) ---- */
 .barchart {
   position: relative;
@@ -255,80 +211,50 @@ main {
   font-weight: 600;
 }
 
-/* ---- Change chart (delta in chickens-per-person) ---- */
-.changechart { margin-top: 0.75rem; }
-.change-list {
-  list-style: none;
-  margin: 0;
-  padding: 0;
+/* ---- Slopegraph (change in chickens-per-person) ---- */
+.slopechart { margin-top: 0.75rem; }
+.slope__svg {
+  width: 100%;
+  height: auto;
+  display: block;
 }
-.change-row {
-  display: grid;
-  grid-template-columns: 13rem 1fr 12rem;
-  align-items: center;
-  gap: 0.75rem;
-  padding: 0.15rem 0;
+.slope-threshold {
+  stroke: #9aa0a6;
+  stroke-width: 1;
+  stroke-dasharray: 4 3;
 }
-.change-label {
-  font-size: 0.92rem;
-  text-align: right;
-  overflow-wrap: break-word;
-  line-height: 1.25;
+.slope-threshold-label {
+  fill: #8a8f98;
+  font-size: 10px;
+  font-weight: 600;
 }
-.change-track {
-  position: relative;
-  height: 1.05rem;
+.slope-axis { stroke: #b8b3a9; stroke-width: 1; }
+.slope-tick { stroke: #c9c4b8; stroke-width: 1; }
+.slope-ticklabel { fill: #6f6a63; font-size: 9.5px; }
+.slope-line { stroke-width: 1.8; }
+.slope-dot {
+  fill: #ffffff;
+  stroke: #a9a49b;
+  stroke-width: 1.5;
 }
-.change-track::before {
-  content: '';
-  position: absolute;
-  left: 50%;
-  top: 0;
-  bottom: 0;
-  width: 1px;
-  background: #cfcabc;
+.slope-dot--end {
+  stroke: #ffffff;
+  stroke-width: 1;
 }
-.change-bar {
-  position: absolute;
-  top: 0;
-  bottom: 0;
+.slope-name {
+  fill: var(--ink);
+  font-size: 10.5px;
 }
-.change-bar--up {
-  left: 50%;
-  background: var(--up);
-  border-radius: 0 4px 4px 0;
+.slope-val { font-variant-numeric: tabular-nums; }
+.slope-val--start {
+  fill: #9a958c;
+  font-size: 9px;
 }
-.change-bar--down {
-  right: 50%;
-  background: var(--down);
-  border-radius: 4px 0 0 4px;
+.slope-val--end {
+  font-size: 9.5px;
+  font-weight: 600;
 }
-.change-bar--flat {
-  left: 50%;
-  width: 3px !important;
-  background: var(--muted);
-  border-radius: 2px;
-}
-.change-value {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-end;
-  line-height: 1.25;
-  text-align: right;
-}
-.change-delta {
-  font-weight: 700;
-  font-variant-numeric: tabular-nums;
-  font-size: 0.9rem;
-}
-.change-delta--up { color: var(--up); }
-.change-delta--down { color: var(--down); }
-.change-delta--flat { color: var(--muted); }
-.change-range {
-  font-size: 0.72rem;
-  color: var(--muted);
-  font-variant-numeric: tabular-nums;
-}
+.slope-note { margin-top: 0.4rem; font-size: 0.85rem; }
 
 .chart-note { margin-top: 0.75rem; font-size: 0.85rem; }
 .legend-dot {
@@ -343,6 +269,12 @@ main {
 .legend-dot--lose { background: var(--lose); }
 .legend-dot--up { background: var(--up); }
 .legend-dot--down { background: var(--down); }
+.legend-dot--start {
+  background: #ffffff;
+  border: 1.5px solid #a9a49b;
+  border-radius: 50%;
+}
+.legend-dot--end { background: #a9a49b; border-radius: 50%; }
 
 .year-badge {
   display: inline-block;
@@ -404,8 +336,7 @@ main {
 
 @media (max-width: 640px) {
   .bar-row { grid-template-columns: 9.5rem 1fr 3.6rem; gap: 0.5rem; }
-  .change-row { grid-template-columns: 9.5rem 1fr 9rem; gap: 0.5rem; }
-  .bar-label, .change-label { font-size: 0.82rem; }
+  .bar-label { font-size: 0.82rem; }
   .hero__line { font-size: 1.05rem; }
   .table th, .table td { padding: 0.4rem 0.45rem; font-size: 0.85rem; }
 }
