@@ -30,13 +30,13 @@ def timeseries():
 
 # ---- Stage 6: row count and uniqueness ----
 
-def test_joined_has_39_rows(rows):
-    assert len(rows) == 39
+def test_joined_has_38_rows(rows):
+    assert len(rows) == 38
 
 
 def test_geos_are_unique(rows):
     geos = [r["geo"] for r in rows]
-    assert len(geos) == len(set(geos)) == 39
+    assert len(geos) == len(set(geos)) == 38
 
 
 def test_names_are_unique(rows):
@@ -75,18 +75,14 @@ def test_no_negative_or_zero_values(rows):
 # ---- Stage 4: value ranges / outliers ----
 
 def test_ratios_in_plausible_range(rows):
-    # After the Moldova correction, every matched country should be within
-    # [0.1, 10] chickens per person.
+    # Every matched country should be within [0.1, 10] chickens per person.
     for r in rows:
         assert 0.1 <= float(r["ratio"]) <= 10, (r["name"], r["ratio"])
 
 
-def test_moldova_uses_corrected_nbs_figure(rows):
-    mol = next(r for r in rows if r["name"] == "Moldova")
-    assert mol["chicken_source"] == "NBS (corrected)", mol
-    assert int(mol["chickens"]) == 3_972_100, mol
-    assert mol["chicken_flag"] == "I", mol  # original FAO value was imputed
-    assert "imputed" in mol["data_note"] and "10x" in mol["data_note"], mol
+def test_moldova_is_excluded(rows):
+    # Moldova is dropped (no clean chickens figure), so it must not appear.
+    assert all(r["name"] != "Moldova" for r in rows)
 
 
 # ---- Stage 2: control totals (spot-check against published FAOSTAT figures) ----
@@ -144,7 +140,7 @@ def test_timeseries_year_range(timeseries):
 def test_dashboard_json_matches_csv(rows):
     payload = json.loads((DASH / "chickens_people.json").read_text(encoding="utf-8"))
     assert payload["reference_year"] == 2024
-    assert len(payload["rows"]) == len(rows) == 39
+    assert len(payload["rows"]) == len(rows) == 38
     csv_by_geo = {r["geo"]: r for r in rows}
     for r in payload["rows"]:
         assert float(r["ratio"]) == float(csv_by_geo[r["geo"]]["ratio"])

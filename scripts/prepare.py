@@ -87,12 +87,14 @@ NAME_OVERRIDES = {
     "XK": "Kosovo",
 }
 
-# Moldova correction (fact-checked 2026-11-18): FAOSTAT's "Chickens" for Moldova
-# (48,451 thousand in 2024) is flagged "I" (imputed) and is ~10x too high vs the
-# official National Bureau of Statistics figure (~3,972 thousand "all poultry",
-# 1 Jan 2024). Use the NBS figure instead (it is all poultry, i.e. an upper
-# bound for chickens — see docs/uncertainties.md).
-MOLDOVA_NBS_CHICKENS = 3_972_100
+# Countries excluded from the analysis (data-quality reasons), keyed by Eurostat geo.
+# - Moldova: FAOSTAT "Chickens" (48.45M) is imputed and ~10x too high, and NBS only
+#   publishes poultry-total (~4.0M), not chickens-only. Consistent with our decision
+#   to reject poultry-only figures (e.g. Eurostat), there is no clean "chickens"
+#   figure for Moldova, so it is dropped rather than approximated (see docs/).
+EXCLUDE: dict[str, str] = {
+    "MD": "no clean chickens figure (FAOSTAT imputed ~10x high; NBS publishes poultry-total only)",
+}
 
 
 def load_eurostat_population() -> dict[str, dict[int, float]]:
@@ -148,6 +150,10 @@ def main() -> None:
     rows = []
     missing = []
     for geo, (m49, name) in SCOPE.items():
+        if geo in EXCLUDE:
+            missing.append(f"{name} ({geo}): {EXCLUDE[geo]}")
+            continue
+
         # Resolve FAO area
         area = None
         if m49 is not None and m49 in m49_to_area:
@@ -184,14 +190,7 @@ def main() -> None:
         notes = []
         if comp_year != REF_YEAR:
             notes.append(f"data from {comp_year} ({REF_YEAR} chicken data unavailable)")
-        if geo == "MD":
-            chickens_count = MOLDOVA_NBS_CHICKENS
-            chicken_source = "NBS (corrected)"
-            notes.append(
-                "chickens corrected to NBS 'all poultry' 3,972,100; "
-                "FAOSTAT 48,451,000 is imputed and ~10x too high"
-            )
-        elif chk_ref["flag"] == "I":
+        if chk_ref["flag"] == "I":
             notes.append("chicken figure imputed by FAO")
         ratio = chickens_count / pop_ref
         rows.append({
@@ -217,8 +216,11 @@ def main() -> None:
         w.writerows(rows)
 
     # ---- Timeseries (long form, both counts) ----
+    included_geos = {r["geo"] for r in rows}
     ts_rows = []
     for geo, (m49, name) in SCOPE.items():
+        if geo not in included_geos:
+            continue
         area = None
         if m49 is not None and m49 in m49_to_area:
             area = m49_to_area[m49]
@@ -252,10 +254,7 @@ def main() -> None:
             "population": "Eurostat demo_gind (indic_de JAN) - population on 1 January, usually resident",
             "chickens": "FAOSTAT QCL, item 1057 'Chickens', element 'Stocks' (1000 head)",
         },
-        "corrections": [
-            "Moldova: FAOSTAT 'Chickens' (48,451,000, imputed) replaced with NBS "
-            "'all poultry' 3,972,100 (1 Jan 2024) — see docs/uncertainties.md",
-        ],
+        "excluded": missing,
         "rows": rows,
         "timeseries": ts_rows,
     }
