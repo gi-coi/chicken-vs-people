@@ -193,6 +193,19 @@ def main() -> None:
         if chk_ref["flag"] == "I":
             notes.append("chicken figure imputed by FAO")
         ratio = chickens_count / pop_ref
+
+        # Growth of the chicken stock since the start of the trend window
+        # (chickens only). Baseline is the earliest available year in the window,
+        # which is 2015 for every country in scope.
+        window = [y for y in chk if TREND_START <= y <= REF_YEAR]
+        growth_start_year = min(window) if window else TREND_START
+        start_val = chk[growth_start_year]["value"] * 1000 if window else None
+        growth_pct = (
+            round((chickens_count - start_val) / start_val * 100, 1)
+            if start_val
+            else None
+        )
+
         rows.append({
             "geo": geo,
             "name": name,
@@ -200,6 +213,8 @@ def main() -> None:
             "population": round(pop_ref),
             "chickens": round(chickens_count),
             "ratio": round(ratio, 3),
+            "growth_pct": growth_pct,
+            "growth_start_year": growth_start_year,
             "chicken_flag": chk_ref["flag"],
             "chicken_source": chicken_source,
             "more_chickens_than_people": chickens_count > pop_ref,
@@ -282,6 +297,13 @@ def main() -> None:
     print("\nTop 10 by ratio:")
     for r in rows[:10]:
         print(f"  {r['name']:30s} {r['ratio']:8.2f} chickens/person")
+    by_growth = sorted(rows, key=lambda r: r["growth_pct"], reverse=True)
+    print("\nTop growth 2015->latest:")
+    for r in by_growth[:5]:
+        print(f"  {r['name']:30s} {r['growth_pct']:+.1f}%")
+    print("Biggest shrinkers:")
+    for r in by_growth[-5:]:
+        print(f"  {r['name']:30s} {r['growth_pct']:+.1f}%")
     print(f"\nWrote {csv_path}, {ts_path}, {DASH_DATA / 'chickens_people.json'}")
 
 
