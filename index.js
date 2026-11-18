@@ -3,7 +3,7 @@
 // chicken-vs-people dashboard
 // Heavy lifting (cleaning, aggregation, growth, formatting decisions) happens in
 // scripts/prepare.py. This file only fetches the packaged JSON and renders it,
-// plus simple filter/sort/expand interactions.
+// plus simple filter/sort/select interactions.
 
 const DATA_URL = 'data/chickens_people.json';
 
@@ -12,7 +12,7 @@ const state = {
   sortKey: 'ratio',
   sortDir: -1, // -1 = descending, 1 = ascending
   query: '',
-  expanded: null,
+  selectedGeo: null,
   maxRatio: 1,
 };
 
@@ -21,12 +21,7 @@ const $ = (sel) => document.querySelector(sel);
 // ---- formatting helpers ----
 const fmtInt = (n) => Number(n).toLocaleString('en-US');
 const fmtRatio = (r) => Number(r).toFixed(2);
-const fmtM = (n) => (Number(n) / 1e6).toFixed(1).replace(/\.0$/, '') + 'M';
-const fmtGrowth = (g) => {
-  if (g === null || g === undefined || g === '') return '\u2014';
-  const v = Number(g).toFixed(1);
-  return Number(g) > 0 ? '+' + v + '%' : v + '%';
-};
+const num = (v) => (v === '' || v === null || v === undefined ? null : Number(v));
 
 const escapeHtml = (s) =>
   String(s).replace(/[&<>"']/g, (c) => ({
@@ -119,14 +114,7 @@ function sortedRows(rows) {
   const dir = state.sortDir;
   return rows.slice().sort((a, b) => {
     if (key === 'name') return dir * a.name.localeCompare(b.name);
-    const an = Number(a[key]);
-    const bn = Number(b[key]);
-    if (key === 'growth_pct') {
-      const av = a[key] === null || a[key] === undefined || a[key] === '' ? -Infinity : an;
-      const bv = b[key] === null || b[key] === undefined || b[key] === '' ? -Infinity : bn;
-      return dir * (av - bv);
-    }
-    return dir * (an - bn);
+    return dir * (Number(a[key]) - Number(b[key]));
   });
 }
 
@@ -136,68 +124,136 @@ function renderTableBody() {
   const parts = [];
   rows.forEach((r, i) => {
     const badge = r.year !== d.reference_year ? yearBadge(r, d) : r.year;
-    const growthCls = r.growth_pct > 0 ? 'pos' : (r.growth_pct < 0 ? 'neg' : 'zero');
-    const expanded = state.expanded === r.geo;
+    const selected = state.selectedGeo === r.geo;
     parts.push(
-      '<tr class="row' + (expanded ? ' is-expanded' : '') + '" data-geo="' + r.geo + '">' +
+      '<tr class="row' + (selected ? ' is-selected' : '') + '" data-geo="' + r.geo + '">' +
         '<td class="num">' + (i + 1) + '</td>' +
         '<td>' + escapeHtml(r.name) + '</td>' +
         '<td class="num">' + badge + '</td>' +
         '<td class="num">' + fmtInt(r.chickens) + '</td>' +
         '<td class="num">' + fmtInt(r.population) + '</td>' +
         '<td class="num"><strong>' + fmtRatio(r.ratio) + '\u00d7</strong></td>' +
-        '<td class="num ' + growthCls + '" title="Chicken stock, 2015 \u2192 ' + r.year + '">' +
-          fmtGrowth(r.growth_pct) + '</td>' +
       '</tr>'
     );
-    if (expanded) {
-      parts.push('<tr class="detail"><td colspan="7">' + sparklineHTML(r.geo) + '</td></tr>');
-    }
   });
   $('#tbody').innerHTML = parts.join('');
 }
 
-// ---- render: sparkline (SVG, no external lib) ----
-function sparklineHTML(geo) {
+// ---- render: interactive line chart (normalized people vs chickens) ----
+function buildCountrySelect() {
+  const sel = $('#country-select');
+  const opts = state.data.rows
+    .slice()
+    .sort((a, b) => a.name.localeCompare(b.name))
+    .map((r) => '<option value="' + r.geo + '"' +
+      (r.geo === state.selectedGeo ? ' selected' : '') + '>' + escapeHtml(r.name) + '</option>')
+    .join('');
+  sel.innerHTML = opts;
+}
+
+function seriesSegments(series) {
+  const segs = [];
+  let cur = [];
+  for (const p of series) {
+    if (cur.length && p.year !== cur[cur.length - 1].year + 1) {
+      segs.push(cur);
+      cur = [];
+    }
+    cur.push(p);
+  }
+  if (cur.length) segs.push(cur);
+  return segs;
+}
+
+function renderLineChart(geo) {
   const d = state.data;
-  const pts = d.timeseries
-    .filter((t) => t.geo === geo && t.chickens !== '' && t.chickens != null)
-    .sort((a, b) => a.year - b.year);
-  if (pts.length < 2) return '<p class="muted">Not enough data for a trend.</p>';
+  const row = d.rows.find((r) => r.geo === geo);
+  const name = row ? row.name : geo;
+  const chart = $('#linechart');
 
-  const W = 620, H = 150, padL = 12, padR = 12, padT = 14, padB = 12;
+  const W = 680, H = 320;
+  const padL = 50, padR = 18, padT = 18, padB = 38;
   const minYear = d.trend_start, maxYear = d.reference_year;
-  const maxV = Math.max.apply(null, pts.map((p) => p.chickens));
-  const x = (year) => padL + (year - minYear) / (maxYear - minYear) * (W - padL - padR);
-  const y = (v) => padT + (1 - v / maxV) * (H - padT - padB);
 
-  const linePts = pts.map((p) => x(p.year).toFixed(1) + ',' + y(p.chickens).toFixed(1)).join(' ');
-  const areaPts = x(pts[0].year).toFixed(1) + ',' + (H - padB) + ' ' + linePts + ' ' +
-    x(pts[pts.length - 1].year).toFixed(1) + ',' + (H - padB);
-  const dots = pts.map((p) => {
-    const hollow = p.chicken_flag !== 'A';
-    return '<circle cx="' + x(p.year).toFixed(1) + '" cy="' + y(p.chickens).toFixed(1) +
-      '" r="3" class="spark-dot' + (hollow ? ' is-imputed' : '') + '" />';
+  const byYear = {};
+  for (const t of d.timeseries) {
+    if (t.geo === geo) byYear[t.year] = t;
+  }
+
+  const basePop = num(byYear[minYear] && byYear[minYear].population);
+  const baseChick = num(byYear[minYear] && byYear[minYear].chickens);
+
+  const pop = [], chick = [];
+  for (let y = minYear; y <= maxYear; y++) {
+    const t = byYear[y];
+    if (!t) continue;
+    const p = num(t.population);
+    const c = num(t.chickens);
+    if (p !== null && basePop) pop.push({ year: y, value: p / basePop * 100 });
+    if (c !== null && baseChick) chick.push({ year: y, value: c / baseChick * 100 });
+  }
+
+  const allVals = pop.concat(chick).map((p) => p.value);
+  if (!allVals.length) {
+    chart.innerHTML = '<p class="muted">No data for ' + escapeHtml(name) + '.</p>';
+    return;
+  }
+  const lo = Math.min(100, Math.min.apply(null, allVals));
+  const hi = Math.max(100, Math.max.apply(null, allVals));
+  const span = (hi - lo) || 10;
+  const yLo = lo - span * 0.12;
+  const yHi = hi + span * 0.12;
+
+  const x = (year) => padL + (year - minYear) / (maxYear - minYear) * (W - padL - padR);
+  const y = (v) => padT + (1 - (v - yLo) / (yHi - yLo)) * (H - padT - padB);
+
+  const pathFor = (series, cls) => seriesSegments(series).map((s) => {
+    const pts = s.map((p) => x(p.year).toFixed(1) + ',' + y(p.value).toFixed(1)).join(' ');
+    return '<polyline class="' + cls + '" points="' + pts + '" />';
   }).join('');
 
-  const first = pts[0], last = pts[pts.length - 1];
-  return (
-    '<div class="spark">' +
-      '<svg class="spark__svg" viewBox="0 0 ' + W + ' ' + H + '" role="img" ' +
-        'aria-label="Chicken stock ' + first.year + ' to ' + last.year + '">' +
-        '<polygon points="' + areaPts + '" class="spark-area"></polygon>' +
-        '<polyline points="' + linePts + '" class="spark-line"></polyline>' +
-        dots +
-      '</svg>' +
-      '<div class="spark__meta">' +
-        '<span>' + first.year + '</span>' +
-        '<span class="spark__values">' + fmtM(first.chickens) + ' \u2192 ' + fmtM(last.chickens) + ' head</span>' +
-        '<span>' + last.year + '</span>' +
-      '</div>' +
-      '<p class="muted spark__note">Chicken stock (head), ' + d.trend_start + '\u2013' + d.reference_year +
-        '. Hollow dots = FAO imputed/estimated values.</p>' +
-    '</div>'
-  );
+  const dotsFor = (series, cls) => series.map((p) =>
+    '<circle class="' + cls + '" cx="' + x(p.year).toFixed(1) +
+    '" cy="' + y(p.value).toFixed(1) + '" r="3" />'
+  ).join('');
+
+  const tickCount = 5;
+  const ticks = [];
+  for (let i = 0; i < tickCount; i++) {
+    ticks.push(yLo + (yHi - yLo) * i / (tickCount - 1));
+  }
+  const gridlines = ticks.map((v) =>
+    '<line class="gridline" x1="' + padL + '" y1="' + y(v).toFixed(1) +
+    '" x2="' + (W - padR) + '" y2="' + y(v).toFixed(1) + '" />'
+  ).join('');
+  const yLabels = ticks.map((v) =>
+    '<text class="axis-label" x="' + (padL - 8) + '" y="' + (y(v) + 3.5).toFixed(1) +
+    '" text-anchor="end">' + Math.round(v) + '</text>'
+  ).join('');
+  const xLabels = [];
+  for (let yr = minYear; yr <= maxYear; yr++) {
+    xLabels.push('<text class="axis-label" x="' + x(yr).toFixed(1) +
+      '" y="' + (H - padB + 16) + '" text-anchor="middle">' + yr + '</text>');
+  }
+
+  const svg =
+    '<svg class="linechart__svg" viewBox="0 0 ' + W + ' ' + H + '" role="img" ' +
+      'aria-label="' + escapeHtml(name) + ' people vs chickens, indexed to ' + minYear + '">' +
+      gridlines +
+      '<line class="baseline" x1="' + padL + '" y1="' + y(100).toFixed(1) +
+        '" x2="' + (W - padR) + '" y2="' + y(100).toFixed(1) + '" />' +
+      '<line class="axis" x1="' + padL + '" y1="' + padT +
+        '" x2="' + padL + '" y2="' + (H - padB) + '" />' +
+      '<line class="axis" x1="' + padL + '" y1="' + (H - padB) +
+        '" x2="' + (W - padR) + '" y2="' + (H - padB) + '" />' +
+      pathFor(pop, 'line-pop') + pathFor(chick, 'line-chick') +
+      dotsFor(pop, 'dot-pop') + dotsFor(chick, 'dot-chick') +
+      yLabels + xLabels.join('') +
+    '</svg>';
+
+  chart.innerHTML = svg +
+    '<p class="muted linechart__note">' + escapeHtml(name) +
+    ' \u2014 indexed to 100 in ' + minYear + '. Dashed line = 2015 level.</p>';
 }
 
 // ---- events ----
@@ -211,6 +267,13 @@ function updateSortIndicators() {
       th.removeAttribute('aria-sort');
     }
   });
+}
+
+function selectCountry(geo) {
+  state.selectedGeo = geo;
+  $('#country-select').value = geo;
+  renderLineChart(geo);
+  renderTableBody();
 }
 
 function setupEvents() {
@@ -233,12 +296,16 @@ function setupEvents() {
     renderTableBody();
   });
 
+  $('#country-select').addEventListener('change', (e) => {
+    selectCountry(e.target.value);
+  });
+
   $('#tbody').addEventListener('click', (e) => {
     const tr = e.target.closest('tr.row');
     if (!tr) return;
-    const geo = tr.dataset.geo;
-    state.expanded = state.expanded === geo ? null : geo;
-    renderTableBody();
+    selectCountry(tr.dataset.geo);
+    const chart = $('#linechart');
+    if (chart && chart.scrollIntoView) chart.scrollIntoView({ behavior: 'smooth', block: 'center' });
   });
 }
 
@@ -250,10 +317,13 @@ async function init() {
     showLoadError(err);
     return;
   }
+  state.selectedGeo = state.data.rows[0] ? state.data.rows[0].geo : null;
   $('#app').hidden = false;
   renderHero(state.data);
   renderBars(state.data);
   renderScopeNote(state.data);
+  buildCountrySelect();
+  renderLineChart(state.selectedGeo);
   renderTableBody();
   updateSortIndicators();
   setupEvents();

@@ -8,9 +8,9 @@
   --win-soft: #f6e3d3;
   --lose: #4a6fa5;
   --lose-soft: #dfe7f1;
+  --line-chicken: #e07b39;
+  --line-people: #0e7490;
   --threshold: #8a8f98;
-  --pos: #2e8b57;
-  --neg: #c0392b;
   --badge-bg: #f4e2c8;
   --badge-ink: #8a5a16;
   --radius: 10px;
@@ -213,6 +213,8 @@ main {
 }
 .legend-dot--win { background: var(--win); }
 .legend-dot--lose { background: var(--lose); }
+.legend-dot--chicken { background: var(--line-chicken); border-radius: 50%; }
+.legend-dot--people { background: var(--line-people); border-radius: 50%; }
 
 .year-badge {
   display: inline-block;
@@ -225,6 +227,54 @@ main {
   font-weight: 600;
   vertical-align: 0.05em;
 }
+
+/* ---- Line chart ---- */
+.picker {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.9rem;
+}
+.picker select {
+  font: inherit;
+  padding: 0.4rem 0.6rem;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: #fff;
+  max-width: 240px;
+}
+.picker select:focus { outline: 2px solid var(--lose); outline-offset: 1px; }
+
+.linechart { margin-top: 0.75rem; }
+.linechart__svg {
+  width: 100%;
+  height: auto;
+  display: block;
+  background: #fffdfa;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+}
+.linechart .gridline { stroke: #ece8df; stroke-width: 1; }
+.linechart .baseline { stroke: #9aa0a6; stroke-width: 1; stroke-dasharray: 4 3; }
+.linechart .axis { stroke: #b8b3a9; stroke-width: 1; }
+.linechart .axis-label { fill: #6f6a63; font-size: 11px; }
+.linechart .line-pop {
+  fill: none;
+  stroke: var(--line-people);
+  stroke-width: 2.5;
+  stroke-linejoin: round;
+  stroke-linecap: round;
+}
+.linechart .line-chick {
+  fill: none;
+  stroke: var(--line-chicken);
+  stroke-width: 2.5;
+  stroke-linejoin: round;
+  stroke-linecap: round;
+}
+.linechart .dot-pop { fill: var(--line-people); }
+.linechart .dot-chick { fill: var(--line-chicken); }
+.linechart__note { margin-top: 0.4rem; font-size: 0.85rem; }
 
 /* ---- Table ---- */
 .table-wrap { overflow-x: auto; }
@@ -261,55 +311,9 @@ main {
 
 .table tbody tr.row { cursor: pointer; }
 .table tbody tr.row:hover { background: #f6f3ee; }
-.table tbody tr.row.is-expanded { background: #f2efe8; }
-
-td.pos { color: var(--pos); }
-td.neg { color: var(--neg); }
-td.zero { color: var(--muted); }
+.table tbody tr.row.is-selected { background: var(--win-soft); }
 
 .table-note { margin-top: 0.75rem; font-size: 0.85rem; }
-
-/* ---- Sparkline detail row ---- */
-tr.detail td {
-  background: #fbfaf6;
-  padding: 0.9rem 1rem 1rem;
-  white-space: normal;
-}
-.spark { max-width: 640px; }
-.spark__svg {
-  width: 100%;
-  height: auto;
-  display: block;
-}
-.spark-area { fill: var(--win-soft); }
-.spark-line {
-  fill: none;
-  stroke: var(--win);
-  stroke-width: 2.5;
-  stroke-linejoin: round;
-  stroke-linecap: round;
-}
-.spark-dot { fill: var(--win); }
-.spark-dot.is-imputed {
-  fill: var(--panel);
-  stroke: var(--win);
-  stroke-width: 1.5;
-}
-.spark__meta {
-  display: flex;
-  justify-content: space-between;
-  align-items: baseline;
-  gap: 0.75rem;
-  font-size: 0.8rem;
-  color: var(--muted);
-  margin-top: 0.25rem;
-}
-.spark__values {
-  color: var(--ink);
-  font-weight: 600;
-  font-variant-numeric: tabular-nums;
-}
-.spark__note { margin: 0.25rem 0 0; font-size: 0.78rem; }
 
 /* ---- Footer ---- */
 .footer {
