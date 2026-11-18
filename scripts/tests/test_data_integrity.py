@@ -85,6 +85,28 @@ def test_moldova_is_excluded(rows):
     assert all(r["name"] != "Moldova" for r in rows)
 
 
+# ---- EU membership flag & EU aggregate ----
+
+def test_eu_flag_counts(rows):
+    eu = [r for r in rows if r["is_eu"] == "True"]
+    non_eu = [r for r in rows if r["is_eu"] == "False"]
+    assert len(eu) == 27, len(eu)
+    assert len(non_eu) == 11, len(non_eu)
+    # every row has a valid is_eu value
+    assert all(r["is_eu"] in ("True", "False") for r in rows)
+
+
+def test_eu_total_in_dashboard_json():
+    payload = json.loads((DASH / "chickens_people.json").read_text(encoding="utf-8"))
+    eu = payload["eu_total"]
+    assert eu is not None
+    assert eu["population"] == 450_054_483
+    assert eu["chickens"] == 1_475_406_000
+    assert eu["chicken_flag"] == "E"  # FAO estimated aggregate
+    assert eu["more_chickens_than_people"] is True
+    assert abs(eu["ratio"] - 3.278) < 0.001
+
+
 # ---- Stage 2: control totals (spot-check against published FAOSTAT figures) ----
 
 @pytest.mark.parametrize(

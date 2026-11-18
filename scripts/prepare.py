@@ -82,6 +82,17 @@ SCOPE: dict[str, tuple[int | None, str]] = {
     "XK": (None, "Kosovo"),  # no standard M49; matched by name below
 }
 
+# EU-27 member states (2020 membership) — used to flag countries as EU.
+EU27_GEOS = {
+    "AT", "BE", "BG", "HR", "CY", "CZ", "DK", "EE", "FI", "FR", "DE", "EL",
+    "HU", "IE", "IT", "LV", "LT", "LU", "MT", "NL", "PL", "PT", "RO", "SK",
+    "SI", "ES", "SE",
+}
+
+# EU-27 aggregate (added to the dashboard payload as a reference total).
+EU_AGG_AREA = "European Union (27)"   # FAOSTAT aggregate area name
+EU_AGG_GEO = "EU27_2020"              # Eurostat demo_gind aggregate geo
+
 # Fallback area names for FAOSTAT (used when M49 is absent, e.g. Kosovo).
 NAME_OVERRIDES = {
     "XK": "Kosovo",
@@ -209,6 +220,7 @@ def main() -> None:
         rows.append({
             "geo": geo,
             "name": name,
+            "is_eu": geo in EU27_GEOS,
             "year": comp_year,
             "population": round(pop_ref),
             "chickens": round(chickens_count),
@@ -249,6 +261,7 @@ def main() -> None:
             ts_rows.append({
                 "geo": geo,
                 "name": name,
+                "is_eu": geo in EU27_GEOS,
                 "year": year,
                 "population": round(p) if p is not None else "",
                 "chickens": round(c["value"] * 1000) if c else "",
@@ -260,6 +273,29 @@ def main() -> None:
         w.writeheader()
         w.writerows(ts_rows)
 
+    # ---- EU-27 aggregate (reference total for the dashboard) ----
+    eu_chk = chickens.get(EU_AGG_AREA, {}).get(REF_YEAR)
+    eu_pop = population.get(EU_AGG_GEO, {}).get(REF_YEAR)
+    eu_total = None
+    if eu_chk and eu_pop:
+        eu_chickens = eu_chk["value"] * 1000
+        eu_total = {
+            "geo": EU_AGG_GEO,
+            "name": "European Union (27)",
+            "is_eu": True,
+            "year": REF_YEAR,
+            "population": round(eu_pop),
+            "chickens": round(eu_chickens),
+            "ratio": round(eu_chickens / eu_pop, 3),
+            "chicken_flag": eu_chk["flag"],
+            "chicken_source": "FAOSTAT",
+            "more_chickens_than_people": eu_chickens > eu_pop,
+            "data_note": (
+                "EU-27 aggregate; FAOSTAT flag E (estimated — member-country "
+                "series stop 2020-2023, so the total is FAO's own estimate)"
+            ),
+        }
+
     # ---- JSON for dashboard ----
     payload = {
         "reference_year": REF_YEAR,
@@ -270,6 +306,7 @@ def main() -> None:
             "chickens": "FAOSTAT QCL, item 1057 'Chickens', element 'Stocks' (1000 head)",
         },
         "excluded": missing,
+        "eu_total": eu_total,
         "rows": rows,
         "timeseries": ts_rows,
     }
