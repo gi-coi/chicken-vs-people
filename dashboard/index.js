@@ -3,7 +3,7 @@
 // chicken-vs-people dashboard
 // Heavy lifting (cleaning, aggregation, growth, formatting decisions) happens in
 // scripts/prepare.py. This file only fetches the packaged JSON and renders it,
-// plus simple filter/sort/select interactions.
+// plus simple filter/sort interactions.
 
 const DATA_URL = 'data/chickens_people.json';
 
@@ -12,7 +12,6 @@ const state = {
   sortKey: 'ratio',
   sortDir: -1, // -1 = descending, 1 = ascending
   query: '',
-  selectedGeo: null,
   maxRatio: 1,
 };
 
@@ -66,7 +65,7 @@ function renderScopeNote(d) {
     '<a href="../docs/uncertainties.md">docs/uncertainties.md</a>.';
 }
 
-// ---- render: bar chart ----
+// ---- render: bar chart (current ratio) ----
 function yearBadge(r, d) {
   if (r.year === d.reference_year) return '';
   return '<span class="year-badge" title="' + escapeHtml(r.data_note) + '">' + r.year + '</span>';
@@ -102,6 +101,51 @@ function layoutThreshold() {
   line.style.left = (t.left - c.left + t.width * (1 / state.maxRatio)) + 'px';
 }
 
+// ---- render: change chart (delta in chickens-per-person, 2015 -> latest) ----
+function renderChangeChart(d) {
+  const byYear = {};
+  for (const t of d.timeseries) {
+    (byYear[t.geo] = byYear[t.geo] || {})[t.year] = t;
+  }
+
+  const changes = d.rows.map((r) => {
+    const t0 = byYear[r.geo] && byYear[r.geo][d.trend_start];
+    const pop0 = num(t0 && t0.population);
+    const chk0 = num(t0 && t0.chickens);
+    const ratio0 = (pop0 && chk0) ? chk0 / pop0 : null;
+    return {
+      geo: r.geo, name: r.name, year: r.year, data_note: r.data_note,
+      ratio0: ratio0, ratio1: r.ratio,
+      delta: ratio0 !== null ? r.ratio - ratio0 : null,
+    };
+  }).filter((c) => c.delta !== null);
+
+  const maxAbs = Math.max.apply(null, changes.map((c) => Math.abs(c.delta)));
+  const sorted = changes.slice().sort((a, b) => b.delta - a.delta);
+
+  const lis = sorted.map((c) => {
+    const w = (Math.abs(c.delta) / maxAbs) * 50;
+    const dir = c.delta > 0 ? 'up' : (c.delta < 0 ? 'down' : 'flat');
+    const sign = c.delta > 0 ? '+' : (c.delta < 0 ? '\u2212' : '\u00b1');
+    const deltaTxt = sign + Math.abs(c.delta).toFixed(2).replace(/\.?0+$/, '') + '\u00d7';
+    const badge = c.year !== d.reference_year ? yearBadge(c, d) : '';
+    return (
+      '<li class="change-row">' +
+        '<span class="change-label">' + escapeHtml(c.name) + badge + '</span>' +
+        '<span class="change-track"><span class="change-bar change-bar--' + dir +
+          '" style="width:' + w.toFixed(2) + '%"></span></span>' +
+        '<span class="change-value">' +
+          '<span class="change-delta change-delta--' + dir + '">' + deltaTxt + '</span>' +
+          '<span class="change-range">' + c.ratio0.toFixed(2) + '\u00d7 \u2192 ' +
+            c.ratio1.toFixed(2) + '\u00d7</span>' +
+        '</span>' +
+      '</li>'
+    );
+  }).join('');
+
+  $('#changechart').innerHTML = '<ul class="change-list">' + lis + '</ul>';
+}
+
 // ---- render: table ----
 function visibleRows() {
   if (!state.query) return state.data.rows.slice();
@@ -124,9 +168,8 @@ function renderTableBody() {
   const parts = [];
   rows.forEach((r, i) => {
     const badge = r.year !== d.reference_year ? yearBadge(r, d) : r.year;
-    const selected = state.selectedGeo === r.geo;
     parts.push(
-      '<tr class="row' + (selected ? ' is-selected' : '') + '" data-geo="' + r.geo + '">' +
+      '<tr class="row" data-geo="' + r.geo + '">' +
         '<td class="num">' + (i + 1) + '</td>' +
         '<td>' + escapeHtml(r.name) + '</td>' +
         '<td class="num">' + badge + '</td>' +
@@ -137,123 +180,6 @@ function renderTableBody() {
     );
   });
   $('#tbody').innerHTML = parts.join('');
-}
-
-// ---- render: interactive line chart (normalized people vs chickens) ----
-function buildCountrySelect() {
-  const sel = $('#country-select');
-  const opts = state.data.rows
-    .slice()
-    .sort((a, b) => a.name.localeCompare(b.name))
-    .map((r) => '<option value="' + r.geo + '"' +
-      (r.geo === state.selectedGeo ? ' selected' : '') + '>' + escapeHtml(r.name) + '</option>')
-    .join('');
-  sel.innerHTML = opts;
-}
-
-function seriesSegments(series) {
-  const segs = [];
-  let cur = [];
-  for (const p of series) {
-    if (cur.length && p.year !== cur[cur.length - 1].year + 1) {
-      segs.push(cur);
-      cur = [];
-    }
-    cur.push(p);
-  }
-  if (cur.length) segs.push(cur);
-  return segs;
-}
-
-function renderLineChart(geo) {
-  const d = state.data;
-  const row = d.rows.find((r) => r.geo === geo);
-  const name = row ? row.name : geo;
-  const chart = $('#linechart');
-
-  const W = 680, H = 320;
-  const padL = 50, padR = 18, padT = 18, padB = 38;
-  const minYear = d.trend_start, maxYear = d.reference_year;
-
-  const byYear = {};
-  for (const t of d.timeseries) {
-    if (t.geo === geo) byYear[t.year] = t;
-  }
-
-  const basePop = num(byYear[minYear] && byYear[minYear].population);
-  const baseChick = num(byYear[minYear] && byYear[minYear].chickens);
-
-  const pop = [], chick = [];
-  for (let y = minYear; y <= maxYear; y++) {
-    const t = byYear[y];
-    if (!t) continue;
-    const p = num(t.population);
-    const c = num(t.chickens);
-    if (p !== null && basePop) pop.push({ year: y, value: p / basePop * 100 });
-    if (c !== null && baseChick) chick.push({ year: y, value: c / baseChick * 100 });
-  }
-
-  const allVals = pop.concat(chick).map((p) => p.value);
-  if (!allVals.length) {
-    chart.innerHTML = '<p class="muted">No data for ' + escapeHtml(name) + '.</p>';
-    return;
-  }
-  const lo = Math.min(100, Math.min.apply(null, allVals));
-  const hi = Math.max(100, Math.max.apply(null, allVals));
-  const span = (hi - lo) || 10;
-  const yLo = lo - span * 0.12;
-  const yHi = hi + span * 0.12;
-
-  const x = (year) => padL + (year - minYear) / (maxYear - minYear) * (W - padL - padR);
-  const y = (v) => padT + (1 - (v - yLo) / (yHi - yLo)) * (H - padT - padB);
-
-  const pathFor = (series, cls) => seriesSegments(series).map((s) => {
-    const pts = s.map((p) => x(p.year).toFixed(1) + ',' + y(p.value).toFixed(1)).join(' ');
-    return '<polyline class="' + cls + '" points="' + pts + '" />';
-  }).join('');
-
-  const dotsFor = (series, cls) => series.map((p) =>
-    '<circle class="' + cls + '" cx="' + x(p.year).toFixed(1) +
-    '" cy="' + y(p.value).toFixed(1) + '" r="3" />'
-  ).join('');
-
-  const tickCount = 5;
-  const ticks = [];
-  for (let i = 0; i < tickCount; i++) {
-    ticks.push(yLo + (yHi - yLo) * i / (tickCount - 1));
-  }
-  const gridlines = ticks.map((v) =>
-    '<line class="gridline" x1="' + padL + '" y1="' + y(v).toFixed(1) +
-    '" x2="' + (W - padR) + '" y2="' + y(v).toFixed(1) + '" />'
-  ).join('');
-  const yLabels = ticks.map((v) =>
-    '<text class="axis-label" x="' + (padL - 8) + '" y="' + (y(v) + 3.5).toFixed(1) +
-    '" text-anchor="end">' + Math.round(v) + '</text>'
-  ).join('');
-  const xLabels = [];
-  for (let yr = minYear; yr <= maxYear; yr++) {
-    xLabels.push('<text class="axis-label" x="' + x(yr).toFixed(1) +
-      '" y="' + (H - padB + 16) + '" text-anchor="middle">' + yr + '</text>');
-  }
-
-  const svg =
-    '<svg class="linechart__svg" viewBox="0 0 ' + W + ' ' + H + '" role="img" ' +
-      'aria-label="' + escapeHtml(name) + ' people vs chickens, indexed to ' + minYear + '">' +
-      gridlines +
-      '<line class="baseline" x1="' + padL + '" y1="' + y(100).toFixed(1) +
-        '" x2="' + (W - padR) + '" y2="' + y(100).toFixed(1) + '" />' +
-      '<line class="axis" x1="' + padL + '" y1="' + padT +
-        '" x2="' + padL + '" y2="' + (H - padB) + '" />' +
-      '<line class="axis" x1="' + padL + '" y1="' + (H - padB) +
-        '" x2="' + (W - padR) + '" y2="' + (H - padB) + '" />' +
-      pathFor(pop, 'line-pop') + pathFor(chick, 'line-chick') +
-      dotsFor(pop, 'dot-pop') + dotsFor(chick, 'dot-chick') +
-      yLabels + xLabels.join('') +
-    '</svg>';
-
-  chart.innerHTML = svg +
-    '<p class="muted linechart__note">' + escapeHtml(name) +
-    ' \u2014 indexed to 100 in ' + minYear + '. Dashed line = 2015 level.</p>';
 }
 
 // ---- events ----
@@ -267,13 +193,6 @@ function updateSortIndicators() {
       th.removeAttribute('aria-sort');
     }
   });
-}
-
-function selectCountry(geo) {
-  state.selectedGeo = geo;
-  $('#country-select').value = geo;
-  renderLineChart(geo);
-  renderTableBody();
 }
 
 function setupEvents() {
@@ -295,18 +214,6 @@ function setupEvents() {
     state.query = e.target.value.trim();
     renderTableBody();
   });
-
-  $('#country-select').addEventListener('change', (e) => {
-    selectCountry(e.target.value);
-  });
-
-  $('#tbody').addEventListener('click', (e) => {
-    const tr = e.target.closest('tr.row');
-    if (!tr) return;
-    selectCountry(tr.dataset.geo);
-    const chart = $('#linechart');
-    if (chart && chart.scrollIntoView) chart.scrollIntoView({ behavior: 'smooth', block: 'center' });
-  });
 }
 
 // ---- init ----
@@ -317,13 +224,11 @@ async function init() {
     showLoadError(err);
     return;
   }
-  state.selectedGeo = state.data.rows[0] ? state.data.rows[0].geo : null;
   $('#app').hidden = false;
   renderHero(state.data);
   renderBars(state.data);
+  renderChangeChart(state.data);
   renderScopeNote(state.data);
-  buildCountrySelect();
-  renderLineChart(state.selectedGeo);
   renderTableBody();
   updateSortIndicators();
   setupEvents();
