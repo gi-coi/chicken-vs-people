@@ -6,8 +6,11 @@
     "population": "Eurostat demo_gind (indic_de JAN) - population on 1 January, usually resident",
     "chickens": "FAOSTAT QCL, item 1057 'Chickens', element 'Stocks' (1000 head)"
   },
-  "corrections": [
-    "Moldova: FAOSTAT 'Chickens' (48,451,000, imputed) replaced with NBS 'all poultry' 3,972,100 (1 Jan 2024) — see docs/uncertainties.md"
+  "excluded": [
+    "Liechtenstein (LI): no chicken data (FAO area=None)",
+    "Moldova (MD): no clean chickens figure (FAOSTAT imputed ~10x high; NBS publishes poultry-total only)",
+    "Ukraine (UA): no population in 2024",
+    "Kosovo (XK): no population in 2024"
   ],
   "rows": [
     {
@@ -405,18 +408,6 @@
       "chicken_source": "FAOSTAT",
       "more_chickens_than_people": true,
       "data_note": ""
-    },
-    {
-      "geo": "MD",
-      "name": "Moldova",
-      "year": 2024,
-      "population": 2423287,
-      "chickens": 3972100,
-      "ratio": 1.639,
-      "chicken_flag": "I",
-      "chicken_source": "NBS (corrected)",
-      "more_chickens_than_people": true,
-      "data_note": "chickens corrected to NBS 'all poultry' 3,972,100; FAOSTAT 48,451,000 is imputed and ~10x too high"
     },
     {
       "geo": "CH",
@@ -2721,86 +2712,6 @@
       "chicken_flag": "A"
     },
     {
-      "geo": "LI",
-      "name": "Liechtenstein",
-      "year": 2015,
-      "population": 37366,
-      "chickens": "",
-      "chicken_flag": ""
-    },
-    {
-      "geo": "LI",
-      "name": "Liechtenstein",
-      "year": 2016,
-      "population": 37622,
-      "chickens": "",
-      "chicken_flag": ""
-    },
-    {
-      "geo": "LI",
-      "name": "Liechtenstein",
-      "year": 2017,
-      "population": 37810,
-      "chickens": "",
-      "chicken_flag": ""
-    },
-    {
-      "geo": "LI",
-      "name": "Liechtenstein",
-      "year": 2018,
-      "population": 38114,
-      "chickens": "",
-      "chicken_flag": ""
-    },
-    {
-      "geo": "LI",
-      "name": "Liechtenstein",
-      "year": 2019,
-      "population": 38378,
-      "chickens": "",
-      "chicken_flag": ""
-    },
-    {
-      "geo": "LI",
-      "name": "Liechtenstein",
-      "year": 2020,
-      "population": 38747,
-      "chickens": "",
-      "chicken_flag": ""
-    },
-    {
-      "geo": "LI",
-      "name": "Liechtenstein",
-      "year": 2021,
-      "population": 39055,
-      "chickens": "",
-      "chicken_flag": ""
-    },
-    {
-      "geo": "LI",
-      "name": "Liechtenstein",
-      "year": 2022,
-      "population": 39308,
-      "chickens": "",
-      "chicken_flag": ""
-    },
-    {
-      "geo": "LI",
-      "name": "Liechtenstein",
-      "year": 2023,
-      "population": 39677,
-      "chickens": "",
-      "chicken_flag": ""
-    },
-    {
-      "geo": "LI",
-      "name": "Liechtenstein",
-      "year": 2024,
-      "population": 40015,
-      "chickens": "",
-      "chicken_flag": ""
-    },
-    {
       "geo": "NO",
       "name": "Norway",
       "year": 2015,
@@ -3281,86 +3192,6 @@
       "chicken_flag": "A"
     },
     {
-      "geo": "MD",
-      "name": "Moldova",
-      "year": 2015,
-      "population": 3555159,
-      "chickens": 36840000,
-      "chicken_flag": "X"
-    },
-    {
-      "geo": "MD",
-      "name": "Moldova",
-      "year": 2016,
-      "population": 2846327,
-      "chickens": 36727000,
-      "chicken_flag": "I"
-    },
-    {
-      "geo": "MD",
-      "name": "Moldova",
-      "year": 2017,
-      "population": 2825628,
-      "chickens": 37798000,
-      "chicken_flag": "I"
-    },
-    {
-      "geo": "MD",
-      "name": "Moldova",
-      "year": 2018,
-      "population": 2780744,
-      "chickens": 40000000,
-      "chicken_flag": "E"
-    },
-    {
-      "geo": "MD",
-      "name": "Moldova",
-      "year": 2019,
-      "population": 2729634,
-      "chickens": 41818000,
-      "chicken_flag": "I"
-    },
-    {
-      "geo": "MD",
-      "name": "Moldova",
-      "year": 2020,
-      "population": 2684772,
-      "chickens": 42830000,
-      "chicken_flag": "I"
-    },
-    {
-      "geo": "MD",
-      "name": "Moldova",
-      "year": 2021,
-      "population": 2643675,
-      "chickens": 43301000,
-      "chicken_flag": "I"
-    },
-    {
-      "geo": "MD",
-      "name": "Moldova",
-      "year": 2022,
-      "population": 2565030,
-      "chickens": 45259000,
-      "chicken_flag": "I"
-    },
-    {
-      "geo": "MD",
-      "name": "Moldova",
-      "year": 2023,
-      "population": 2512758,
-      "chickens": 46855000,
-      "chicken_flag": "I"
-    },
-    {
-      "geo": "MD",
-      "name": "Moldova",
-      "year": 2024,
-      "population": 2423287,
-      "chickens": 48451000,
-      "chicken_flag": "I"
-    },
-    {
       "geo": "ME",
       "name": "Montenegro",
       "year": 2015,
@@ -3679,166 +3510,6 @@
       "population": 85372377,
       "chickens": 379627000,
       "chicken_flag": "A"
-    },
-    {
-      "geo": "UA",
-      "name": "Ukraine",
-      "year": 2015,
-      "population": 42759661,
-      "chickens": 193885000,
-      "chicken_flag": "A"
-    },
-    {
-      "geo": "UA",
-      "name": "Ukraine",
-      "year": 2016,
-      "population": 42590879,
-      "chickens": 186354000,
-      "chicken_flag": "A"
-    },
-    {
-      "geo": "UA",
-      "name": "Ukraine",
-      "year": 2017,
-      "population": 42414905,
-      "chickens": 184336000,
-      "chicken_flag": "A"
-    },
-    {
-      "geo": "UA",
-      "name": "Ukraine",
-      "year": 2018,
-      "population": 42216766,
-      "chickens": 186737000,
-      "chicken_flag": "A"
-    },
-    {
-      "geo": "UA",
-      "name": "Ukraine",
-      "year": 2019,
-      "population": 41983564,
-      "chickens": 191968000,
-      "chicken_flag": "A"
-    },
-    {
-      "geo": "UA",
-      "name": "Ukraine",
-      "year": 2020,
-      "population": 41732779,
-      "chickens": 202511000,
-      "chicken_flag": "A"
-    },
-    {
-      "geo": "UA",
-      "name": "Ukraine",
-      "year": 2021,
-      "population": "",
-      "chickens": 183543000,
-      "chicken_flag": "A"
-    },
-    {
-      "geo": "UA",
-      "name": "Ukraine",
-      "year": 2022,
-      "population": 40997698,
-      "chickens": 186623000,
-      "chicken_flag": "A"
-    },
-    {
-      "geo": "UA",
-      "name": "Ukraine",
-      "year": 2023,
-      "population": "",
-      "chickens": 165468000,
-      "chicken_flag": "A"
-    },
-    {
-      "geo": "UA",
-      "name": "Ukraine",
-      "year": 2024,
-      "population": "",
-      "chickens": 173725000,
-      "chicken_flag": "A"
-    },
-    {
-      "geo": "XK",
-      "name": "Kosovo",
-      "year": 2015,
-      "population": 1804944,
-      "chickens": "",
-      "chicken_flag": ""
-    },
-    {
-      "geo": "XK",
-      "name": "Kosovo",
-      "year": 2016,
-      "population": 1771604,
-      "chickens": "",
-      "chicken_flag": ""
-    },
-    {
-      "geo": "XK",
-      "name": "Kosovo",
-      "year": 2017,
-      "population": 1783531,
-      "chickens": "",
-      "chicken_flag": ""
-    },
-    {
-      "geo": "XK",
-      "name": "Kosovo",
-      "year": 2018,
-      "population": 1798506,
-      "chickens": "",
-      "chicken_flag": ""
-    },
-    {
-      "geo": "XK",
-      "name": "Kosovo",
-      "year": 2019,
-      "population": 1795666,
-      "chickens": "",
-      "chicken_flag": ""
-    },
-    {
-      "geo": "XK",
-      "name": "Kosovo",
-      "year": 2020,
-      "population": 1782115,
-      "chickens": "",
-      "chicken_flag": ""
-    },
-    {
-      "geo": "XK",
-      "name": "Kosovo",
-      "year": 2021,
-      "population": 1798186,
-      "chickens": "",
-      "chicken_flag": ""
-    },
-    {
-      "geo": "XK",
-      "name": "Kosovo",
-      "year": 2022,
-      "population": 1773971,
-      "chickens": "",
-      "chicken_flag": ""
-    },
-    {
-      "geo": "XK",
-      "name": "Kosovo",
-      "year": 2023,
-      "population": "",
-      "chickens": "",
-      "chicken_flag": ""
-    },
-    {
-      "geo": "XK",
-      "name": "Kosovo",
-      "year": 2024,
-      "population": "",
-      "chickens": "",
-      "chicken_flag": ""
     }
   ]
 }
