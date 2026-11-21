@@ -152,6 +152,11 @@ function renderSlopeChart() {
   }).filter((it) => it.delta !== null)
     .sort((a, b) => b.r1 - a.r1); // sorted by latest ratio
 
+  // non-reference comparison years, oldest first (e.g. [2020, 2023])
+  const offYears = [...new Set(items.map((it) => it.year))]
+    .filter((y) => y !== d.reference_year)
+    .sort((a, b) => a - b);
+
   const axisMax = Math.ceil(Math.max.apply(null, items.map((i) => i.r1)));
   const n = items.length;
 
@@ -187,7 +192,7 @@ function renderSlopeChart() {
     const col = dir === 'up' ? C_ORANGE : (dir === 'down' ? C_BLUE : [140, 140, 140]);
     const rgb = 'rgb(' + col.join(',') + ')';
     const off = it.year !== d.reference_year;
-    const name = it.name + (off ? (narrow ? '*' : ' (' + it.year + ')') : '');
+    const name = it.name + (off ? (narrow ? (it.year === offYears[0] ? '**' : '*') : ' (' + it.year + ')') : '');
     const dim = (highlight !== 'EU' && it.geo !== highlight) ? 0.18 : 1;
     const valInner = narrow
       ? '<tspan class="slope-vals--end" fill="' + rgb + '">' + it.r1.toFixed(2) + '\u00d7</tspan>'
@@ -225,8 +230,9 @@ function renderSlopeChart() {
   }
   const xth = x(1.0).toFixed(1);
 
+  const yearNames = (y) => items.filter((it) => it.year === y).map((it) => it.name).sort().join(', ');
   const note = narrow
-    ? 'Arrows run from 2015 to the latest year. Orange = rose, blue = fell. Dashed line = 1.0\u00d7 (equal). * = chicken figure from 2020 or 2023 (latest available).'
+    ? 'Arrows run from 2015 to the latest year. Orange = rose, blue = fell. Dashed line = 1.0\u00d7 (equal). * ' + offYears[1] + ' data (' + yearNames(offYears[1]) + ') \u00b7 ** ' + offYears[0] + ' data (' + yearNames(offYears[0]) + ').'
     : 'Arrows run from 2015 to the latest year. Orange = rose, blue = fell. Dashed line = 1.0\u00d7 (equal).';
 
   $('#slopechart').innerHTML =
