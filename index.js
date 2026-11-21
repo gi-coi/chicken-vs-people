@@ -157,10 +157,27 @@ function renderSlopeChart() {
 
   const axisMax = Math.ceil(Math.max.apply(null, items.map((i) => i.r1)));
   const n = items.length;
-  const rowH = 32, topPad = 30, bottomPad = 26;
-  const W = 880;
+
+  // Responsive: measure the container and lay out compactly on narrow screens.
+  const container = $('#slopechart');
+  const width = Math.max(280, container.clientWidth || 880);
+  const narrow = width < 620;
+
+  const rowH = narrow ? 26 : 32;
+  const topPad = narrow ? 26 : 30;
+  const bottomPad = narrow ? 22 : 26;
   const H = topPad + n * rowH + bottomPad;
-  const nameX = 130, x0 = 165, x1 = 650, textX = 872;
+
+  const nameX = narrow ? 88 : 130;
+  const x0 = narrow ? 96 : 165;
+  const x1 = narrow ? width - 46 : 650;
+  const textX = width - 8;
+
+  const fName = narrow ? 'font-size:11px' : '';
+  const fVal = narrow ? 'font-size:10.5px' : '';
+  const fTick = narrow ? 'font-size:9px' : '';
+  const fThresh = narrow ? 'font-size:10px' : '';
+
   const x = (r) => x0 + (r / axisMax) * (x1 - x0);
   const y = (i) => topPad + i * rowH + rowH / 2;
 
@@ -172,19 +189,20 @@ function renderSlopeChart() {
     const dir = it.delta > 0 ? 'up' : (it.delta < 0 ? 'down' : 'flat');
     const col = dir === 'up' ? C_ORANGE : (dir === 'down' ? C_BLUE : [140, 140, 140]);
     const rgb = 'rgb(' + col.join(',') + ')';
-    const name = it.name + (it.year !== d.reference_year ? '*' : '');
+    const off = it.year !== d.reference_year;
+    const name = it.name + (off ? (narrow ? '*' : ' (' + it.year + ')') : '');
     const dim = (highlight !== 'EU' && it.geo !== highlight) ? 0.18 : 1;
+    const valInner = narrow
+      ? '<tspan class="slope-vals--end" fill="' + rgb + '">' + it.r1.toFixed(2) + '\u00d7</tspan>'
+      : it.r0.toFixed(2) + '\u00d7 \u2192 <tspan class="slope-vals--end" fill="' + rgb + '">' + it.r1.toFixed(2) + '\u00d7</tspan>';
 
     parts.push(
       '<g opacity="' + dim + '">' +
         '<line class="slope-line" x1="' + xa.toFixed(1) + '" y1="' + yy + '" x2="' + xb.toFixed(1) + '" y2="' + yy + '" stroke="' + rgb + '"/>' +
-        '<circle class="slope-dot" cx="' + xa.toFixed(1) + '" cy="' + yy + '" r="4"/>' +
-        '<circle class="slope-dot slope-dot--end" cx="' + xb.toFixed(1) + '" cy="' + yy + '" r="4.5" style="fill:' + rgb + '"/>' +
-        '<text class="slope-name" x="' + nameX + '" y="' + (yy + 4.5) + '" text-anchor="end">' + escapeHtml(name) + '</text>' +
-        '<text class="slope-vals" x="' + textX + '" y="' + (yy + 4.5) + '" text-anchor="end">' +
-          it.r0.toFixed(2) + '\u00d7 \u2192 ' +
-          '<tspan class="slope-vals--end" fill="' + rgb + '">' + it.r1.toFixed(2) + '\u00d7</tspan>' +
-        '</text>' +
+        '<circle class="slope-dot" cx="' + xa.toFixed(1) + '" cy="' + yy + '" r="' + (narrow ? 3.2 : 4) + '"/>' +
+        '<circle class="slope-dot slope-dot--end" cx="' + xb.toFixed(1) + '" cy="' + yy + '" r="' + (narrow ? 3.6 : 4.5) + '" style="fill:' + rgb + '"/>' +
+        '<text class="slope-name" x="' + nameX + '" y="' + (yy + 4) + '" text-anchor="end" style="' + fName + '">' + escapeHtml(name) + '</text>' +
+        '<text class="slope-vals" x="' + textX + '" y="' + (yy + 4) + '" text-anchor="end" style="' + fVal + '">' + valInner + '</text>' +
       '</g>'
     );
   });
@@ -192,20 +210,22 @@ function renderSlopeChart() {
   let axis = '<line class="slope-axis" x1="' + x0 + '" y1="' + (H - bottomPad) + '" x2="' + x1 + '" y2="' + (H - bottomPad) + '"/>';
   for (let t = 0; t <= axisMax; t++) {
     axis += '<line class="slope-tick" x1="' + x(t) + '" y1="' + (H - bottomPad) + '" x2="' + x(t) + '" y2="' + (H - bottomPad + 4) + '"/>' +
-      '<text class="slope-ticklabel" x="' + x(t) + '" y="' + (H - bottomPad + 17) + '" text-anchor="middle">' + t + '</text>';
+      '<text class="slope-ticklabel" x="' + x(t) + '" y="' + (H - bottomPad + 16) + '" text-anchor="middle" style="' + fTick + '">' + t + '</text>';
   }
   const xth = x(1.0).toFixed(1);
 
+  const note = narrow
+    ? 'Open dot = 2015, filled dot = latest year. Orange = rose, blue = fell. Dashed line = 1.0\u00d7 (equal). * = chicken figure from 2020 or 2023 (latest available).'
+    : 'Open dot = 2015, filled dot = latest year. Orange = rose, blue = fell. Dashed line = 1.0\u00d7 (equal).';
+
   $('#slopechart').innerHTML =
-    '<div class="slope-scroll">' +
-      '<svg class="slope__svg" viewBox="0 0 ' + W + ' ' + H + '" role="img" ' +
-        'aria-label="Chickens per person, 2015 to latest, by EU country">' +
-        '<line class="slope-threshold" x1="' + xth + '" y1="' + (topPad - 12) + '" x2="' + xth + '" y2="' + (H - bottomPad) + '"/>' +
-        '<text class="slope-threshold-label" x="' + xth + '" y="' + (topPad - 16) + '" text-anchor="middle">1.0\u00d7</text>' +
-        axis + parts.join('') +
-      '</svg>' +
-    '</div>' +
-    '<p class="muted slope-note">Open dot = 2015, filled dot = latest year. Orange = rose, blue = fell. Dashed line = 1.0\u00d7 (equal). * = chicken figure from 2020 or 2023 (latest available).</p>';
+    '<svg class="slope__svg" viewBox="0 0 ' + width + ' ' + H + '" role="img" ' +
+      'aria-label="Chickens per person, 2015 to latest, by EU country">' +
+      '<line class="slope-threshold" x1="' + xth + '" y1="' + (topPad - 12) + '" x2="' + xth + '" y2="' + (H - bottomPad) + '"/>' +
+      '<text class="slope-threshold-label" x="' + xth + '" y="' + (topPad - 16) + '" text-anchor="middle" style="' + fThresh + '">1.0\u00d7</text>' +
+      axis + parts.join('') +
+    '</svg>' +
+    '<p class="muted slope-note">' + note + '</p>';
 }
 
 // ---- render: table ----
@@ -315,5 +335,13 @@ async function init() {
   updateSortIndicators();
   setupEvents();
 }
+
+// Re-render the slopegraph (debounced) when the window resizes, so the layout
+// and font sizes stay correct on every screen width.
+let slopeResizeTimer = null;
+window.addEventListener('resize', () => {
+  clearTimeout(slopeResizeTimer);
+  slopeResizeTimer = setTimeout(renderSlopeChart, 120);
+});
 
 init();
