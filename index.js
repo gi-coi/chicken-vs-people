@@ -74,12 +74,12 @@ function renderPictogram(ratio) {
   const frac = ratio - full;
   const icons = [];
   for (let i = 0; i < full; i++) {
-    icons.push('<svg class="picto" viewBox="0 0 40 40"><use href="#icon-chicken"/></svg>');
+    icons.push('<svg class="picto" viewBox="0 0 40 40" width="40" height="40"><use href="#icon-chicken"/></svg>');
   }
   if (frac > 0.02) {
     const w = (frac * 40).toFixed(1);
     icons.push(
-      '<svg class="picto" viewBox="0 0 40 40" aria-label="' + frac.toFixed(2) + ' of a chicken">' +
+      '<svg class="picto" viewBox="0 0 40 40" width="40" height="40" aria-label="' + frac.toFixed(2) + ' of a chicken">' +
         '<defs><clipPath id="frac-clip"><rect x="0" y="0" width="' + w + '" height="40"/></clipPath></defs>' +
         '<g opacity="0.25"><use href="#icon-chicken"/></g>' +
         '<g clip-path="url(#frac-clip)"><use href="#icon-chicken"/></g>' +
@@ -157,7 +157,7 @@ function renderSlopeChart() {
 
   const axisMax = Math.ceil(Math.max.apply(null, items.map((i) => i.r1)));
   const n = items.length;
-  const rowH = 26, topPad = 28, bottomPad = 24;
+  const rowH = 30, topPad = 30, bottomPad = 26;
   const W = 880;
   const H = topPad + n * rowH + bottomPad;
   const nameX = 130, x0 = 165, x1 = 650, textX = 872;
@@ -174,13 +174,27 @@ function renderSlopeChart() {
     const rgb = 'rgb(' + col.join(',') + ')';
     const name = it.name + (it.year !== d.reference_year ? ' (' + it.year + ')' : '');
     const dim = (highlight !== 'EU' && it.geo !== highlight) ? 0.18 : 1;
+
+    // arrow: shaft from 2015 to latest; filled arrowhead at latest pointing in the direction of change
+    const sign = it.r1 >= it.r0 ? 1 : -1;
+    const arrowLen = 8, arrowHalf = 4.5;
+    const baseX = (dir === 'flat') ? xb : xb - sign * arrowLen;
+    let head;
+    if (dir === 'flat') {
+      head = '<circle class="slope-flat" cx="' + xb.toFixed(1) + '" cy="' + yy + '" r="3" fill="' + rgb + '"/>';
+    } else {
+      head = '<polygon class="slope-arrow" fill="' + rgb + '" points="' +
+        xb.toFixed(1) + ',' + yy + ' ' +
+        baseX.toFixed(1) + ',' + (yy - arrowHalf).toFixed(1) + ' ' +
+        baseX.toFixed(1) + ',' + (yy + arrowHalf).toFixed(1) + '"/>';
+    }
+
     parts.push(
       '<g opacity="' + dim + '">' +
-        '<line class="slope-line" x1="' + xa.toFixed(1) + '" y1="' + yy + '" x2="' + xb.toFixed(1) + '" y2="' + yy + '" stroke="' + rgb + '"/>' +
-        '<circle class="slope-dot" cx="' + xa.toFixed(1) + '" cy="' + yy + '" r="3.5"/>' +
-        '<circle class="slope-dot slope-dot--end" cx="' + xb.toFixed(1) + '" cy="' + yy + '" r="4.5" fill="' + rgb + '"/>' +
-        '<text class="slope-name" x="' + nameX + '" y="' + (yy + 3.5) + '" text-anchor="end">' + escapeHtml(name) + '</text>' +
-        '<text class="slope-vals" x="' + textX + '" y="' + (yy + 3.5) + '" text-anchor="end">' +
+        '<line class="slope-line" x1="' + xa.toFixed(1) + '" y1="' + yy + '" x2="' + baseX.toFixed(1) + '" y2="' + yy + '" stroke="' + rgb + '"/>' +
+        head +
+        '<text class="slope-name" x="' + nameX + '" y="' + (yy + 4) + '" text-anchor="end">' + escapeHtml(name) + '</text>' +
+        '<text class="slope-vals" x="' + textX + '" y="' + (yy + 4) + '" text-anchor="end">' +
           it.r0.toFixed(2) + '\u00d7 \u2192 ' +
           '<tspan class="slope-vals--end" fill="' + rgb + '">' + it.r1.toFixed(2) + '\u00d7</tspan>' +
         '</text>' +
@@ -191,7 +205,7 @@ function renderSlopeChart() {
   let axis = '<line class="slope-axis" x1="' + x0 + '" y1="' + (H - bottomPad) + '" x2="' + x1 + '" y2="' + (H - bottomPad) + '"/>';
   for (let t = 0; t <= axisMax; t++) {
     axis += '<line class="slope-tick" x1="' + x(t) + '" y1="' + (H - bottomPad) + '" x2="' + x(t) + '" y2="' + (H - bottomPad + 4) + '"/>' +
-      '<text class="slope-ticklabel" x="' + x(t) + '" y="' + (H - bottomPad + 15) + '" text-anchor="middle">' + t + '</text>';
+      '<text class="slope-ticklabel" x="' + x(t) + '" y="' + (H - bottomPad + 17) + '" text-anchor="middle">' + t + '</text>';
   }
   const xth = x(1.0).toFixed(1);
 
@@ -202,7 +216,7 @@ function renderSlopeChart() {
       '<text class="slope-threshold-label" x="' + xth + '" y="' + (topPad - 16) + '" text-anchor="middle">1.0\u00d7</text>' +
       axis + parts.join('') +
     '</svg>' +
-    '<p class="muted slope-note">Open circle = 2015, filled = latest year. Orange = rose, blue = fell. Dashed line = 1.0\u00d7 (equal).</p>';
+    '<p class="muted slope-note">Arrow tail = 2015, tip = latest year. Orange = rose, blue = fell. Dashed line = 1.0\u00d7 (equal).</p>';
 }
 
 // ---- render: table ----
