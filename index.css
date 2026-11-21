@@ -106,6 +106,42 @@ main {
 .hero__countline { margin: 0.75rem 0 0; font-size: 1.02rem; }
 .hero__meta { margin: 0.75rem 0 0; font-size: 0.9rem; }
 
+/* ---- Pictogram ---- */
+.pictogram {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  margin: 1rem auto 0;
+}
+.pictogram__side {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.35rem;
+}
+.pictogram__icons {
+  display: flex;
+  align-items: center;
+  gap: 0.2rem;
+}
+.picto {
+  width: 40px;
+  height: 40px;
+  display: block;
+}
+.picto--ghost { opacity: 0.38; }
+.pictogram__sep {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: var(--muted);
+  line-height: 1;
+}
+.pictogram__cap {
+  font-size: 0.85rem;
+  color: var(--muted);
+}
+
 /* ---- Panels ---- */
 .panel {
   background: var(--panel);
