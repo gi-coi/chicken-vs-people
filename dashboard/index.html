@@ -8,6 +8,26 @@
   <link rel="stylesheet" href="index.css?v=3" />
 </head>
 <body>
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+    <defs>
+      <symbol id="icon-chicken" viewBox="0 0 40 40">
+        <path d="M13 20 L4 15 L8 27 Z" fill="#e07b39"/>
+        <path d="M14 27 L4 27 L10 32 Z" fill="#d96a2c"/>
+        <line x1="16" y1="34" x2="15" y2="38" stroke="#e07b39" stroke-width="2" stroke-linecap="round"/>
+        <line x1="24" y1="34" x2="25" y2="38" stroke="#e07b39" stroke-width="2" stroke-linecap="round"/>
+        <ellipse cx="20" cy="27" rx="10" ry="8" fill="#e07b39"/>
+        <circle cx="27" cy="18" r="6.5" fill="#e07b39"/>
+        <path d="M24.5 12 C24 8.5 26.5 7.5 27.5 10 C27.5 6.5 30 6.5 30.5 10 C31.5 7.5 34 8.5 33.5 12 Z" fill="#c0392b"/>
+        <path d="M33 16.5 L38 18.5 L33 20.5 Z" fill="#e07b39"/>
+        <circle cx="28" cy="17" r="1.1" fill="#26231f"/>
+      </symbol>
+      <symbol id="icon-person" viewBox="0 0 40 40">
+        <circle cx="20" cy="13" r="6" fill="#2c7bb6"/>
+        <path d="M7 39 C7 29 12.5 23 20 23 C27.5 23 33 29 33 39 Z" fill="#2c7bb6"/>
+      </symbol>
+    </defs>
+  </svg>
+
   <header class="masthead">
     <h1>Chickens&nbsp;vs&nbsp;People</h1>
     <p class="subtitle">Which EU countries have more chickens than people?</p>
@@ -45,6 +65,24 @@
       </svg>
       <p class="hero__kicker">European Union</p>
       <p class="hero__headline">In the EU, there are <span id="hero-ratio" class="hero__big">3.28</span>&nbsp;chickens for every&nbsp;person.</p>
+      <div class="pictogram" role="img" aria-label="3.28 chickens for every person">
+        <div class="pictogram__side">
+          <div class="pictogram__icons">
+            <svg class="picto" viewBox="0 0 40 40"><use href="#icon-chicken"/></svg>
+            <svg class="picto" viewBox="0 0 40 40"><use href="#icon-chicken"/></svg>
+            <svg class="picto" viewBox="0 0 40 40"><use href="#icon-chicken"/></svg>
+            <svg class="picto picto--ghost" viewBox="0 0 40 40"><use href="#icon-chicken"/></svg>
+          </div>
+          <span class="pictogram__cap">chickens</span>
+        </div>
+        <span class="pictogram__sep">:</span>
+        <div class="pictogram__side">
+          <div class="pictogram__icons">
+            <svg class="picto" viewBox="0 0 40 40"><use href="#icon-person"/></svg>
+          </div>
+          <span class="pictogram__cap">person</span>
+        </div>
+      </div>
       <p id="hero-eu" class="hero__eu"></p>
       <p id="hero-countline" class="hero__countline"></p>
       <p id="hero-meta" class="hero__meta muted"></p>
