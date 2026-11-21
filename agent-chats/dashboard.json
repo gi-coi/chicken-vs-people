@@ -1,0 +1,186 @@
+{
+  "title": "Flock vs. Folk (chicken-vs-people) — dashboard build & deployment session",
+  "project": "chicken-vs-people",
+  "repo": "https://github.com/gi-coi/chicken-vs-people",
+  "live": "https://gi-coi.github.io/chicken-vs-people/",
+  "saved_at": "2026-11-21",
+  "summary": "Built and iterated on a static dashboard answering 'which EU countries have more chickens than people?', from a first bar-chart version through map/line-chart/chart experiments to the final slopegraph + pictogram design, then deployed it to GitHub Pages with auto-deploy on push.",
+  "messages": [
+    {
+      "role": "user",
+      "content": "chicken-vs-people — project state. Goal: identify European countries with more chickens than people → static HTML dashboard + docs/uncertainties.md + GitHub repo. Locked scope: Eurostat-demographic Europe (~42); chickens = FAOSTAT item 1057 'Chickens' (Stocks); people = Eurostat demo_gind JAN; reference year 2024 as latest-common-year. 38 matched / 4 dropped. Headline 36/38. Files: scripts/prepare.py, scripts/factcheck.py, tests, data/processed, dashboard/data JSON, docs. Remaining work: only the dashboard build. Before going ahead, let's talk about it."
+    },
+    {
+      "role": "assistant",
+      "content": "Reviewed the repo and payload, proposed a single-page dashboard (hero, ranked bar chart, sortable table, excluded footnote) and asked 4 questions: rendering approach, data-loading, bar metric, and trend feature."
+    },
+    {
+      "role": "user",
+      "content": "Answers: hand-rolled CSS/SVG bars; fetch() the JSON only; ratio (chickens per person); growth % column + sparkline on click."
+    },
+    {
+      "role": "assistant",
+      "content": "Built the first dashboard (hero 36/38, ranked ratio bars with 1.0× threshold, sortable/searchable table, click-to-expand sparklines). Discovered prepare.py had uncommitted growth_pct/growth_start_year; regenerated the payload and CSVs from cached raw data. Committed to main."
+    },
+    {
+      "role": "user",
+      "content": "On the whole I have no notes so far. What's the best way to iterate for you — commit and then experiment, or don't commit until we've locked in?"
+    },
+    {
+      "role": "assistant",
+      "content": "Recommended committing at meaningful checkpoints, using a branch for experiments, and pushing to main only when locked in."
+    },
+    {
+      "role": "user",
+      "content": "Let's branch it out into a working branch. The 'growth' is ambiguous, so drop it from the table for now. For the sake of seeing what it's like, can we have an interactive line chart tracking rise of people vs rise of chicken where available? User picks the country; series normalised."
+    },
+    {
+      "role": "assistant",
+      "content": "Created wip/dashboard; dropped the Growth column; replaced the sparkline with a normalized people-vs-chickens line chart with a country picker."
+    },
+    {
+      "role": "user",
+      "content": "No, I don't like the people-v-chickens series — the message is lost and the breaks in the time series make it unpleasant. Kill it. Add something that in your view shows well how the chicken-to-people share has changed."
+    },
+    {
+      "role": "assistant",
+      "content": "Removed the line chart; added a ranked diverging bar chart of the change in chickens-per-person (2015 → latest)."
+    },
+    {
+      "role": "user",
+      "content": "I made a change in the dashboard-ready data which now includes the EU; it's been pushed to main. Lead with that and only show EU countries. Give me a chicken-themed visual at the top. Let's try the chickens-per-person as a map with a diverging palette. Any questions?"
+    },
+    {
+      "role": "assistant",
+      "content": "Found the EU commit (is_eu flag + eu_total aggregate) was on local wip/dashboard, not main. Asked 3 questions: map rendering, chicken-visual type, and bars-vs-map."
+    },
+    {
+      "role": "user",
+      "content": "Answers: bundle a GeoJSON + hand-rolled SVG; inline SVG chicken; the ranked bar chart is fine — I only want to map the change in ratio."
+    },
+    {
+      "role": "assistant",
+      "content": "Built a choropleth of the change in ratio (hand-rolled equirectangular projection over a bundled GISCO 20M GeoJSON subset), added an inline SVG chicken, and filtered everything to the EU-27."
+    },
+    {
+      "role": "user",
+      "content": "No, it doesn't work. Kill the map. Go hero → bar chart with chickens per person. Then give me your best visual shot to show changes in chicken ratio."
+    },
+    {
+      "role": "assistant",
+      "content": "Removed the map (and GeoJSON); added a slopegraph with two dots (2015 vs latest) on a shared ratio axis with a 1.0× threshold line."
+    },
+    {
+      "role": "user",
+      "content": "The numbers on the slopegraph don't read well on some rows. I want the first thing to be 'in the EU, there are X chickens per every person'. And I want the visual to be chicken-y."
+    },
+    {
+      "role": "assistant",
+      "content": "Moved the slopegraph before/after values into a fixed right column; led the hero with the EU headline; drew a more detailed inline chicken (image generation was unavailable in the session)."
+    },
+    {
+      "role": "user",
+      "content": "No, the pictogram should be the only chicken visual. Let's do a fraction of chicken, and if needed for clarity change the pictogram so it doesn't look like a speckle. Make this change, then play a bit more with the structure."
+    },
+    {
+      "role": "assistant",
+      "content": "Removed the mascot; rendered the fractional chicken as a ghosted full silhouette with a clipped fill."
+    },
+    {
+      "role": "user",
+      "content": "Kill the comparison by the numbers (two top-5 bar charts). Collapse 'chickens per person ranked' and 'chickens per person changed' into one. Put the table into an accordion. Add a dropdown to select the country — when selected, the pictogram displays that country and it's highlighted in the slopegraph."
+    },
+    {
+      "role": "assistant",
+      "content": "Removed the ranked bar chart; kept the slopegraph as the single view; wrapped the table in a <details> accordion; added a country dropdown driving the hero, pictogram, and slopegraph highlight (dimming others)."
+    },
+    {
+      "role": "user",
+      "content": "The chicken format broke — giant chickens stacked. Make them all inline. Lead with the main EU block, then 'Explore other EU countries', then the dropdown. The slopegraph is unclear: font too small and dots not clear (filled dots missing). Replace with arrows."
+    },
+    {
+      "role": "assistant",
+      "content": "Fixed the pictogram (explicit SVG width/height + flex row, cache-busted CSS); reordered the hero (EU block → explore dropdown); switched the slopegraph from dots to arrows (the filled dots had been white-on-white due to a CSS fill override)."
+    },
+    {
+      "role": "user",
+      "content": "On mobile the font is incredibly small. Try a ranged slopegraph with two dots (2015 and latest). Keep the plot in all page sizes. Remove the year from pre-2024 countries, asterisk it, and add the reference year as a footnote."
+    },
+    {
+      "role": "assistant",
+      "content": "Made the slopegraph responsive (measures the container; compact layout with asterisks and latest-value-only labels on narrow screens); back to two dots; asterisk + footnote. Also discovered and recovered the user's own mobile-list commits that my earlier write had overwritten."
+    },
+    {
+      "role": "user",
+      "content": "It mostly works. Revert to arrows. Two things: reduce mobile padding left/right in section.panel; between 700–800px the ranged/dots overlap the values on the right — keep the chart contained."
+    },
+    {
+      "role": "assistant",
+      "content": "Reverted to arrows; trimmed mobile .panel padding; made the axis right edge responsive (reserving room for the value labels) so arrows no longer overlap the numbers at 700–800px."
+    },
+    {
+      "role": "user",
+      "content": "I think we're fine. Rename the accordion to 'Explore the data'. Clarification: selecting a country says 'Reference year 2024 · Chickens from 2023…' which is confusing (sounds like different years, then the same year); also capitalise 'chickens'."
+    },
+    {
+      "role": "assistant",
+      "content": "Renamed the accordion to 'Explore the data'; rewrote the year note to 'Both figures from <year> (the latest year with chicken data)' and capitalised 'Chickens'."
+    },
+    {
+      "role": "user",
+      "content": "Let's merge."
+    },
+    {
+      "role": "assistant",
+      "content": "Fast-forward merged wip/dashboard → main (19 commits) and pushed."
+    },
+    {
+      "role": "user",
+      "content": "Deploy the dashboard as a GitHub page and write a README explaining the project, where to view it, and how to run locally."
+    },
+    {
+      "role": "assistant",
+      "content": "Deployed via a gh-pages branch (the Actions workflow push was rejected for lack of the workflow scope); made the dashboard's docs links absolute; wrote the README."
+    },
+    {
+      "role": "user",
+      "content": "I would like to auto-deploy on push. Also, in the mobile footnote, specify which countries use 2020 and which use 2023 data — split between one and two asterisks if needed. Double-check the reference years."
+    },
+    {
+      "role": "assistant",
+      "content": "Split the asterisk (* = 2023, ** = 2020) with country lists in the footnote; confirmed reference years (14 @ 2024, 9 @ 2023, 4 @ 2020). Asked the user to run 'gh auth refresh -s workflow' to enable the Actions auto-deploy."
+    },
+    {
+      "role": "user",
+      "content": "'tis done."
+    },
+    {
+      "role": "assistant",
+      "content": "Added .github/workflows/pages.yml, switched Pages to workflow mode, pushed — auto-deploy on push is now live."
+    },
+    {
+      "role": "user",
+      "content": "Change the head from 'Chickens vs People' to 'Flock v Folk'; subtitle 'which EU countries…'; centre it."
+    },
+    {
+      "role": "assistant",
+      "content": "Renamed the masthead to 'Flock v Folk' (and the tab title) and centred the header."
+    },
+    {
+      "role": "user",
+      "content": "Small tweak: use 'vs.' instead of 'v', and make the head a bit bigger than the 'In the EU…' headline so they don't look the same."
+    },
+    {
+      "role": "assistant",
+      "content": "Changed to 'Flock vs. Folk' and enlarged the masthead (clamp(2rem, 5vw, 3rem)) so it clearly dominates the hero headline."
+    },
+    {
+      "role": "user",
+      "content": "We're good. Check the README is fully up to speed, then save this entire conversation as .json and commit it to agent-chats/dashboard.json."
+    },
+    {
+      "role": "assistant",
+      "content": "Updated the README with the 'Flock vs. Folk' display name and saved this transcript to agent-chats/dashboard.json."
+    }
+  ]
+}

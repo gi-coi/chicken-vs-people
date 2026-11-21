@@ -1,6 +1,6 @@
 # chicken-vs-people
 
-Which EU countries have more chickens than people?
+**Flock vs. Folk** — which EU countries have more chickens than people?
 
 An interactive dashboard comparing the number of **chickens** (FAOSTAT) against the
 **human population** (Eurostat) for the 27 EU member states.
