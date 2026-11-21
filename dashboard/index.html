@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Chickens vs People — EU</title>
   <meta name="description" content="Which EU countries have more chickens than people?" />
-  <link rel="stylesheet" href="index.css" />
+  <link rel="stylesheet" href="index.css?v=3" />
 </head>
 <body>
   <svg width="0" height="0" style="position:absolute" aria-hidden="true">
@@ -44,9 +44,6 @@
 
   <main id="app" hidden>
     <section class="hero">
-      <label class="hero__picker">
-        <select id="country-select" aria-label="Select a country"></select>
-      </label>
       <p class="hero__headline">In <span id="hero-who">the EU</span>, there are
         <span id="hero-ratio" class="hero__big">3.28</span>&nbsp;chickens for every&nbsp;person.</p>
       <div class="pictogram" role="img" aria-label="chickens for every person">
@@ -57,29 +54,31 @@
         <span class="pictogram__sep">:</span>
         <div class="pictogram__side">
           <div class="pictogram__icons">
-            <svg class="picto" viewBox="0 0 40 40"><use href="#icon-person"/></svg>
+            <svg class="picto" viewBox="0 0 40 40" width="40" height="40"><use href="#icon-person"/></svg>
           </div>
           <span class="pictogram__cap">person</span>
         </div>
       </div>
       <p id="hero-eu" class="hero__eu"></p>
       <p id="hero-countline" class="hero__countline"></p>
+      <div class="hero__explore">
+        <label class="hero__explore-label" for="country-select">Explore other EU countries</label>
+        <select id="country-select" aria-label="Select a country"></select>
+      </div>
       <p id="hero-meta" class="hero__meta muted"></p>
     </section>
 
     <section class="panel">
       <div class="panel__head">
         <h2>Chickens per person</h2>
-        <p class="muted">Each country, 2015 (open circle) &rarr; its latest year (filled circle). Position
-          shows the level, slope shows how it changed. Orange = rose, blue = fell.</p>
+        <p class="muted">Each country, from 2015 to its latest year. The arrow points in the direction of
+          change — orange = rose, blue = fell.</p>
       </div>
       <div id="slopechart" class="slopechart" role="img"
            aria-label="Chickens per person, 2015 to latest, by EU country"></div>
       <p class="muted chart-note">
         <span class="legend-dot legend-dot--up"></span> ratio rose &nbsp;&middot;&nbsp;
-        <span class="legend-dot legend-dot--down"></span> ratio fell &nbsp;&middot;&nbsp;
-        <span class="legend-dot legend-dot--start"></span> 2015 (open) &nbsp;&middot;&nbsp;
-        <span class="legend-dot legend-dot--end"></span> latest (filled)
+        <span class="legend-dot legend-dot--down"></span> ratio fell
       </p>
     </section>
 
@@ -127,6 +126,6 @@
       <a href="../docs/uncertainties.md">uncertainties</a></p>
   </footer>
 
-  <script src="index.js?v=3"></script>
+  <script src="index.js?v=4"></script>
 </body>
 </html>
