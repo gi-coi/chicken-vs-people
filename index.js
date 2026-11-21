@@ -140,13 +140,12 @@ function yearBadge(r, d) {
   return '<span class="year-badge" title="' + escapeHtml(r.data_note) + '">' + r.year + '</span>';
 }
 
-// ---- render: slopegraph (level + change in chickens-per-person) ----
-function renderSlopeChart() {
+// ---- slopegraph: shared data ----
+function slopeItems() {
   const d = state.data;
   const byYear = {};
   for (const t of d.timeseries) (byYear[t.geo] = byYear[t.geo] || {})[t.year] = t;
-
-  const items = euRows().map((r) => {
+  return euRows().map((r) => {
     const t0 = byYear[r.geo] && byYear[r.geo][d.trend_start];
     const p0 = num(t0 && t0.population);
     const c0 = num(t0 && t0.chickens);
@@ -154,7 +153,21 @@ function renderSlopeChart() {
     return { geo: r.geo, name: r.name, year: r.year, r0: r0, r1: r.ratio, delta: r0 !== null ? r.ratio - r0 : null };
   }).filter((it) => it.delta !== null)
     .sort((a, b) => b.r1 - a.r1); // sorted by latest ratio
+}
 
+function slopeIsMobile() {
+  return window.innerWidth < 800;
+}
+
+// ---- render: slopegraph (desktop = SVG arrows, mobile = readable list) ----
+function renderSlopeChart() {
+  const items = slopeItems();
+  if (slopeIsMobile()) renderSlopeMobile(items);
+  else renderSlopeDesktop(items);
+}
+
+function renderSlopeDesktop(items) {
+  const d = state.data;
   const axisMax = Math.ceil(Math.max.apply(null, items.map((i) => i.r1)));
   const n = items.length;
   const rowH = 30, topPad = 30, bottomPad = 26;
@@ -175,7 +188,6 @@ function renderSlopeChart() {
     const name = it.name + (it.year !== d.reference_year ? ' (' + it.year + ')' : '');
     const dim = (highlight !== 'EU' && it.geo !== highlight) ? 0.18 : 1;
 
-    // arrow: shaft from 2015 to latest; filled arrowhead at latest pointing in the direction of change
     const sign = it.r1 >= it.r0 ? 1 : -1;
     const arrowLen = 8, arrowHalf = 4.5;
     const baseX = (dir === 'flat') ? xb : xb - sign * arrowLen;
@@ -217,6 +229,27 @@ function renderSlopeChart() {
       axis + parts.join('') +
     '</svg>' +
     '<p class="muted slope-note">Arrow tail = 2015, tip = latest year. Orange = rose, blue = fell. Dashed line = 1.0\u00d7 (equal).</p>';
+}
+
+function renderSlopeMobile(items) {
+  const d = state.data;
+  const highlight = state.selected;
+  const rows = items.map((it) => {
+    const dir = it.delta > 0 ? 'up' : (it.delta < 0 ? 'down' : 'flat');
+    const col = dir === 'up' ? C_ORANGE : (dir === 'down' ? C_BLUE : [140, 140, 140]);
+    const rgb = 'rgb(' + col.join(',') + ')';
+    const dim = (highlight !== 'EU' && it.geo !== highlight) ? 0.2 : 1;
+    const glyph = dir === 'up' ? '\u25B2' : (dir === 'down' ? '\u25BC' : '\u25CF');
+    const name = it.name + (it.year !== d.reference_year ? ' (' + it.year + ')' : '');
+    return '<li class="m-slope__row" style="opacity:' + dim + '">' +
+      '<span class="m-slope__name">' + escapeHtml(name) + '</span>' +
+      '<span class="m-slope__vals">' + it.r0.toFixed(2) + '\u00d7 \u2192 <b style="color:' + rgb + '">' + it.r1.toFixed(2) + '\u00d7</b></span>' +
+      '<span class="m-slope__glyph" style="color:' + rgb + '">' + glyph + '</span>' +
+      '</li>';
+  }).join('');
+  $('#slopechart').innerHTML =
+    '<ul class="m-slope">' + rows + '</ul>' +
+    '<p class="muted slope-note">Sorted by latest ratio. \u25B2 rose (orange) \u00b7 \u25BC fell (blue).</p>';
 }
 
 // ---- render: table ----
@@ -310,6 +343,8 @@ function setupEvents() {
 }
 
 // ---- init ----
+let slopeMode = null;
+
 async function init() {
   try {
     state.data = await loadData();
@@ -318,6 +353,7 @@ async function init() {
     return;
   }
   $('#app').hidden = false;
+  slopeMode = slopeIsMobile();
   buildCountrySelect();
   renderHero();
   renderSlopeChart();
@@ -326,5 +362,13 @@ async function init() {
   updateSortIndicators();
   setupEvents();
 }
+
+window.addEventListener('resize', () => {
+  const m = slopeIsMobile();
+  if (m !== slopeMode) {
+    slopeMode = m;
+    renderSlopeChart();
+  }
+});
 
 init();
