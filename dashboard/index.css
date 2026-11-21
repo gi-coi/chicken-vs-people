@@ -195,15 +195,7 @@ main {
 .slope-tick { stroke: #c9c4b8; stroke-width: 1; }
 .slope-ticklabel { fill: #6f6a63; font-size: 10px; }
 .slope-line { stroke-width: 1.8; }
-.slope-dot {
-  fill: #ffffff;
-  stroke: #9a958c;
-  stroke-width: 1.5;
-}
-.slope-dot--end {
-  stroke: #ffffff;
-  stroke-width: 1.5;
-}
+.slope-arrow { stroke: none; }
 .slope-name {
   fill: var(--ink);
   font-size: 14px;
@@ -318,5 +310,6 @@ main {
 @media (max-width: 640px) {
   .hero__headline { font-size: 1.3rem; }
   .picto { width: 30px; height: 30px; }
+  .panel { padding: 1.25rem 0.9rem 1rem; }
   .table th, .table td { padding: 0.4rem 0.45rem; font-size: 0.85rem; }
 }
