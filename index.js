@@ -170,7 +170,7 @@ function renderSlopeDesktop(items) {
   const d = state.data;
   const axisMax = Math.ceil(Math.max.apply(null, items.map((i) => i.r1)));
   const n = items.length;
-  const rowH = 30, topPad = 30, bottomPad = 26;
+  const rowH = 34, topPad = 30, bottomPad = 26;
   const W = 880;
   const H = topPad + n * rowH + bottomPad;
   const nameX = 130, x0 = 165, x1 = 650, textX = 872;
@@ -205,8 +205,8 @@ function renderSlopeDesktop(items) {
       '<g opacity="' + dim + '">' +
         '<line class="slope-line" x1="' + xa.toFixed(1) + '" y1="' + yy + '" x2="' + baseX.toFixed(1) + '" y2="' + yy + '" stroke="' + rgb + '"/>' +
         head +
-        '<text class="slope-name" x="' + nameX + '" y="' + (yy + 4) + '" text-anchor="end">' + escapeHtml(name) + '</text>' +
-        '<text class="slope-vals" x="' + textX + '" y="' + (yy + 4) + '" text-anchor="end">' +
+        '<text class="slope-name" x="' + nameX + '" y="' + (yy + 5) + '" text-anchor="end">' + escapeHtml(name) + '</text>' +
+        '<text class="slope-vals" x="' + textX + '" y="' + (yy + 5) + '" text-anchor="end">' +
           it.r0.toFixed(2) + '\u00d7 \u2192 ' +
           '<tspan class="slope-vals--end" fill="' + rgb + '">' + it.r1.toFixed(2) + '\u00d7</tspan>' +
         '</text>' +
@@ -222,13 +222,15 @@ function renderSlopeDesktop(items) {
   const xth = x(1.0).toFixed(1);
 
   $('#slopechart').innerHTML =
-    '<svg class="slope__svg" viewBox="0 0 ' + W + ' ' + H + '" role="img" ' +
-      'aria-label="Chickens per person, 2015 to latest, by EU country">' +
-      '<line class="slope-threshold" x1="' + xth + '" y1="' + (topPad - 12) + '" x2="' + xth + '" y2="' + (H - bottomPad) + '"/>' +
-      '<text class="slope-threshold-label" x="' + xth + '" y="' + (topPad - 16) + '" text-anchor="middle">1.0\u00d7</text>' +
-      axis + parts.join('') +
-    '</svg>' +
-    '<p class="muted slope-note">Arrow tail = 2015, tip = latest year. Orange = rose, blue = fell. Dashed line = 1.0\u00d7 (equal).</p>';
+    '<div class="slope-scroll">' +
+      '<svg class="slope__svg" viewBox="0 0 ' + W + ' ' + H + '" role="img" ' +
+        'aria-label="Chickens per person, 2015 to latest, by EU country">' +
+        '<line class="slope-threshold" x1="' + xth + '" y1="' + (topPad - 12) + '" x2="' + xth + '" y2="' + (H - bottomPad) + '"/>' +
+        '<text class="slope-threshold-label" x="' + xth + '" y="' + (topPad - 16) + '" text-anchor="middle">1.0\u00d7</text>' +
+        axis + parts.join('') +
+      '</svg>' +
+    '</div>' +
+    '<p class="muted slope-note">Arrow tail = 2015, tip = latest year. Orange = rose, blue = fell. Dashed line = 1.0\u00d7 (equal). Scroll sideways on small screens.</p>';
 }
 
 function renderSlopeMobile(items) {
