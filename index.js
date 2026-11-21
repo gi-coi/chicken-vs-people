@@ -114,12 +114,9 @@ function renderHero() {
     $('#hero-countline').hidden = true;
   }
 
-  const yearNote = (!ent.isEU && ent.year !== d.reference_year)
-    ? 'Chickens from ' + ent.year + ' (latest available). '
-    : '';
-  $('#hero-meta').textContent =
-    'Reference year ' + d.reference_year + ' \u00b7 ' + yearNote +
-    'chickens and people compared within the same year.';
+  $('#hero-meta').textContent = (!ent.isEU && ent.year !== d.reference_year)
+    ? 'Both figures from ' + ent.year + ' (the latest year with chicken data) \u00b7 Chickens and people compared within the same year.'
+    : 'Reference year ' + d.reference_year + ' \u00b7 Chickens and people compared within the same year.';
 }
 
 // ---- render: scope / notes ----
