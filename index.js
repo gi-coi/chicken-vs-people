@@ -37,6 +37,12 @@ function fmtBig(n) {
   return fmtInt(n);
 }
 
+function fmtCompact(n) {
+  if (n >= 1e9) return (n / 1e9).toFixed(2).replace(/\.?0+$/, '') + 'B';
+  if (n >= 1e6) return (n / 1e6).toFixed(1).replace(/\.0$/, '') + 'M';
+  return fmtInt(n);
+}
+
 // ---- load ----
 function showLoadError(err) {
   const banner = $('#load-error');
@@ -121,6 +127,30 @@ function layoutThreshold() {
   const c = chart.getBoundingClientRect();
   const t = track.getBoundingClientRect();
   line.style.left = (t.left - c.left + t.width * (1 / state.maxRatio)) + 'px';
+}
+
+// ---- render: top 5 (people / chickens) ----
+function renderTop5(d) {
+  const rows = euRows();
+  const byPeople = rows.slice().sort((a, b) => b.population - a.population).slice(0, 5);
+  const byChickens = rows.slice().sort((a, b) => b.chickens - a.chickens).slice(0, 5);
+
+  function list(items, field, cls) {
+    const max = Math.max.apply(null, items.map((i) => i[field]));
+    return items.map((r) => {
+      const w = (r[field] / max) * 100;
+      return (
+        '<li class="top5-row">' +
+          '<span class="top5-label">' + escapeHtml(r.name) + '</span>' +
+          '<span class="top5-track"><span class="top5-bar ' + cls + '" style="width:' + w.toFixed(1) + '%"></span></span>' +
+          '<span class="top5-value">' + fmtCompact(r[field]) + '</span>' +
+        '</li>'
+      );
+    }).join('');
+  }
+
+  $('#top5-people').innerHTML = '<ul class="top5-list">' + list(byPeople, 'population', 'top5-bar--people') + '</ul>';
+  $('#top5-chickens').innerHTML = '<ul class="top5-list">' + list(byChickens, 'chickens', 'top5-bar--chicken') + '</ul>';
 }
 
 // ---- render: slopegraph (change in chickens-per-person, 2015 -> latest) ----
@@ -265,6 +295,7 @@ async function init() {
   $('#app').hidden = false;
   renderHero(state.data);
   renderBars(state.data);
+  renderTop5(state.data);
   renderSlopeChart(state.data);
   renderScopeNote(state.data);
   renderTableBody();
