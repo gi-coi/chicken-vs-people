@@ -57,9 +57,5 @@ docs/        sources, uncertainties, and notes
 
 ## Deploying
 
-The dashboard is published to GitHub Pages from a `gh-pages` branch that mirrors
-`dashboard/`. To redeploy after changing the dashboard:
-
-```sh
-git subtree push --prefix dashboard origin gh-pages
-```
+The dashboard is published to GitHub Pages automatically on every push to
+`main`, via `.github/workflows/pages.yml`.
