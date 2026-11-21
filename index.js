@@ -3,7 +3,7 @@
 // chicken-vs-people dashboard (EU-27 focus)
 // Heavy lifting (cleaning, aggregation, growth, formatting decisions) happens in
 // scripts/prepare.py. This file only fetches the packaged JSON and renders it,
-// plus simple filter/sort interactions.
+// plus simple filter/sort/select interactions.
 
 const DATA_URL = 'data/chickens_people.json';
 
@@ -12,7 +12,7 @@ const state = {
   sortKey: 'ratio',
   sortDir: -1, // -1 = descending, 1 = ascending
   query: '',
-  maxRatio: 1,
+  selected: 'EU', // 'EU' or a country geo code
 };
 
 const $ = (sel) => document.querySelector(sel);
@@ -37,12 +37,6 @@ function fmtBig(n) {
   return fmtInt(n);
 }
 
-function fmtCompact(n) {
-  if (n >= 1e9) return (n / 1e9).toFixed(2).replace(/\.?0+$/, '') + 'B';
-  if (n >= 1e6) return (n / 1e6).toFixed(1).replace(/\.0$/, '') + 'M';
-  return fmtInt(n);
-}
-
 // ---- load ----
 function showLoadError(err) {
   const banner = $('#load-error');
@@ -58,25 +52,74 @@ async function loadData() {
 
 const euRows = () => state.data.rows.filter((r) => r.is_eu);
 
+// ---- the currently selected entity (EU aggregate or a country) ----
+function selectedEntity() {
+  if (state.selected === 'EU') {
+    const eu = state.data.eu_total;
+    return { isEU: true, name: 'EU', ratio: eu.ratio, chickens: eu.chickens, population: eu.population, year: eu.year };
+  }
+  const r = euRows().find((x) => x.geo === state.selected);
+  return { isEU: false, geo: r.geo, name: r.name, ratio: r.ratio, chickens: r.chickens, population: r.population, year: r.year };
+}
+
+function displayName(name) {
+  if (name === 'EU') return 'the EU';
+  if (name === 'Netherlands') return 'the Netherlands';
+  return name;
+}
+
+// ---- render: pictogram (floor(ratio) chickens + a fractional one) ----
+function renderPictogram(ratio) {
+  const full = Math.floor(ratio);
+  const frac = ratio - full;
+  const icons = [];
+  for (let i = 0; i < full; i++) {
+    icons.push('<svg class="picto" viewBox="0 0 40 40"><use href="#icon-chicken"/></svg>');
+  }
+  if (frac > 0.02) {
+    const w = (frac * 40).toFixed(1);
+    icons.push(
+      '<svg class="picto" viewBox="0 0 40 40" aria-label="' + frac.toFixed(2) + ' of a chicken">' +
+        '<defs><clipPath id="frac-clip"><rect x="0" y="0" width="' + w + '" height="40"/></clipPath></defs>' +
+        '<g opacity="0.25"><use href="#icon-chicken"/></g>' +
+        '<g clip-path="url(#frac-clip)"><use href="#icon-chicken"/></g>' +
+      '</svg>'
+    );
+  }
+  $('#pictogram-icons').innerHTML = icons.join('');
+}
+
 // ---- render: hero ----
-function renderHero(d) {
-  const rows = euRows();
-  const winners = rows.filter((r) => r.more_chickens_than_people);
-  const losers = rows.filter((r) => !r.more_chickens_than_people);
-  const eu = d.eu_total;
-  $('#hero-ratio').textContent = fmtRatio(eu.ratio);
-  $('#hero-eu').textContent = eu
-    ? 'That\u2019s ' + fmtBig(eu.chickens) + ' chickens and ' + fmtBig(eu.population) + ' people.'
+function renderHero() {
+  const d = state.data;
+  const ent = selectedEntity();
+  $('#hero-who').textContent = displayName(ent.name);
+  $('#hero-ratio').textContent = fmtRatio(ent.ratio);
+  renderPictogram(ent.ratio);
+  $('#hero-eu').textContent =
+    'That\u2019s ' + fmtBig(ent.chickens) + ' chickens and ' + fmtBig(ent.population) + ' people.';
+
+  if (ent.isEU) {
+    const rows = euRows();
+    const winners = rows.filter((r) => r.more_chickens_than_people);
+    const losers = rows.filter((r) => !r.more_chickens_than_people);
+    $('#hero-countline').textContent =
+      winners.length + ' of ' + rows.length + ' EU countries have more chickens than people' +
+      (losers.length
+        ? ' \u2014 the only exception is ' +
+          losers.map((l) => l.name + ' (' + fmtRatio(l.ratio) + '\u00d7)').join(', ') + '.'
+        : '.');
+    $('#hero-countline').hidden = false;
+  } else {
+    $('#hero-countline').hidden = true;
+  }
+
+  const yearNote = (!ent.isEU && ent.year !== d.reference_year)
+    ? 'Chickens from ' + ent.year + ' (latest available). '
     : '';
-  $('#hero-countline').textContent =
-    winners.length + ' of ' + rows.length + ' EU countries have more chickens than people' +
-    (losers.length
-      ? ' \u2014 the only exception is ' +
-        losers.map((l) => l.name + ' (' + fmtRatio(l.ratio) + '\u00d7)').join(', ') + '.'
-      : '.');
   $('#hero-meta').textContent =
-    'Reference year ' + d.reference_year +
-    ' \u00b7 chickens and people compared within the same year, per country.';
+    'Reference year ' + d.reference_year + ' \u00b7 ' + yearNote +
+    'chickens and people compared within the same year.';
 }
 
 // ---- render: scope / notes ----
@@ -97,64 +140,9 @@ function yearBadge(r, d) {
   return '<span class="year-badge" title="' + escapeHtml(r.data_note) + '">' + r.year + '</span>';
 }
 
-// ---- render: bar chart (current ratio, ranked) ----
-function renderBars(d) {
-  const rows = euRows();
-  state.maxRatio = Math.max.apply(null, rows.map((r) => r.ratio));
-  const chart = $('#barchart');
-  const lis = rows.map((r) => {
-    const width = (r.ratio / state.maxRatio) * 100;
-    const cls = r.more_chickens_than_people ? 'is-win' : 'is-lose';
-    return (
-      '<li class="bar-row ' + cls + '" data-geo="' + r.geo + '">' +
-        '<span class="bar-label">' + escapeHtml(r.name) + yearBadge(r, d) + '</span>' +
-        '<span class="bar-track"><span class="bar" style="width:' + width.toFixed(2) + '%"></span></span>' +
-        '<span class="bar-value">' + fmtRatio(r.ratio) + '\u00d7</span>' +
-      '</li>'
-    );
-  }).join('');
-  chart.innerHTML =
-    '<div class="barchart__threshold"><span class="barchart__threshold-label">1.0\u00d7</span></div>' +
-    '<ul class="bar-list">' + lis + '</ul>';
-  layoutThreshold();
-}
-
-function layoutThreshold() {
-  const chart = $('#barchart');
-  const track = chart.querySelector('.bar-track');
-  const line = chart.querySelector('.barchart__threshold');
-  if (!track || !line) return;
-  const c = chart.getBoundingClientRect();
-  const t = track.getBoundingClientRect();
-  line.style.left = (t.left - c.left + t.width * (1 / state.maxRatio)) + 'px';
-}
-
-// ---- render: top 5 (people / chickens) ----
-function renderTop5(d) {
-  const rows = euRows();
-  const byPeople = rows.slice().sort((a, b) => b.population - a.population).slice(0, 5);
-  const byChickens = rows.slice().sort((a, b) => b.chickens - a.chickens).slice(0, 5);
-
-  function list(items, field, cls) {
-    const max = Math.max.apply(null, items.map((i) => i[field]));
-    return items.map((r) => {
-      const w = (r[field] / max) * 100;
-      return (
-        '<li class="top5-row">' +
-          '<span class="top5-label">' + escapeHtml(r.name) + '</span>' +
-          '<span class="top5-track"><span class="top5-bar ' + cls + '" style="width:' + w.toFixed(1) + '%"></span></span>' +
-          '<span class="top5-value">' + fmtCompact(r[field]) + '</span>' +
-        '</li>'
-      );
-    }).join('');
-  }
-
-  $('#top5-people').innerHTML = '<ul class="top5-list">' + list(byPeople, 'population', 'top5-bar--people') + '</ul>';
-  $('#top5-chickens').innerHTML = '<ul class="top5-list">' + list(byChickens, 'chickens', 'top5-bar--chicken') + '</ul>';
-}
-
-// ---- render: slopegraph (change in chickens-per-person, 2015 -> latest) ----
-function renderSlopeChart(d) {
+// ---- render: slopegraph (level + change in chickens-per-person) ----
+function renderSlopeChart() {
+  const d = state.data;
   const byYear = {};
   for (const t of d.timeseries) (byYear[t.geo] = byYear[t.geo] || {})[t.year] = t;
 
@@ -163,9 +151,9 @@ function renderSlopeChart(d) {
     const p0 = num(t0 && t0.population);
     const c0 = num(t0 && t0.chickens);
     const r0 = (p0 && c0) ? c0 / p0 : null;
-    return { name: r.name, year: r.year, r0: r0, r1: r.ratio, delta: r0 !== null ? r.ratio - r0 : null };
+    return { geo: r.geo, name: r.name, year: r.year, r0: r0, r1: r.ratio, delta: r0 !== null ? r.ratio - r0 : null };
   }).filter((it) => it.delta !== null)
-    .sort((a, b) => b.r1 - a.r1); // sorted by latest ratio (matches the ranked bars)
+    .sort((a, b) => b.r1 - a.r1); // sorted by latest ratio
 
   const axisMax = Math.ceil(Math.max.apply(null, items.map((i) => i.r1)));
   const n = items.length;
@@ -176,6 +164,7 @@ function renderSlopeChart(d) {
   const x = (r) => x0 + (r / axisMax) * (x1 - x0);
   const y = (i) => topPad + i * rowH + rowH / 2;
 
+  const highlight = state.selected; // 'EU' (none) or a geo
   const parts = [];
   items.forEach((it, i) => {
     const yy = y(i);
@@ -184,15 +173,18 @@ function renderSlopeChart(d) {
     const col = dir === 'up' ? C_ORANGE : (dir === 'down' ? C_BLUE : [140, 140, 140]);
     const rgb = 'rgb(' + col.join(',') + ')';
     const name = it.name + (it.year !== d.reference_year ? ' (' + it.year + ')' : '');
+    const dim = (highlight !== 'EU' && it.geo !== highlight) ? 0.18 : 1;
     parts.push(
-      '<line class="slope-line" x1="' + xa.toFixed(1) + '" y1="' + yy + '" x2="' + xb.toFixed(1) + '" y2="' + yy + '" stroke="' + rgb + '"/>' +
-      '<circle class="slope-dot" cx="' + xa.toFixed(1) + '" cy="' + yy + '" r="3.5"/>' +
-      '<circle class="slope-dot slope-dot--end" cx="' + xb.toFixed(1) + '" cy="' + yy + '" r="4.5" fill="' + rgb + '"/>' +
-      '<text class="slope-name" x="' + nameX + '" y="' + (yy + 3.5) + '" text-anchor="end">' + escapeHtml(name) + '</text>' +
-      '<text class="slope-vals" x="' + textX + '" y="' + (yy + 3.5) + '" text-anchor="end">' +
-        it.r0.toFixed(2) + '\u00d7 \u2192 ' +
-        '<tspan class="slope-vals--end" fill="' + rgb + '">' + it.r1.toFixed(2) + '\u00d7</tspan>' +
-      '</text>'
+      '<g opacity="' + dim + '">' +
+        '<line class="slope-line" x1="' + xa.toFixed(1) + '" y1="' + yy + '" x2="' + xb.toFixed(1) + '" y2="' + yy + '" stroke="' + rgb + '"/>' +
+        '<circle class="slope-dot" cx="' + xa.toFixed(1) + '" cy="' + yy + '" r="3.5"/>' +
+        '<circle class="slope-dot slope-dot--end" cx="' + xb.toFixed(1) + '" cy="' + yy + '" r="4.5" fill="' + rgb + '"/>' +
+        '<text class="slope-name" x="' + nameX + '" y="' + (yy + 3.5) + '" text-anchor="end">' + escapeHtml(name) + '</text>' +
+        '<text class="slope-vals" x="' + textX + '" y="' + (yy + 3.5) + '" text-anchor="end">' +
+          it.r0.toFixed(2) + '\u00d7 \u2192 ' +
+          '<tspan class="slope-vals--end" fill="' + rgb + '">' + it.r1.toFixed(2) + '\u00d7</tspan>' +
+        '</text>' +
+      '</g>'
     );
   });
 
@@ -205,7 +197,7 @@ function renderSlopeChart(d) {
 
   $('#slopechart').innerHTML =
     '<svg class="slope__svg" viewBox="0 0 ' + W + ' ' + H + '" role="img" ' +
-      'aria-label="Change in chickens per person, 2015 to latest, by EU country">' +
+      'aria-label="Chickens per person, 2015 to latest, by EU country">' +
       '<line class="slope-threshold" x1="' + xth + '" y1="' + (topPad - 12) + '" x2="' + xth + '" y2="' + (H - bottomPad) + '"/>' +
       '<text class="slope-threshold-label" x="' + xth + '" y="' + (topPad - 16) + '" text-anchor="middle">1.0\u00d7</text>' +
       axis + parts.join('') +
@@ -263,6 +255,21 @@ function updateSortIndicators() {
   });
 }
 
+function buildCountrySelect() {
+  const sel = $('#country-select');
+  const opts = ['<option value="EU">European Union (27)</option>'];
+  for (const r of euRows().slice().sort((a, b) => a.name.localeCompare(b.name))) {
+    opts.push('<option value="' + r.geo + '">' + escapeHtml(r.name) + '</option>');
+  }
+  sel.innerHTML = opts.join('');
+}
+
+function selectCountry(geo) {
+  state.selected = geo;
+  renderHero();
+  renderSlopeChart();
+}
+
 function setupEvents() {
   document.querySelectorAll('#table th[data-sort]').forEach((th) => {
     th.addEventListener('click', () => {
@@ -282,6 +289,10 @@ function setupEvents() {
     state.query = e.target.value.trim();
     renderTableBody();
   });
+
+  $('#country-select').addEventListener('change', (e) => {
+    selectCountry(e.target.value);
+  });
 }
 
 // ---- init ----
@@ -293,15 +304,13 @@ async function init() {
     return;
   }
   $('#app').hidden = false;
-  renderHero(state.data);
-  renderBars(state.data);
-  renderTop5(state.data);
-  renderSlopeChart(state.data);
+  buildCountrySelect();
+  renderHero();
+  renderSlopeChart();
   renderScopeNote(state.data);
   renderTableBody();
   updateSortIndicators();
   setupEvents();
 }
 
-window.addEventListener('resize', layoutThreshold);
 init();
