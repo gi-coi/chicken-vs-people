@@ -170,7 +170,7 @@ function renderSlopeChart() {
 
   const nameX = narrow ? 88 : 130;
   const x0 = narrow ? 96 : 165;
-  const x1 = narrow ? width - 46 : 650;
+  const x1 = narrow ? width - 56 : width - 112;
   const textX = width - 8;
 
   const fName = narrow ? 'font-size:11px' : '';
@@ -196,11 +196,25 @@ function renderSlopeChart() {
       ? '<tspan class="slope-vals--end" fill="' + rgb + '">' + it.r1.toFixed(2) + '\u00d7</tspan>'
       : it.r0.toFixed(2) + '\u00d7 \u2192 <tspan class="slope-vals--end" fill="' + rgb + '">' + it.r1.toFixed(2) + '\u00d7</tspan>';
 
+    // arrow: shaft from 2015 to latest, filled arrowhead pointing in the direction of change
+    const sign = it.r1 >= it.r0 ? 1 : -1;
+    const arrowLen = narrow ? 6 : 8;
+    const arrowHalf = narrow ? 3.5 : 4.5;
+    const baseX = (dir === 'flat') ? xb : xb - sign * arrowLen;
+    let head;
+    if (dir === 'flat') {
+      head = '<circle cx="' + xb.toFixed(1) + '" cy="' + yy + '" r="3" fill="' + rgb + '"/>';
+    } else {
+      head = '<polygon class="slope-arrow" fill="' + rgb + '" points="' +
+        xb.toFixed(1) + ',' + yy + ' ' +
+        baseX.toFixed(1) + ',' + (yy - arrowHalf).toFixed(1) + ' ' +
+        baseX.toFixed(1) + ',' + (yy + arrowHalf).toFixed(1) + '"/>';
+    }
+
     parts.push(
       '<g opacity="' + dim + '">' +
-        '<line class="slope-line" x1="' + xa.toFixed(1) + '" y1="' + yy + '" x2="' + xb.toFixed(1) + '" y2="' + yy + '" stroke="' + rgb + '"/>' +
-        '<circle class="slope-dot" cx="' + xa.toFixed(1) + '" cy="' + yy + '" r="' + (narrow ? 3.2 : 4) + '"/>' +
-        '<circle class="slope-dot slope-dot--end" cx="' + xb.toFixed(1) + '" cy="' + yy + '" r="' + (narrow ? 3.6 : 4.5) + '" style="fill:' + rgb + '"/>' +
+        '<line class="slope-line" x1="' + xa.toFixed(1) + '" y1="' + yy + '" x2="' + baseX.toFixed(1) + '" y2="' + yy + '" stroke="' + rgb + '"/>' +
+        head +
         '<text class="slope-name" x="' + nameX + '" y="' + (yy + 4) + '" text-anchor="end" style="' + fName + '">' + escapeHtml(name) + '</text>' +
         '<text class="slope-vals" x="' + textX + '" y="' + (yy + 4) + '" text-anchor="end" style="' + fVal + '">' + valInner + '</text>' +
       '</g>'
@@ -215,8 +229,8 @@ function renderSlopeChart() {
   const xth = x(1.0).toFixed(1);
 
   const note = narrow
-    ? 'Open dot = 2015, filled dot = latest year. Orange = rose, blue = fell. Dashed line = 1.0\u00d7 (equal). * = chicken figure from 2020 or 2023 (latest available).'
-    : 'Open dot = 2015, filled dot = latest year. Orange = rose, blue = fell. Dashed line = 1.0\u00d7 (equal).';
+    ? 'Arrows run from 2015 to the latest year. Orange = rose, blue = fell. Dashed line = 1.0\u00d7 (equal). * = chicken figure from 2020 or 2023 (latest available).'
+    : 'Arrows run from 2015 to the latest year. Orange = rose, blue = fell. Dashed line = 1.0\u00d7 (equal).';
 
   $('#slopechart').innerHTML =
     '<svg class="slope__svg" viewBox="0 0 ' + width + ' ' + H + '" role="img" ' +
