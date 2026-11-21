@@ -209,6 +209,31 @@ main {
 .slope-vals--end { font-weight: 600; }
 .slope-note { margin-top: 0.4rem; font-size: 0.85rem; }
 
+/* ---- Slopegraph: mobile list ---- */
+.m-slope { list-style: none; margin: 0.25rem 0 0; padding: 0; }
+.m-slope__row {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.45rem 0;
+  border-bottom: 1px solid var(--line);
+  font-size: 0.95rem;
+}
+.m-slope__row:last-child { border-bottom: none; }
+.m-slope__name {
+  flex: 1 1 auto;
+  min-width: 0;
+  overflow-wrap: break-word;
+  font-weight: 500;
+}
+.m-slope__vals {
+  white-space: nowrap;
+  font-variant-numeric: tabular-nums;
+  color: var(--muted);
+}
+.m-slope__vals b { font-weight: 700; }
+.m-slope__glyph { font-size: 0.75em; line-height: 1; }
+
 .chart-note { margin-top: 0.75rem; font-size: 0.85rem; }
 .legend-dot {
   display: inline-block;
